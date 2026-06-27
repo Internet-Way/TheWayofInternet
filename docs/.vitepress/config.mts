@@ -206,6 +206,20 @@ export default defineConfig({
     nav,
     sidebar,
     socialLinks,
+    search: {
+    	provider:'local',
+    	// fuzzy indexing options
+    	options:{
+    		tokenize : string => string.split(/[\s\-]+/u),
+    		processTerm: term => term.toLowerCase(),		
+    	},
+    	// configure Mini search
+    	searchOptions:{
+    		fuzzy:0.2, // (0-1)
+    		prefix:true, // partial word matches at start
+    		boost:{title:2,text:1} // priority set to headings.
+    	}
+    }
     footer: {
       message: `Made with 💔, version: ${commitTitle}<br/>This site does not host any files.`,
       copyright: `© ${new Date().getFullYear()}, Estd 2026. The Way of Internet`
