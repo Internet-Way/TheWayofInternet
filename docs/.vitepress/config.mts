@@ -219,7 +219,7 @@ export default defineConfig({
     		prefix:true, // partial word matches at start
     		boost:{title:2,text:1} // priority set to headings.
     	}
-    }
+    },
     footer: {
       message: `Made with 💔, version: ${commitTitle}<br/>This site does not host any files.`,
       copyright: `© ${new Date().getFullYear()}, Estd 2026. The Way of Internet`
