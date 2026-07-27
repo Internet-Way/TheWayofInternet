@@ -217,18 +217,22 @@ export default defineConfig({
     sidebar,
     socialLinks,
     search: {
-    	provider:'local',
-    	// fuzzy indexing options
-    	options:{
-    		tokenize : string => string.split(/[\s\-]+/u),
-    		processTerm: term => term.toLowerCase(),		
-    	},
-    	// configure Mini search
-    	searchOptions:{
-    		fuzzy:0.2, // (0-1)
-    		prefix:true, // partial word matches at start
-    		boost:{title:2,text:1} // priority set to headings.
-    	}
+      provider: 'local',
+      detailedView: true,
+      options: {
+        tokenize: (string) => string.split(/[\s\-]+/u).filter(Boolean),
+        processTerm: (term) => term.toLowerCase().trim(),
+      },
+      searchOptions: {
+        fuzzy: 0.25,
+        prefix: true,
+        boost: {
+          title: 4,
+          heading: 3,
+          text: 2,
+          tag: 1
+        }
+      }
     },
     footer: {
       message: `Made with 💔, version: ${commitTitle}<br/>This site does not host any files.`,
