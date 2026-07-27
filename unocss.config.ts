@@ -9,7 +9,7 @@ import { colors } from './docs/.vitepress/theme/themes/theme-palette'
 
 export default defineConfig({
   content: {
-    filesystem: ['.vitepress/config.mts', '.vitepress/site-config.ts', '.vitepress/plugins/markdown/*.ts']
+    filesystem: ['.vitepress/config.mts', '.vitepress/site-config.ts', '.vitepress/plugins/markdown/*.ts', 'docs/**/*.md']
   },
   safelist: [
     'i-simple-icons-discord',
@@ -30,6 +30,29 @@ export default defineConfig({
     'i-simple-icons-bluesky',
     'i-simple-icons-threads',
     'i-mdi-help-circle',
+    'i-twemoji-open-book',
+    'i-twemoji-wrench',
+    'i-twemoji-shield',
+    'i-twemoji-mobile-phone',
+    'i-twemoji-compass',
+    'i-twemoji-check-mark-button',
+    'i-twemoji-eye-in-speech-bubble',
+    'i-twemoji-warning',
+    'i-twemoji-star',
+    'i-twemoji-rocket',
+    'i-twemoji-sparkles',
+    'i-twemoji-package',
+    'i-twemoji-light-bulb',
+    'i-twemoji-locked',
+    'i-twemoji-locked-with-key',
+    'i-twemoji-no-entry',
+    'i-twemoji-laptop',
+    'i-twemoji-books',
+    'i-twemoji-clapper-board',
+    'i-twemoji-glowing-star',
+    'i-twemoji-check-mark',
+    'i-twemoji-warning',
+    'i-twemoji-red-question-mark',
   ],
   theme: {
     colors: {

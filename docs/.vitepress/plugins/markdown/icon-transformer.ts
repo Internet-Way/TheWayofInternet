@@ -18,6 +18,91 @@ export function emojiRender(md: MarkdownRenderer) {
   }
 }
 
+// Intercepts raw Unicode emojis in markdown text and headings and replaces them with Iconify / Twemoji icon spans
+export function unicodeEmojiPlugin(md: MarkdownRenderer) {
+  md.core.ruler.after('inline', 'emoji-to-icon', (state) => {
+    const emojiMap: Record<string, string> = {
+      '📖': 'open-book',
+      '🔧': 'wrench',
+      '🛡️': 'shield',
+      '🛡': 'shield',
+      '📱': 'mobile-phone',
+      '🧭': 'compass',
+      '✔️': 'check-mark-button',
+      '👁️‍🗨️': 'eye-in-speech-bubble',
+      '⚠️': 'warning',
+      '⭐': 'star',
+      '🚀': 'rocket',
+      '✨': 'sparkles',
+      '📦': 'package',
+      '💡': 'light-bulb',
+      '🔒': 'locked',
+      '🔐': 'locked-with-key',
+      '🚫': 'no-entry',
+      '💻': 'laptop',
+      '📚': 'books',
+      '🎬': 'clapper-board',
+      '🌟': 'glowing-star',
+      '✔': 'check-mark',
+      '⚠': 'warning',
+      '❓': 'red-question-mark'
+    }
+
+    const emojiRegex = new RegExp(
+      `(${Object.keys(emojiMap)
+        .sort((a, b) => b.length - a.length)
+        .join('|')})`,
+      'gu'
+    )
+
+    for (const token of state.tokens) {
+      if (token.type !== 'inline') continue
+
+      const children = token.children || []
+      const newChildren = []
+
+      for (let i = 0; i < children.length; i++) {
+        const child = children[i]
+
+        if (child.type === 'text' && emojiRegex.test(child.content)) {
+          emojiRegex.lastIndex = 0
+          const content = child.content
+          let lastIdx = 0
+          let match: RegExpExecArray | null
+
+          while ((match = emojiRegex.exec(content)) !== null) {
+            const emoji = match[0]
+            const index = match.index
+
+            if (index > lastIdx) {
+              const textToken = new state.Token('text', '', 0)
+              textToken.content = content.slice(lastIdx, index)
+              newChildren.push(textToken)
+            }
+
+            const iconName = emojiMap[emoji] || 'question'
+            const htmlToken = new state.Token('html_inline', '', 0)
+            htmlToken.content = `<span class="i-twemoji-${iconName}" style="display:inline-block; vertical-align:middle; width:1.2em; height:1.2em; margin-right:0.25em;" title="${emoji}"></span>`
+            newChildren.push(htmlToken)
+
+            lastIdx = emojiRegex.lastIndex
+          }
+
+          if (lastIdx < content.length) {
+            const textToken = new state.Token('text', '', 0)
+            textToken.content = content.slice(lastIdx)
+            newChildren.push(textToken)
+          }
+        } else {
+          newChildren.push(child)
+        }
+      }
+      token.children = newChildren
+    }
+    return true
+  })
+}
+
 // Social icon mappings — link text (lowercase) → UnoCSS icon class
 const SOCIAL_ICONS: Record<string, string> = {
   discord: 'i-simple-icons-discord',

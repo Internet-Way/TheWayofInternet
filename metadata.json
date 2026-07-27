@@ -1,0 +1,8 @@
+{
+  "name": "The Way of Internet",
+  "description": "A free media, resource, and tool index featuring alternatives, curated lists, and a digital vault.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

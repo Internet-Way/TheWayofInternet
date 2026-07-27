@@ -46,9 +46,12 @@
     "vue": "^3.5.0"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "dev": "vitepress dev docs --port 3000 --host 0.0.0.0",
+    "build": "vitepress build docs",
+    "lint": "tsc --noEmit",
+    "docs:dev": "vitepress dev docs --port 3000 --host 0.0.0.0",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs --port 3000 --host 0.0.0.0"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",

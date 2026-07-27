@@ -1,5 +1,10 @@
 import { execSync } from 'node:child_process'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { abbr } from '@mdit/plugin-abbr'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const unocssConfigPath = path.resolve(__dirname, '../../unocss.config.ts')
 import { align } from '@mdit/plugin-align'
 import { attrs } from '@mdit/plugin-attrs'
 import { demo } from '@mdit/plugin-demo'
@@ -22,7 +27,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { defineConfig } from 'vitepress'
 import { meta, nav, sidebar, socialLinks } from './core/meta'
 import { generateMeta } from './plugins/transform/generate-meta'
-import { defs, emojiRender, iconLinks } from './plugins/markdown/icon-transformer'
+import { defs, emojiRender, iconLinks, unicodeEmojiPlugin } from './plugins/markdown/icon-transformer'
 import { starLinks } from './plugins/markdown/starredlink'
 import { tooltipLinks } from './plugins/markdown/tooltip'
 import { TooltipVitePlugin } from './plugins/vite/tooltip-plugin'
@@ -31,7 +36,7 @@ import { TooltipVitePlugin } from './plugins/vite/tooltip-plugin'
 
 let commitTitle = 'development'
 try {
-  commitTitle = execSync('git log -1 --pretty=%s').toString().trim()
+  commitTitle = execSync('git log -1 --pretty=%s', { stdio: ['pipe', 'pipe', 'ignore'] }).toString().trim()
 } catch {
   // fallback if Git is unavailable (Cloudflare Pages preview)
 }
@@ -95,6 +100,10 @@ export default defineConfig({
     consola.success('Build complete!')
   },
   vite: {
+    server: {
+      host: '0.0.0.0',
+      port: 3000
+    },
     optimizeDeps: {
       exclude: ['workbox-window'],
       include: ['vue', '@vue/runtime-dom', '@vue/runtime-core']
@@ -107,7 +116,7 @@ export default defineConfig({
         output: ['console', 'terminal']
       }),
       UnoCSS({
-        configFile: '../unocss.config.ts'
+        configFile: unocssConfigPath
       }),
       AutoImport({
         dts: '../.cache/imports.d.ts',
@@ -195,6 +204,7 @@ export default defineConfig({
       md.use(tab)
       md.use(imgSize)
       md.use(emojiRender)
+      md.use(unicodeEmojiPlugin)
       md.use(starLinks)
       md.use(iconLinks)
       md.use(tooltipLinks)
