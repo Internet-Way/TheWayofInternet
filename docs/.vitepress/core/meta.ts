@@ -91,15 +91,14 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
         text: 'Media Resources',
         collapsed: false,
         items: [
-            // { text: 'Privacy/Adblocking', link: '/media/privacy' },
-            // { text: 'AI', link: '/media/ai' },
-            // { text: 'Streaming', link: '/media/video' },
-            // { text: 'Gaming', link: '/media/gaming' },
-            // { text: 'Education/Dev', link: '/media/edudev' },
-            // { text: 'Download', link: '/media/download' },
-            // { text: 'Android', link: '/media/android' },
-            // { text: 'Linux', link: '/media/linux' },
-            // { text: 'Miscellaneous', link: '/media/misc' }
+            { text: 'Privacy/Adblocking', link: '/media/privacy' },
+            { text: 'AI', link: '/media/ai' },
+            { text: 'Streaming', link: '/media/video' },
+            { text: 'Listening', link: '/media/audio' },
+            { text: 'Gaming', link: '/media/gaming' },
+            { text: 'Reading', link: '/media/reading' },
+            { text: 'Torrenting', link: '/media/torrenting' },
+            { text: 'Downloading', link: '/media/downloading' }
         ]
     },
     {

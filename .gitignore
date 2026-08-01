@@ -49,6 +49,9 @@ Thumbs.db
 docs/.vitepress/auto-imports.d.ts
 
 
-# Custom 
+# Custom
 package-lock.json
 pnpm-workspace.yaml
+
+# Personal
+/Reso

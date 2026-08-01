@@ -9,6 +9,7 @@
     </div>
     <Field icon="i-twemoji-globe-with-meridians">Indexes</Field>
     <Field icon="i-twemoji-link">Storage Links</Field>
+    <Field icon="i-twemoji-crown">Editors' Choice</Field>
     <Field icon="i-twemoji-star">Recommended</Field>
     <Field icon="i-twemoji-glowing-star">Last You Need</Field>
 

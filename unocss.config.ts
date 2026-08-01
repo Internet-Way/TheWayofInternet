@@ -50,6 +50,7 @@ export default defineConfig({
     'i-twemoji-books',
     'i-twemoji-clapper-board',
     'i-twemoji-glowing-star',
+    'i-twemoji-crown',
     'i-twemoji-check-mark',
     'i-twemoji-warning',
     'i-twemoji-red-question-mark',

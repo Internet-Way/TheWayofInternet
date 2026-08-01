@@ -43,6 +43,7 @@ export function unicodeEmojiPlugin(md: MarkdownRenderer) {
       '📚': 'books',
       '🎬': 'clapper-board',
       '🌟': 'glowing-star',
+      '👑': 'crown',
       '✔': 'check-mark',
       '⚠': 'warning',
       '❓': 'red-question-mark'
