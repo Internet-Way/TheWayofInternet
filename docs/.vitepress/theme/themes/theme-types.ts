@@ -102,6 +102,5 @@ export interface ThemeRegistry {
 // Runtime state for the active theme
 export interface ThemeState {
   currentTheme: string
-  currentMode: DisplayMode
   theme: Theme | null
 }

@@ -6,11 +6,10 @@ A complete reference for understanding, extending, and troubleshooting the TWI t
 
 ## Overview
 
-The theme system is built around three independent concepts:
+The theme system is built around two independent concepts:
 
-1. **Display Modes** — Controls light/dark appearance. Two modes exist: `light` and `dark`.
-2. **AMOLED** — A toggle layered on top of dark mode that forces pure `#000000` backgrounds. It is **not** a separate mode; it enhances dark mode.
-3. **Themes** — Named color schemes (Catppuccin, Dracula, etc.) that define palettes for both light and dark modes. Themes are independent from the display mode toggle.
+1. **Display Modes** — The native VitePress light/dark toggle (`appearance: true`). The mode is managed entirely by VitePress (HTML class, persistence, system preference); the theme engine only reads it.
+2. **Themes** — Named color schemes (Catppuccin, Dracula, etc.) that define palettes for both light and dark modes. Themes are independent from the display mode toggle.
 
 > **Key principle:** Modes and themes are orthogonal. Switching from light to dark mode doesn't change your theme. Switching your theme doesn't change your mode.
 
@@ -38,7 +37,6 @@ docs/.vitepress/theme/themes/
 
 | Component | Location | Role |
 |---|---|---|
-| `ThemeDropdown.vue` | `theme/components/` | Navbar dropdown for switching display modes (Light / Dark / AMOLED) |
 | `ThemeSelector.vue` | `theme/components/` | Shows the current theme name in the sidebar |
 | `ColorPicker.vue` | `theme/components/` | Sidebar palette — generates dynamic color themes and selects preset themes |
 
@@ -94,7 +92,6 @@ Runtime state tracked by the `ThemeHandler`:
 ```ts
 interface ThemeState {
   currentTheme: string        // Active theme name (registry key)
-  currentMode: DisplayMode    // Active display mode
   theme: Theme | null         // Resolved theme object
 }
 ```
@@ -109,32 +106,32 @@ The `ThemeHandler` class is a **singleton** that manages all theme state. It is 
 
 ```
 Constructor → boot()
-  ├── Read localStorage for saved theme, mode, AMOLED preference
+  ├── Read saved theme from localStorage
   ├── Resolve theme from registry
-  ├── Detect system dark mode preference (if no saved mode)
-  ├── Apply theme to DOM
-  └── Listen for system `prefers-color-scheme` changes
+  └── Apply theme to DOM
 ```
+
+> The display mode is owned by VitePress (`appearance: true`). The handler reads the current mode from the `dark` class on `<html>` whenever it needs to pick a palette.
 
 ### Persistence Keys
 
 | Key | Stores |
 |---|---|
 | `vitepress-theme-name` | Active theme name (e.g. `catppuccin`, `color-swarm`) |
-| `vitepress-display-mode` | Active mode (`light`, `dark`) |
-| `vitepress-amoled-enabled` | `"true"` or `"false"` |
+
+(The display mode is persisted by VitePress under its own key.)
 
 ### How `applyTheme()` Works
 
-1. Sets base background CSS variables using the current mode + AMOLED state.
-2. Syncs HTML classes on `<html>` — adds the mode class, plus `amoled` if applicable.
-3. If a theme is active, resolves the effective mode and calls `writeCSS()`.
+1. Reads the effective mode from the `dark` class on `<html>` (managed by VitePress).
+2. Sets base background CSS variables for that mode.
+3. If a theme is active, calls `writeCSS()` with the matching mode palette.
 
 ### How `writeCSS()` Works
 
 1. **Clears** all inline `--vp-*` CSS variables from `<html>` for a clean slate.
 2. **Brand colors:** If the theme defines brand colors, sets `--vp-c-brand-*`. If not, removes them so the `ColorPicker` CSS can take effect.
-3. **Backgrounds:** Sets `--vp-c-bg`, `--vp-c-bg-alt`, `--vp-c-bg-elv`, plus surface variables (`--vp-c-bg-soft`, `--vp-c-default-*`). AMOLED overrides backgrounds to pure black.
+3. **Backgrounds:** Sets `--vp-c-bg`, `--vp-c-bg-alt`, `--vp-c-bg-elv`, plus surface variables (`--vp-c-bg-soft`, `--vp-c-default-*`).
 4. **Text:** Applies text color variables if the theme defines them; removes them otherwise.
 5. **Buttons:** Maps all 13 button properties to their CSS variables.
 6. **Custom blocks:** Iterates `info`, `tip`, `warning`, `danger` and sets 4 variables each.
@@ -148,21 +145,18 @@ For use in Vue components. Returns reactive refs and methods:
 
 ```ts
 const {
-  mode,              // Ref<DisplayMode>
+  mode,              // Ref<DisplayMode> — follows VitePress's dark class via MutationObserver
   themeName,         // Ref<string>
   theme,             // Ref<Theme | null>
-  setMode,           // (mode: DisplayMode) => void
   setTheme,          // (name: string) => void
-  toggleMode,        // () => void (light ↔ dark)
   getAvailableThemes,// () => { name, displayName }[]
-  isDarkMode,        // () => boolean
-  isAmoledMode,      // () => boolean
-  amoledEnabled,     // Ref<boolean>
-  setAmoledEnabled,  // (enabled: boolean) => void
-  toggleAmoled,      // () => void
   state              // Ref<ThemeState>
 } = useTheme()
 ```
+
+### Mode Sync
+
+The display mode is owned entirely by VitePress (`appearance: true` in the config, `vitepress-theme-appearance` storage key). The `ThemeHandler` does not manage, persist, or toggle the mode itself — it observes VitePress's `dark` class on `<html>` via a `MutationObserver` (set up in `boot()` on the client only) and re-applies the active theme palette whenever VitePress flips the class. This works on every page, including the home page where no sidebar components are mounted.
 
 ---
 
@@ -284,7 +278,7 @@ The theme will automatically appear in the `ColorPicker` sidebar as a preset cir
 ### Backgrounds
 | Variable | Source |
 |---|---|
-| `--vp-c-bg` | `bg` (overridden to `#000` in AMOLED) |
+| `--vp-c-bg` | `bg` |
 | `--vp-c-bg-alt` | `bgAlt` |
 | `--vp-c-bg-elv` | `bgElv` |
 | `--vp-c-bg-soft` | Same as `bgAlt` |
@@ -362,6 +356,5 @@ After a theme switch, the handler dispatches a `theme-changed-apply-colors` cust
 | Theme not appearing in sidebar | Not registered in `registry.ts` | Import and add to `themeRegistry` |
 | Brand colors don't change | Theme defines `brand` in `ModeColors` | Remove `brand` from the theme to defer to ColorPicker |
 | Colors don't update after theme switch | `theme-changed-apply-colors` event not firing | Ensure `notifyColorPicker()` is called in `setTheme()` |
-| AMOLED not showing pure black | Dark mode not active, or AMOLED toggle off | Activate dark mode first, then enable AMOLED |
 | Theme preview missing | No `preview` property and no brand colors | Add a `preview` URL or define `brand` colors for gradient fallback |
 | Fonts not applying | `fonts.body` / `fonts.heading` not defined | Add the `fonts` property to your theme definition |

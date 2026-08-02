@@ -1,12 +1,10 @@
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed } from 'vue'
 import type { DisplayMode, ThemeState, Theme, ModeColors } from './theme-types'
 import { themeRegistry } from './configs/registry'
 
 // Persistence keys
 const PERSIST = {
-  theme: 'vitepress-theme-name',
-  mode: 'vitepress-display-mode',
-  amoled: 'vitepress-amoled-enabled'
+  theme: 'vitepress-theme-name'
 } as const
 
 // Helpers
@@ -15,28 +13,25 @@ const hasDocument = () => typeof document !== 'undefined'
 const readStorage = (key: string) => localStorage.getItem(key)
 const writeStorage = (key: string, val: string) => localStorage.setItem(key, val)
 
-function resolveBackgroundColor(mode: DisplayMode, amoled: boolean): string {
-  if (mode === 'dark' && amoled) return '#000000'
+function resolveBackgroundColor(mode: DisplayMode): string {
   return mode === 'dark' ? '#1A1A1A' : '#f8fafc'
 }
 
-function resolveAltBackgroundColor(mode: DisplayMode, amoled: boolean): string {
-  if (mode === 'dark' && amoled) return '#000000'
+function resolveAltBackgroundColor(mode: DisplayMode): string {
   return mode === 'dark' ? '#171717' : '#eef2f5'
 }
 
-function resolveElevatedColor(mode: DisplayMode, amoled: boolean): string {
-  if (mode === 'dark' && amoled) return 'rgba(0, 0, 0, 0.9)'
+function resolveElevatedColor(mode: DisplayMode): string {
   return mode === 'dark' ? '#1a1a1acc' : 'rgba(255, 255, 255, 0.8)'
 }
 
 export class ThemeHandler {
   private _state = ref<ThemeState>({
     currentTheme: 'tokyonight',
-    currentMode: 'dark' as DisplayMode,
     theme: null
   })
-  private _amoled = ref(false)
+  private _mode = ref<DisplayMode>('light')
+  private _modeObserver: MutationObserver | null = null
 
   constructor() {
     this.boot()
@@ -46,8 +41,6 @@ export class ThemeHandler {
     if (!isBrowser()) return
 
     const storedTheme = readStorage(PERSIST.theme)
-    const storedMode = readStorage(PERSIST.mode) as DisplayMode | null
-    const storedAmoled = readStorage(PERSIST.amoled) === 'true'
 
     if (storedTheme && themeRegistry[storedTheme]) {
       this._state.value.currentTheme = storedTheme
@@ -59,53 +52,43 @@ export class ThemeHandler {
     }
     // If storedTheme is a dynamic color-* theme, it will be applied by ColorPicker on mount
 
-    this._amoled.value = storedAmoled
-
-    if (storedMode) {
-      this._state.value.currentMode = storedMode
-    } else {
-      // Default to dark mode for new users
-      this._state.value.currentMode = 'dark'
-    }
-
+    this.observeModeChanges()
     this.applyTheme()
+  }
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (ev) => {
-      if (!readStorage(PERSIST.mode)) {
-        this._state.value.currentMode = ev.matches ? 'dark' : 'light'
-      }
+  // React to VitePress's own appearance toggle (the `dark` class on <html>)
+  private observeModeChanges() {
+    this._mode.value = this.currentMode()
+    this._modeObserver = new MutationObserver(() => {
+      this._mode.value = this.currentMode()
       this.applyTheme()
     })
+    this._modeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+  }
+
+  private currentMode(): DisplayMode {
+    return hasDocument() && document.documentElement.classList.contains('dark') ? 'dark' : 'light'
   }
 
   public applyTheme() {
     if (!hasDocument()) return
 
-    const { currentMode, theme } = this._state.value
+    const { theme } = this._state.value
+    const mode = this.currentMode()
     const el = document.documentElement
 
-    el.style.setProperty('--vp-c-bg', resolveBackgroundColor(currentMode, this._amoled.value))
-    el.style.setProperty('--vp-c-bg-alt', resolveAltBackgroundColor(currentMode, this._amoled.value))
-    el.style.setProperty('--vp-c-bg-elv', resolveElevatedColor(currentMode, this._amoled.value))
-
-    this.syncDOMClasses(currentMode)
+    el.style.setProperty('--vp-c-bg', resolveBackgroundColor(mode))
+    el.style.setProperty('--vp-c-bg-alt', resolveAltBackgroundColor(mode))
+    el.style.setProperty('--vp-c-bg-elv', resolveElevatedColor(mode))
 
     if (!theme) return
 
-    const effectiveMode = currentMode
-    const palette = theme.modes[effectiveMode]
+    const palette = theme.modes[mode]
 
-    this.syncDOMClasses(currentMode)
     this.writeCSS(palette, theme)
-  }
-
-  private syncDOMClasses(mode: DisplayMode) {
-    const el = document.documentElement
-    el.classList.remove('dark', 'light', 'amoled')
-    el.classList.add(mode)
-    if (mode === 'dark' && this._amoled.value) {
-      el.classList.add('amoled')
-    }
   }
 
   private writeCSS(colors: ModeColors, theme: Theme) {
@@ -116,16 +99,6 @@ export class ThemeHandler {
     // Wipe all inline vitepress variables for a clean slate
     for (const prop of Array.from(el.style)) {
       if (prop.startsWith('--vp-')) el.style.removeProperty(prop)
-    }
-
-    // Background overrides for AMOLED
-    let bg = colors.bg
-    let bgAlt = colors.bgAlt
-    let bgElv = colors.bgElv
-    if (this._state.value.currentMode === 'dark' && this._amoled.value) {
-      bg = '#000000'
-      bgAlt = '#000000'
-      bgElv = 'rgba(0, 0, 0, 0.9)'
     }
 
     // Brand color handling
@@ -142,14 +115,14 @@ export class ThemeHandler {
     }
 
     // Background variables
-    el.style.setProperty('--vp-c-bg', bg)
-    el.style.setProperty('--vp-c-bg-alt', bgAlt)
-    el.style.setProperty('--vp-c-bg-elv', bgElv)
-    el.style.setProperty('--vp-c-bg-soft', bgAlt)
-    el.style.setProperty('--vp-c-default-soft', bgElv)
-    el.style.setProperty('--vp-c-default-1', bgAlt)
-    el.style.setProperty('--vp-c-default-2', bgElv)
-    el.style.setProperty('--vp-c-default-3', bg)
+    el.style.setProperty('--vp-c-bg', colors.bg)
+    el.style.setProperty('--vp-c-bg-alt', colors.bgAlt)
+    el.style.setProperty('--vp-c-bg-elv', colors.bgElv)
+    el.style.setProperty('--vp-c-bg-soft', colors.bgAlt)
+    el.style.setProperty('--vp-c-default-soft', colors.bgElv)
+    el.style.setProperty('--vp-c-default-1', colors.bgAlt)
+    el.style.setProperty('--vp-c-default-2', colors.bgElv)
+    el.style.setProperty('--vp-c-default-3', colors.bg)
 
     if (colors.bgMark) el.style.setProperty('--vp-c-bg-mark', colors.bgMark)
 
@@ -256,38 +229,17 @@ export class ThemeHandler {
     this.notifyColorPicker()
   }
 
-  public setMode(mode: DisplayMode) {
-    this._state.value.currentMode = mode
-    writeStorage(PERSIST.mode, mode)
-    this.applyTheme()
-  }
-
-  public toggleMode() {
-    const next: DisplayMode = this._state.value.currentMode === 'light' ? 'dark' : 'light'
-    this.setMode(next)
-  }
-
-  public setAmoledEnabled(enabled: boolean) {
-    this._amoled.value = enabled
-    writeStorage(PERSIST.amoled, String(enabled))
-    this.applyTheme()
-  }
-
-  public getAmoledEnabled() { return this._amoled.value }
-  public toggleAmoled() { this.setAmoledEnabled(!this._amoled.value) }
-  public getAmoledEnabledRef() { return this._amoled }
-
   private notifyColorPicker() {
     const theme = this._state.value.theme
     if (!theme) return
-    const palette = theme.modes[this._state.value.currentMode]
+    const palette = theme.modes[this.currentMode()]
     if (!palette.brand || !palette.brand[1]) {
       if (isBrowser()) window.dispatchEvent(new CustomEvent('theme-changed-apply-colors'))
     }
   }
 
   public getState() { return this._state }
-  public getMode() { return this._state.value.currentMode }
+  public getModeRef() { return this._mode }
   public getTheme() { return this._state.value.currentTheme }
   public getCurrentTheme() { return this._state.value.theme }
 
@@ -297,9 +249,6 @@ export class ThemeHandler {
       displayName: themeRegistry[k].displayName
     }))
   }
-
-  public isDarkMode() { return this._state.value.currentMode === 'dark' }
-  public isAmoledMode() { return this._state.value.currentMode === 'dark' && this._amoled.value }
 }
 
 // Singleton
@@ -315,21 +264,12 @@ export function useTheme() {
   const handler = useThemeHandler()
   const st = handler.getState()
 
-  onMounted(() => handler.applyTheme())
-
   return {
-    mode: computed(() => st.value.currentMode),
+    mode: handler.getModeRef(),
     themeName: computed(() => st.value.currentTheme),
     theme: computed(() => st.value.theme),
-    setMode: (m: DisplayMode) => handler.setMode(m),
     setTheme: (n: string) => handler.setTheme(n),
-    toggleMode: () => handler.toggleMode(),
     getAvailableThemes: () => handler.getAvailableThemes(),
-    isDarkMode: () => handler.isDarkMode(),
-    isAmoledMode: () => handler.isAmoledMode(),
-    amoledEnabled: handler.getAmoledEnabledRef(),
-    setAmoledEnabled: (e: boolean) => handler.setAmoledEnabled(e),
-    toggleAmoled: () => handler.toggleAmoled(),
     state: st
   }
 }

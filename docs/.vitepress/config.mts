@@ -48,7 +48,7 @@ export default defineConfig({
   lang: 'en-US',
   lastUpdated: false,
   cleanUrls: true,
-  appearance: false,
+  appearance: true,
   srcExclude: ['README.md', 'single-page'],
   ignoreDeadLinks: true,
   sitemap: {

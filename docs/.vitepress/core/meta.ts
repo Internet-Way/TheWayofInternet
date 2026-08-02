@@ -55,7 +55,7 @@ export const socialLinks: DefaultTheme.SocialLink[] = [
 
 export const nav: DefaultTheme.NavItem[] = [
     { text: 'Home', link: '/' },
-    { text: 'Contributors', link: '/contributors' },
+    // { text: 'Contributors', link: '/contributors' },
     {
         text: 'Other Indexes',
         items: [

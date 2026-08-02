@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.cache/
 
 # testing
 /coverage
@@ -45,13 +46,9 @@ docs/.vitepress/.temp/
 Thumbs.db
 .vscode/
 .idea/
-
+.opencode/
 docs/.vitepress/auto-imports.d.ts
-
 
 # Custom
 package-lock.json
 pnpm-workspace.yaml
-
-# Personal
-/Reso
