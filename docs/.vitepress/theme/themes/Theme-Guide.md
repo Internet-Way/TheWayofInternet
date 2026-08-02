@@ -1,6 +1,6 @@
 # Theme System — Developer Guide
 
-A complete reference for understanding, extending, and troubleshooting the TWI theme engine.
+A complete reference for understanding, extending, and troubleshooting the bitindex theme engine.
 
 ---
 

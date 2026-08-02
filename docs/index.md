@@ -3,12 +3,12 @@
 layout: home
 
 hero:
-  name: "The Way of Intenet"
+  name: "bitindex"
   # text: "A Free Media Index"
   tagline: "Free Media Index with the best stuffs of the internet"
   image:
     src: /logo.png
-    alt: The Way of Internet logo
+    alt: bitindex logo
     width: 240
   announcement:
     title: "Site Under Construction"

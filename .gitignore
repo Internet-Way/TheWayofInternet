@@ -52,3 +52,4 @@ docs/.vitepress/auto-imports.d.ts
 # Custom
 package-lock.json
 pnpm-workspace.yaml
+AGENTS.md

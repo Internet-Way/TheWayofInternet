@@ -1,7 +1,7 @@
 # Site Notice
 
 ::: warning
-**The Way of Internet** is currently under construction.
+**bitindex** is currently under construction.
 :::
 
 We are working hard to curate the best resources on the internet, but there is still a lot of work to be done. 
@@ -15,6 +15,6 @@ If you have links, resources, or tools that should be part of this index, or if 
 
 <!-- - **Join our Discord:** [Discord](/discord)-->
 - **Contributors :** [Contributors](/contributors)
-<!-- - **Visit our GitHub:** [GitHub](https://github.com/Internet-Way/TheWayofInternet) -->
+<!-- - **Visit our GitHub:** [GitHub](https://github.com/Internet-Way/bitinternet) -->
 
 Thank you for your patience and support!

@@ -1,482 +1,492 @@
 {
-  "docs/.vitepress/config.mts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\config.mts": {
     "mtime": 1785659212.7559638,
     "ast_hash": "dfdc38c3884c8707b7763559881f7d16",
     "semantic_hash": "dfdc38c3884c8707b7763559881f7d16"
   },
-  "docs/.vitepress/core/contributors.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\core\\contributors.ts": {
     "mtime": 1783743223.1258032,
     "ast_hash": "c9978c55ab28b141ffc40a38038d188c",
     "semantic_hash": "c9978c55ab28b141ffc40a38038d188c"
   },
-  "docs/.vitepress/core/meta.ts": {
-    "mtime": 1785662199.1352375,
-    "ast_hash": "73e0a9035e87abaa12d24b2a767d65f9",
-    "semantic_hash": ""
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\core\\meta.ts": {
+    "mtime": 1785659195.7474756,
+    "ast_hash": "2b2e8ca28e6e976fa8e12cfb27fc861d",
+    "semantic_hash": "2b2e8ca28e6e976fa8e12cfb27fc861d"
   },
-  "docs/.vitepress/core/vue-shim.d.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\core\\vue-shim.d.ts": {
     "mtime": 1774692449.522177,
     "ast_hash": "167ddc7217ac0bd197e61ce88327f711",
     "semantic_hash": "167ddc7217ac0bd197e61ce88327f711"
   },
-  "docs/.vitepress/plugins/markdown/icon-transformer.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\plugins\\markdown\\icon-transformer.ts": {
     "mtime": 1785599281.6028993,
     "ast_hash": "c184de3e541989ee43fa1220d4d32bcf",
     "semantic_hash": "c184de3e541989ee43fa1220d4d32bcf"
   },
-  "docs/.vitepress/plugins/markdown/starredlink.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\plugins\\markdown\\starredlink.ts": {
     "mtime": 1774848701.8460376,
     "ast_hash": "3a4240b57f5a04b8b7a2083bf20b7b40",
     "semantic_hash": "3a4240b57f5a04b8b7a2083bf20b7b40"
   },
-  "docs/.vitepress/plugins/markdown/tooltip.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\plugins\\markdown\\tooltip.ts": {
     "mtime": 1775222252.6787438,
     "ast_hash": "2156b0279348cac01e99aeddf1e351be",
     "semantic_hash": "2156b0279348cac01e99aeddf1e351be"
   },
-  "docs/.vitepress/plugins/transform/generate-meta.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\plugins\\transform\\generate-meta.ts": {
     "mtime": 1774692749.3619783,
     "ast_hash": "d68f1a218595328c744f334a1e8cdaa0",
     "semantic_hash": "d68f1a218595328c744f334a1e8cdaa0"
   },
-  "docs/.vitepress/plugins/vite/tooltip-plugin.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\plugins\\vite\\tooltip-plugin.ts": {
     "mtime": 1774780519.1048832,
     "ast_hash": "983b795182ed89d73548146f431d1e2b",
     "semantic_hash": "983b795182ed89d73548146f431d1e2b"
   },
-  "docs/.vitepress/theme/blog/BlogIndex.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\blog\\BlogIndex.vue": {
     "mtime": 1774583353.9525661,
     "ast_hash": "5ebb0c90c921ccce0e049775bf7ff9dd",
     "semantic_hash": "5ebb0c90c921ccce0e049775bf7ff9dd"
   },
-  "docs/.vitepress/theme/blog/BlogPost.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\blog\\BlogPost.vue": {
     "mtime": 1774695065.3368146,
     "ast_hash": "30f73dd307e836ab03bf9e19e0f1be38",
     "semantic_hash": "30f73dd307e836ab03bf9e19e0f1be38"
   },
-  "docs/.vitepress/theme/blog/blog.data.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\blog\\blog.data.ts": {
     "mtime": 1774692761.0889382,
     "ast_hash": "6123691383edc3a1fa8e08dbed29fa01",
     "semantic_hash": "6123691383edc3a1fa8e08dbed29fa01"
   },
-  "docs/.vitepress/theme/components/Announcement.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\Announcement.vue": {
     "mtime": 1774845917.5748143,
     "ast_hash": "24f8f1cc52c3f6c2cc636cfc141df299",
     "semantic_hash": "24f8f1cc52c3f6c2cc636cfc141df299"
   },
-  "docs/.vitepress/theme/components/CardField.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\CardField.vue": {
     "mtime": 1772340663.0452476,
     "ast_hash": "bf9f67f6661419c17080523946293cd0",
     "semantic_hash": "bf9f67f6661419c17080523946293cd0"
   },
-  "docs/.vitepress/theme/components/ColorPicker.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\ColorPicker.vue": {
     "mtime": 1782402074.495333,
     "ast_hash": "dadf8d7b8ae91111166ddc7baae5601d",
     "semantic_hash": "dadf8d7b8ae91111166ddc7baae5601d"
   },
-  "docs/.vitepress/theme/components/ContributorCard.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\ContributorCard.vue": {
     "mtime": 1774695009.575176,
     "ast_hash": "2caeb793c4d98a0e75588db1ea462569",
     "semantic_hash": "2caeb793c4d98a0e75588db1ea462569"
   },
-  "docs/.vitepress/theme/components/ContributorList.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\ContributorList.vue": {
     "mtime": 1774695007.5408156,
     "ast_hash": "199d973b701995a7f34b9c9cdc8ec0a7",
     "semantic_hash": "199d973b701995a7f34b9c9cdc8ec0a7"
   },
-  "docs/.vitepress/theme/components/Contributors.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\Contributors.vue": {
     "mtime": 1774695005.4920802,
     "ast_hash": "aac66659fc1500708fddf72bd107c7fe",
     "semantic_hash": "aac66659fc1500708fddf72bd107c7fe"
   },
-  "docs/.vitepress/theme/components/InputField.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\InputField.vue": {
     "mtime": 1772340663.0472474,
     "ast_hash": "ee7ad7ca507833a2d6eafcc2914716c2",
     "semantic_hash": "ee7ad7ca507833a2d6eafcc2914716c2"
   },
-  "docs/.vitepress/theme/components/PageHeader.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\PageHeader.vue": {
     "mtime": 1775230240.906556,
     "ast_hash": "fb00c10b6f53d6036544f325c51facc9",
     "semantic_hash": "fb00c10b6f53d6036544f325c51facc9"
   },
-  "docs/.vitepress/theme/components/SidebarCard.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\SidebarCard.vue": {
     "mtime": 1785599281.6413321,
     "ast_hash": "8821dc5fcfb17b206f2c69f16abc2d85",
     "semantic_hash": "8821dc5fcfb17b206f2c69f16abc2d85"
   },
-  "docs/.vitepress/theme/components/ThemePalette.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\ThemePalette.vue": {
     "mtime": 1772518887.0833936,
     "ast_hash": "d38804cb7a8f0f0a73cf9469d06c3b22",
     "semantic_hash": "d38804cb7a8f0f0a73cf9469d06c3b22"
   },
-  "docs/.vitepress/theme/components/ThemeSelector.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\ThemeSelector.vue": {
     "mtime": 1774583371.432743,
     "ast_hash": "95fba1706b38e265919190c3ee9e0eff",
     "semantic_hash": "95fba1706b38e265919190c3ee9e0eff"
   },
-  "docs/.vitepress/theme/components/Tooltip.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\Tooltip.vue": {
     "mtime": 1774845070.8932076,
     "ast_hash": "39e283588814535719bda183f987ad38",
     "semantic_hash": "39e283588814535719bda183f987ad38"
   },
-  "docs/.vitepress/theme/components/VPNav.vue": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\VPNav.vue": {
     "mtime": 1772340663.0492473,
     "ast_hash": "6476cde810458406fed3924bcbf3e818",
     "semantic_hash": "6476cde810458406fed3924bcbf3e818"
   },
-  "docs/.vitepress/theme/core/Layout.vue": {
-    "mtime": 1785662119.3281062,
-    "ast_hash": "1b1204854b40817f435be2616e3c1822",
-    "semantic_hash": ""
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\core\\Layout.vue": {
+    "mtime": 1785660572.8094473,
+    "ast_hash": "0c8763c2934d4aac6af709cecc7af028",
+    "semantic_hash": "0c8763c2934d4aac6af709cecc7af028"
   },
-  "docs/.vitepress/theme/index.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\index.ts": {
     "mtime": 1775233832.787636,
     "ast_hash": "8deccbe212c62057861a43429409a3e4",
     "semantic_hash": "8deccbe212c62057861a43429409a3e4"
   },
-  "docs/.vitepress/theme/themes/configs/registry.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\configs\\registry.ts": {
     "mtime": 1774844304.1851263,
     "ast_hash": "79aa97aeb58dc6c7b2ae5fc1a9f2c449",
     "semantic_hash": "79aa97aeb58dc6c7b2ae5fc1a9f2c449"
   },
-  "docs/.vitepress/theme/themes/configs/theme-catppuccin.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\configs\\theme-catppuccin.ts": {
     "mtime": 1774691729.226394,
     "ast_hash": "88f4508d1a4c5b7433f1bd0774b4e449",
     "semantic_hash": "88f4508d1a4c5b7433f1bd0774b4e449"
   },
-  "docs/.vitepress/theme/themes/configs/theme-dracula.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\configs\\theme-dracula.ts": {
     "mtime": 1772520035.971501,
     "ast_hash": "284c625085593dd9a4766a32c325df52",
     "semantic_hash": "284c625085593dd9a4766a32c325df52"
   },
-  "docs/.vitepress/theme/themes/configs/theme-rose-pine.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\configs\\theme-rose-pine.ts": {
     "mtime": 1772520141.5091915,
     "ast_hash": "dd4f46eaba4b84d5f5ddc6ace6df36af",
     "semantic_hash": "dd4f46eaba4b84d5f5ddc6ace6df36af"
   },
-  "docs/.vitepress/theme/themes/configs/theme-tokyonight.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\configs\\theme-tokyonight.ts": {
     "mtime": 1772520206.007064,
     "ast_hash": "d2a5b80cd52fcb8916c0b41f5095f931",
     "semantic_hash": "d2a5b80cd52fcb8916c0b41f5095f931"
   },
-  "docs/.vitepress/theme/themes/exports.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\exports.ts": {
     "mtime": 1774691970.5908694,
     "ast_hash": "bef748412857cd71634365618b825178",
     "semantic_hash": "bef748412857cd71634365618b825178"
   },
-  "docs/.vitepress/theme/themes/state.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\state.ts": {
     "mtime": 1785645437.7705257,
     "ast_hash": "47644cbe503ccef47241b95480068b04",
     "semantic_hash": "47644cbe503ccef47241b95480068b04"
   },
-  "docs/.vitepress/theme/themes/theme-palette.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\theme-palette.ts": {
     "mtime": 1774844329.4020135,
     "ast_hash": "9d85f39790528dd30661b9d6d3717049",
     "semantic_hash": "9d85f39790528dd30661b9d6d3717049"
   },
-  "docs/.vitepress/theme/themes/theme-types.ts": {
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\theme-types.ts": {
     "mtime": 1785643520.3915377,
     "ast_hash": "51a91318810c13debb6d76ad1dc98ee7",
     "semantic_hash": "51a91318810c13debb6d76ad1dc98ee7"
   },
-  "docs/test-debug.js": {
+  "S:\\Projects\\TheWayofInternet\\docs\\test-debug.js": {
     "mtime": 1774780481.9820814,
     "ast_hash": "8dcdc620700fdd96537d772b5a776eea",
     "semantic_hash": "8dcdc620700fdd96537d772b5a776eea"
   },
-  "docs/test-regex.js": {
+  "S:\\Projects\\TheWayofInternet\\docs\\test-regex.js": {
     "mtime": 1774780167.748398,
     "ast_hash": "1d7bbbeb391857e56b042fbd6ca2103b",
     "semantic_hash": "1d7bbbeb391857e56b042fbd6ca2103b"
   },
-  "metadata.json": {
+  "S:\\Projects\\TheWayofInternet\\metadata.json": {
     "mtime": 1785659185.304845,
     "ast_hash": "37f9f68d533f2ed11def61708040ea4b",
     "semantic_hash": "37f9f68d533f2ed11def61708040ea4b"
   },
-  "package.json": {
+  "S:\\Projects\\TheWayofInternet\\package.json": {
     "mtime": 1785585379.817838,
     "ast_hash": "cbfdea483f41f301fee06037b5a4b7b2",
     "semantic_hash": "cbfdea483f41f301fee06037b5a4b7b2"
   },
-  "unocss.config.ts": {
+  "S:\\Projects\\TheWayofInternet\\unocss.config.ts": {
     "mtime": 1785599282.370452,
     "ast_hash": "73754c4625078aa74218e94071fd651a",
     "semantic_hash": "73754c4625078aa74218e94071fd651a"
   },
-  "README.md": {
-    "mtime": 1785662199.8118403,
-    "ast_hash": "0c4faa4baee6f9b0fbfe5002c0cbf3c0",
-    "semantic_hash": ""
+  "S:\\Projects\\TheWayofInternet\\AGENTS.md": {
+    "mtime": 1785659185.8436549,
+    "ast_hash": "1fd92381062bac39ff6e51aafbc941cc",
+    "semantic_hash": "1fd92381062bac39ff6e51aafbc941cc"
   },
-  "docs/.vitepress/theme/themes/Theme-Guide.md": {
+  "S:\\Projects\\TheWayofInternet\\README.md": {
+    "mtime": 1785659186.7342913,
+    "ast_hash": "3376edc03398261e5a5fa226ce8b0f7b",
+    "semantic_hash": "3376edc03398261e5a5fa226ce8b0f7b"
+  },
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\themes\\Theme-Guide.md": {
     "mtime": 1785659203.8726282,
     "ast_hash": "da00ea5958cc036a3bc93c37a0a0e35f",
     "semantic_hash": "da00ea5958cc036a3bc93c37a0a0e35f"
   },
-  "docs/alternates.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\alternates.md": {
     "mtime": 1774690684.0463722,
     "ast_hash": "3756a21c54ceefb60d729361fbb2ef49",
     "semantic_hash": "3756a21c54ceefb60d729361fbb2ef49"
   },
-  "docs/begin.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\begin.md": {
     "mtime": 1783743833.9525428,
     "ast_hash": "d0af2d5149cd7f1050c7cefcf8e6429d",
     "semantic_hash": "d0af2d5149cd7f1050c7cefcf8e6429d"
   },
-  "docs/blog.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\blog.md": {
     "mtime": 1774758991.8515968,
     "ast_hash": "af0a63e61193fd7d8a38b58811300682",
     "semantic_hash": "af0a63e61193fd7d8a38b58811300682"
   },
-  "docs/blogs/notice.md": {
-    "mtime": 1785662199.9529364,
-    "ast_hash": "a145aeaae6b8289e1da38bd45a9f9611",
-    "semantic_hash": ""
+  "S:\\Projects\\TheWayofInternet\\docs\\blogs\\notice.md": {
+    "mtime": 1785659196.2004244,
+    "ast_hash": "b582d354f9b029e25c7c3c8c809f59c6",
+    "semantic_hash": "b582d354f9b029e25c7c3c8c809f59c6"
   },
-  "docs/blogs/test.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\blogs\\test.md": {
     "mtime": 1774852607.3565547,
     "ast_hash": "7ac5b922d4c490fccadd1d9594ed69d6",
     "semantic_hash": "7ac5b922d4c490fccadd1d9594ed69d6"
   },
-  "docs/choice.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\choice.md": {
     "mtime": 1774758989.6347082,
     "ast_hash": "4e55f5a3dba88bb579a68440041b9749",
     "semantic_hash": "4e55f5a3dba88bb579a68440041b9749"
   },
-  "docs/contributors.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\contributors.md": {
     "mtime": 1785659203.353932,
     "ast_hash": "c078ac7f1cfafbaef2e2f58418024311",
     "semantic_hash": "c078ac7f1cfafbaef2e2f58418024311"
   },
-  "docs/discord.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\discord.md": {
     "mtime": 1772515760.4220715,
     "ast_hash": "63db08dc0181102794e52986a41b4eda",
     "semantic_hash": "63db08dc0181102794e52986a41b4eda"
   },
-  "docs/get-started.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\get-started.md": {
     "mtime": 1785659202.935768,
     "ast_hash": "eb4c2458b741986d5401a66c77b52649",
     "semantic_hash": "eb4c2458b741986d5401a66c77b52649"
   },
-  "docs/index.md": {
-    "mtime": 1785662117.5837326,
-    "ast_hash": "f7221a3303574d2964513aeea664c4f2",
-    "semantic_hash": ""
+  "S:\\Projects\\TheWayofInternet\\docs\\index.md": {
+    "mtime": 1785660515.5340295,
+    "ast_hash": "ea1f18d0b1bc7947678602c7cd036ffd",
+    "semantic_hash": "ea1f18d0b1bc7947678602c7cd036ffd"
   },
-  "docs/media/ai.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\ai.md": {
     "mtime": 1785599281.6553507,
     "ast_hash": "de678b63ca7ab2e1e65c1b9a2dcdbe5b",
     "semantic_hash": "de678b63ca7ab2e1e65c1b9a2dcdbe5b"
   },
-  "docs/media/audio.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\audio.md": {
     "mtime": 1785599281.6815903,
     "ast_hash": "8104a6c2891a511634e555ef436e2b0f",
     "semantic_hash": "8104a6c2891a511634e555ef436e2b0f"
   },
-  "docs/media/downloading.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\downloading.md": {
     "mtime": 1785599281.704579,
     "ast_hash": "1bbea0afff27abd5d9b0917a8d6a98d4",
     "semantic_hash": "1bbea0afff27abd5d9b0917a8d6a98d4"
   },
-  "docs/media/gaming.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\gaming.md": {
     "mtime": 1785599281.7270305,
     "ast_hash": "5a932c564a243c10e24a58b126b67fcb",
     "semantic_hash": "5a932c564a243c10e24a58b126b67fcb"
   },
-  "docs/media/privacy.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\privacy.md": {
     "mtime": 1785599281.7460203,
     "ast_hash": "ee161dc3e871fd778891bcd505071682",
     "semantic_hash": "ee161dc3e871fd778891bcd505071682"
   },
-  "docs/media/reading.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\reading.md": {
     "mtime": 1785599281.7689896,
     "ast_hash": "c61f8b5a80605304032709ef12a2c5f0",
     "semantic_hash": "c61f8b5a80605304032709ef12a2c5f0"
   },
-  "docs/media/torrenting.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\torrenting.md": {
     "mtime": 1785599281.7869873,
     "ast_hash": "c98f5f81aad71548580b9a60c42283ed",
     "semantic_hash": "c98f5f81aad71548580b9a60c42283ed"
   },
-  "docs/media/video.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\media\\video.md": {
     "mtime": 1785599281.8019996,
     "ast_hash": "e7213102fbc9b3c19240fd663b6a56e2",
     "semantic_hash": "e7213102fbc9b3c19240fd663b6a56e2"
   },
-  "docs/notes.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\notes.md": {
     "mtime": 1783765881.0564187,
     "ast_hash": "2c726117f9ce60a90670930d94410204",
     "semantic_hash": "2c726117f9ce60a90670930d94410204"
   },
-  "docs/public/robots.txt": {
+  "S:\\Projects\\TheWayofInternet\\docs\\public\\robots.txt": {
     "mtime": 1782397271.6184146,
     "ast_hash": "9127c72bed3e28c2a867eaa2529629cd",
     "semantic_hash": "9127c72bed3e28c2a867eaa2529629cd"
   },
-  "docs/storage.md": {
+  "S:\\Projects\\TheWayofInternet\\docs\\storage.md": {
     "mtime": 1770786849.9169874,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
-  "reso/ai.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\ai.md": {
     "mtime": 1785599281.8029954,
     "ast_hash": "80d785de77151f77383a868422fabd9a",
     "semantic_hash": "80d785de77151f77383a868422fabd9a"
   },
-  "reso/audio.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\audio.md": {
     "mtime": 1785599281.8059938,
     "ast_hash": "316bb60baa7f59d225525e06130d4f05",
     "semantic_hash": "316bb60baa7f59d225525e06130d4f05"
   },
-  "reso/beginners-guide.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\beginners-guide.md": {
     "mtime": 1785599281.8320534,
     "ast_hash": "3852c76161c7a89e5910d06b233ffe17",
     "semantic_hash": "3852c76161c7a89e5910d06b233ffe17"
   },
-  "reso/developer-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\developer-tools.md": {
     "mtime": 1785599281.8529894,
     "ast_hash": "a7a103cbde6d44f4f9c1801bcdd6a62f",
     "semantic_hash": "a7a103cbde6d44f4f9c1801bcdd6a62f"
   },
-  "reso/downloading.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\downloading.md": {
     "mtime": 1785599281.8529894,
     "ast_hash": "c41a4928351160249fcfdf42a5fabac4",
     "semantic_hash": "c41a4928351160249fcfdf42a5fabac4"
   },
-  "reso/educational.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\educational.md": {
     "mtime": 1785599281.8680289,
     "ast_hash": "e7a257c0c069f6cba50a3ddec22e8173",
     "semantic_hash": "e7a257c0c069f6cba50a3ddec22e8173"
   },
-  "reso/feedback.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\feedback.md": {
     "mtime": 1785599281.8980377,
     "ast_hash": "9b21e2d293da6d78c6eb5f51f595978c",
     "semantic_hash": "9b21e2d293da6d78c6eb5f51f595978c"
   },
-  "reso/file-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\file-tools.md": {
     "mtime": 1785599281.9309938,
     "ast_hash": "cc430654fb7ad1016a721b6c9f41ddc0",
     "semantic_hash": "cc430654fb7ad1016a721b6c9f41ddc0"
   },
-  "reso/gaming-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\gaming-tools.md": {
     "mtime": 1785599281.96935,
     "ast_hash": "cf4eb499ad2c6fd5c47699755f24ca62",
     "semantic_hash": "cf4eb499ad2c6fd5c47699755f24ca62"
   },
-  "reso/gaming.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\gaming.md": {
     "mtime": 1785599281.979356,
     "ast_hash": "4e56a363f1c4fff2cf84f429219c7694",
     "semantic_hash": "4e56a363f1c4fff2cf84f429219c7694"
   },
-  "reso/image-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\image-tools.md": {
     "mtime": 1785599282.003368,
     "ast_hash": "19fc33972875f764dc44c40c81f3a31b",
     "semantic_hash": "19fc33972875f764dc44c40c81f3a31b"
   },
-  "reso/index.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\index.md": {
     "mtime": 1785599282.0313454,
     "ast_hash": "ad46f30f468ee39212766eb7e8c8b3bc",
     "semantic_hash": "ad46f30f468ee39212766eb7e8c8b3bc"
   },
-  "reso/internet-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\internet-tools.md": {
     "mtime": 1785599282.0543673,
     "ast_hash": "d66c99ac72a452cfd076fc5dab604e7f",
     "semantic_hash": "d66c99ac72a452cfd076fc5dab604e7f"
   },
-  "reso/linux-macos.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\linux-macos.md": {
     "mtime": 1785599282.070354,
     "ast_hash": "bbb710458396059b5c03c2ee79b08873",
     "semantic_hash": "bbb710458396059b5c03c2ee79b08873"
   },
-  "reso/misc.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\misc.md": {
     "mtime": 1785599282.1013541,
     "ast_hash": "d4e8bfb90a44b87ccb0744dc26ce6483",
     "semantic_hash": "d4e8bfb90a44b87ccb0744dc26ce6483"
   },
-  "reso/mobile.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\mobile.md": {
     "mtime": 1785599282.1203442,
     "ast_hash": "5a295913de69858df721644309150e9b",
     "semantic_hash": "5a295913de69858df721644309150e9b"
   },
-  "reso/non-english.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\non-english.md": {
     "mtime": 1785599282.135575,
     "ast_hash": "3504f96c628bc65a0920e1f89edcd0de",
     "semantic_hash": "3504f96c628bc65a0920e1f89edcd0de"
   },
-  "reso/posts.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\posts.md": {
     "mtime": 1785599282.1605954,
     "ast_hash": "f15f229efe43fa94c6f4b34faa76c7a5",
     "semantic_hash": "f15f229efe43fa94c6f4b34faa76c7a5"
   },
-  "reso/privacy.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\privacy.md": {
     "mtime": 1785599282.1626232,
     "ast_hash": "1f25289ce2e6ac56ee62516ded67469a",
     "semantic_hash": "1f25289ce2e6ac56ee62516ded67469a"
   },
-  "reso/reading.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\reading.md": {
     "mtime": 1785599282.1655915,
     "ast_hash": "2be314828434889aa2d75002bc3d7d35",
     "semantic_hash": "2be314828434889aa2d75002bc3d7d35"
   },
-  "reso/sandbox.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\sandbox.md": {
     "mtime": 1785599282.188593,
     "ast_hash": "ff076ed0a8ce537cba90c4d567882070",
     "semantic_hash": "ff076ed0a8ce537cba90c4d567882070"
   },
-  "reso/social-media-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\social-media-tools.md": {
     "mtime": 1785599282.2065973,
     "ast_hash": "2737c29bd7d401db9d467e0fa4aa9d2d",
     "semantic_hash": "2737c29bd7d401db9d467e0fa4aa9d2d"
   },
-  "reso/startpage.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\startpage.md": {
     "mtime": 1785599282.2306156,
     "ast_hash": "67892beba520bea7e6545a9c33493f4b",
     "semantic_hash": "67892beba520bea7e6545a9c33493f4b"
   },
-  "reso/storage.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\storage.md": {
     "mtime": 1785599282.2496274,
     "ast_hash": "b6c70b14b9fd84f1fe75e3b4c6139423",
     "semantic_hash": "b6c70b14b9fd84f1fe75e3b4c6139423"
   },
-  "reso/system-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\system-tools.md": {
     "mtime": 1785599282.258587,
     "ast_hash": "956826f8d8583dfb6f581251d8f92cdd",
     "semantic_hash": "956826f8d8583dfb6f581251d8f92cdd"
   },
-  "reso/temp.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\temp.md": {
     "mtime": 1785599282.2689533,
     "ast_hash": "941143bbbc123ca932f29d77e6bdb151",
     "semantic_hash": "941143bbbc123ca932f29d77e6bdb151"
   },
-  "reso/text-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\text-tools.md": {
     "mtime": 1785599282.2960024,
     "ast_hash": "ace25a1fdf800a2b9d1f06b7c595f5c4",
     "semantic_hash": "ace25a1fdf800a2b9d1f06b7c595f5c4"
   },
-  "reso/torrenting.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\torrenting.md": {
     "mtime": 1785599282.2979815,
     "ast_hash": "f8133a647371fd77fb6359fca6b999fe",
     "semantic_hash": "f8133a647371fd77fb6359fca6b999fe"
   },
-  "reso/unsafe.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\unsafe.md": {
     "mtime": 1785599282.3184426,
     "ast_hash": "4eafdedc84b5d4588ab2686e05863a77",
     "semantic_hash": "4eafdedc84b5d4588ab2686e05863a77"
   },
-  "reso/video-tools.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\video-tools.md": {
     "mtime": 1785599282.345467,
     "ast_hash": "30e74fbcba74ef6397b6bad9108ff104",
     "semantic_hash": "30e74fbcba74ef6397b6bad9108ff104"
   },
-  "reso/video.md": {
+  "S:\\Projects\\TheWayofInternet\\reso\\video.md": {
     "mtime": 1785599282.3475065,
     "ast_hash": "6b8f85eaec36a58574aac2e3fe60443f",
     "semantic_hash": "6b8f85eaec36a58574aac2e3fe60443f"
   },
-  "docs/public/logo.png": {
+  "S:\\Projects\\TheWayofInternet\\docs\\public\\logo.png": {
     "mtime": 1785586547.9747458,
     "ast_hash": "1d03264c603e3027b758a5f424640f9e",
     "semantic_hash": "1d03264c603e3027b758a5f424640f9e"
+  },
+  "S:\\Projects\\TheWayofInternet\\docs\\.vitepress\\theme\\components\\HomePage.vue": {
+    "mtime": 1785660839.1423717,
+    "ast_hash": "4318fc72338368878a4103025c486a2b",
+    "semantic_hash": "4318fc72338368878a4103025c486a2b"
   }
 }

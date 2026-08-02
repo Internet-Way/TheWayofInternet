@@ -3,9 +3,9 @@ import type { DefaultTheme } from 'vitepress'
 // @unocss-include
 
 export const meta = {
-    name: 'The Way of Internet',
+    name: 'bitindex',
     description: 'A free media, resource, and tool index',
-    hostname: 'https://thewayofinternet.pages.dev',
+    hostname: 'https://bitindex.pages.dev',
     keywords: ['free media', 'resources', 'tools', 'alternatives'],
     build: {
         api: true,
@@ -34,7 +34,7 @@ if (safeEnv('TWI_BUILD_API') === 'false') {
 }
 
 const formatCommitRef = (commitRef: string) =>
-    `<a href="https://github.com/Internet-Way/TheWayofInternet/commit/${commitRef}">${commitRef.slice(0, 8)}</a>`
+    `<a href="https://github.com/Internet-Way/bitinternet/commit/${commitRef}">${commitRef.slice(0, 8)}</a>`
 
 const cfStart = safeEnv('CF_PAGES_COMMIT_SHA')
 const commitStart = safeEnv('COMMIT_REF')
@@ -50,7 +50,7 @@ export const feedback = 'Made with 💔'
 
 export const socialLinks: DefaultTheme.SocialLink[] = [
     { icon: 'discord', link: '/discord' },
-    { icon: 'github', link: 'https://github.com/Internet-Way/TheWayofInternet' }
+    { icon: 'github', link: 'https://github.com/Internet-Way/bitinternet' }
 ]
 
 export const nav: DefaultTheme.NavItem[] = [

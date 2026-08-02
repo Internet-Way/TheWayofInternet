@@ -1,7 +1,7 @@
 # Get Started
 
-### Welcome to **The Way of Internet**.
-Welcome to The Way of Internet! This guide will help you understand the fundamentals of the internet and get you up and running quickly.
+### Welcome to **bitindex**.
+Welcome to bitindex! This guide will help you understand the fundamentals of the internet and get you up and running quickly.
 
 Pre-Requisites (Must Do First)
 !!! info ➜ Not so fast sailor! Do this first - ✔️ Recommended: Use [Firefox](https://www.firefox.com/) + [uBlock Origin](https://addons.mozilla.org/firefox/addon/ublock-origin/). - Firefox is the top non-Chromium browser, offering nice security and privacy features. It also boasts the [best compatibility](https://github.com/gorhill/uBlock/wiki/uBlock-Origin-works-best-on-Firefox) with uBlock Origin for effectively blocking ads and other harmful web content.
@@ -215,7 +215,7 @@ False positives are common for cracks/keygens. Only trust detections from well-k
 
 Big free media wikis like [FMHY](https://fmhy.net), [r/Piracy](https://reddit.com/r/piracy), [Awesome](https://github.com/sindresorhus/awesome), [Wotaku.wiki](https://wotaku.wiki), [EverythingMoe](https://everythingmoe.com) and various lists contain thousands of links. Among them, you will find both good and bad, active and dead, safe and risky resources mixed together.
 
-**The Way of Internet** solves this problem.
+**bitindex** solves this problem.
 
 We carefully curate and index only the **best of the best** resources. In every single section, we strictly limit ourselves to a maximum of 20 high-quality, reliable, and actively maintained sites.
 
@@ -224,4 +224,4 @@ Provide you with a clean, focused, and trustworthy index — without the noise, 
 
 Here you will only find carefully selected, top-performing free media websites and tools.
 
-***Thank you for using The Way of Internet.***
+***Thank you for using bitindex.***

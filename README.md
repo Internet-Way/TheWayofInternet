@@ -1,11 +1,11 @@
-# The Way of Internet (TWI)
+# bitindex
 
 **A Curated Digital Index of Awesome Resources, Tools, and Alternatives**
 
 ---
 
 ## 🚀 Overview
-**The Way of Internet (TWI)** is a high-performance, criteria-ranked digital index and resource vault built with VitePress, Vue 3, UnoCSS, and custom markdown-it plugins. It enables seamless discovery of top-tier web tools, alternatives, and curated collections without clutter or bias.
+**bitindex** is a high-performance, criteria-ranked digital index and resource vault built with VitePress, Vue 3, UnoCSS, and custom markdown-it plugins. It enables seamless discovery of top-tier web tools, alternatives, and curated collections without clutter or bias.
 
 ---
 
@@ -24,8 +24,8 @@
 
 ### Step 1: Clone the Repository & Install Dependencies
 ```bash
-git clone https://github.com/Internet-Way/TheWayofInternet.git
-cd TheWayofInternet
+git clone https://github.com/Internet-Way/bitinternet.git
+cd bitinternet
 npm install
 ```
 

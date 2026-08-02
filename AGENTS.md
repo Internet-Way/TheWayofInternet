@@ -1,4 +1,4 @@
-# The Way of Internet — Agent Context
+# bitindex — Agent Context
 
 ## Project
 - VitePress site at `docs/`, source resources at `reso/` (FMHY wiki dumps).
