@@ -8,6 +8,7 @@ import ContributorCard from './components/ContributorCard.vue'
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 import Tooltip from './components/Tooltip.vue'
+import Feedback from './components/Feedback.vue'
 import './core/style.scss'
 import 'virtual:uno.css'
 
@@ -20,6 +21,7 @@ const themeConfig: Theme = {
     app.component('ContributorList', ContributorList)
     app.component('ContributorCard', ContributorCard)
     app.component('Tooltip', Tooltip)
+    app.component('Feedback', Feedback)
     app.use(FloatingVue)
     useThemeHandler()
   }

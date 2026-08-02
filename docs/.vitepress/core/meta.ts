@@ -118,6 +118,7 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
         collapsed: true,
         items: [
             { text: 'Contributors', link: '/contributors' },
+            { text: 'Feedback', link: '/feedback' },
             { text: 'Storage', link: '/storage' },
             { text: 'Notes', link: '/notes' }
         ]

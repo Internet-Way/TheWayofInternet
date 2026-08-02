@@ -1,6 +1,7 @@
 import { execSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadEnv } from "vite";
 import { abbr } from "@mdit/plugin-abbr";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,6 +50,16 @@ try {
 } catch {
   // fallback if Git is unavailable (Cloudflare Pages preview)
 }
+
+const envFile = loadEnv("", path.resolve(__dirname, "../.."), "");
+const envVar = (key: string) => process.env[key] || envFile[key] || "";
+
+const feedbackWebhooks = {
+  addStar: envVar("DISCORD_WEBHOOK_ADD_STAR"),
+  removeUnstar: envVar("DISCORD_WEBHOOK_REMOVE_UNSTAR"),
+  edit: envVar("DISCORD_WEBHOOK_EDIT"),
+  thanks: envVar("DISCORD_WEBHOOK_THANKS"),
+};
 
 export default defineConfig({
   base: "/",
@@ -115,6 +126,14 @@ export default defineConfig({
     consola.success("Build complete!");
   },
   vite: {
+    define: {
+      __DISCORD_WEBHOOK_ADD_STAR__: JSON.stringify(feedbackWebhooks.addStar),
+      __DISCORD_WEBHOOK_REMOVE_UNSTAR__: JSON.stringify(
+        feedbackWebhooks.removeUnstar
+      ),
+      __DISCORD_WEBHOOK_EDIT__: JSON.stringify(feedbackWebhooks.edit),
+      __DISCORD_WEBHOOK_THANKS__: JSON.stringify(feedbackWebhooks.thanks),
+    },
     server: {
       host: "0.0.0.0",
       port: 3000,
