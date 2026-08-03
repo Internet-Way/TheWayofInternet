@@ -24,8 +24,8 @@
 
 ### Step 1: Clone the Repository & Install Dependencies
 ```bash
-git clone https://github.com/Internet-Way/bitinternet.git
-cd bitinternet
+git clone https://github.com/Internet-Way/bitindex.git
+cd bitindex
 npm install
 ```
 

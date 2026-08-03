@@ -35,7 +35,7 @@ if (safeEnv("TWI_BUILD_API") === "false") {
 }
 
 const formatCommitRef = (commitRef: string) =>
-  `<a href="https://github.com/Internet-Way/bitinternet/commit/${commitRef}">${commitRef.slice(0, 8)}</a>`;
+  `<a href="https://github.com/Internet-Way/bitindex/commit/${commitRef}">${commitRef.slice(0, 8)}</a>`;
 
 const cfStart = safeEnv("CF_PAGES_COMMIT_SHA");
 const commitStart = safeEnv("COMMIT_REF");
@@ -51,7 +51,7 @@ export const feedback = "Made with 💔";
 
 export const socialLinks: DefaultTheme.SocialLink[] = [
   { icon: "discord", link: "/discord" },
-  { icon: "github", link: "https://github.com/Internet-Way/bitinternet" },
+  { icon: "github", link: "https://github.com/Internet-Way/bitindex" },
 ];
 
 export const nav: DefaultTheme.NavItem[] = [

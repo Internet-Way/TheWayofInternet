@@ -1,7 +1,7 @@
 {
   "docs/.vitepress/config.mts": {
-    "mtime": 1785733553.382118,
-    "ast_hash": "88596ede70cbf37730d25e8c658dceb8",
+    "mtime": 1785749882.5959468,
+    "ast_hash": "fccc9bfca8513098c0b7b41c0cf9b61a",
     "semantic_hash": ""
   },
   "docs/.vitepress/core/contributors.ts": {
@@ -10,8 +10,8 @@
     "semantic_hash": "c9978c55ab28b141ffc40a38038d188c"
   },
   "docs/.vitepress/core/meta.ts": {
-    "mtime": 1785737019.6641116,
-    "ast_hash": "8c7eb353edb67152729162da56e0fbd7",
+    "mtime": 1785749880.696213,
+    "ast_hash": "0c8555e73d386c9a18ac8fb368973715",
     "semantic_hash": ""
   },
   "docs/.vitepress/core/vue-shim.d.ts": {
@@ -190,8 +190,8 @@
     "semantic_hash": "73754c4625078aa74218e94071fd651a"
   },
   "README.md": {
-    "mtime": 1785662199.8118403,
-    "ast_hash": "0c4faa4baee6f9b0fbfe5002c0cbf3c0",
+    "mtime": 1785749898.2581556,
+    "ast_hash": "943c5a45c06c8b00d98e1ddf18805552",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/themes/Theme-Guide.md": {
@@ -215,8 +215,8 @@
     "semantic_hash": ""
   },
   "docs/blogs/notice.md": {
-    "mtime": 1785662199.9529364,
-    "ast_hash": "a145aeaae6b8289e1da38bd45a9f9611",
+    "mtime": 1785749881.7028441,
+    "ast_hash": "fb9b6ac9cb5ebdcee872c85b0d15001e",
     "semantic_hash": ""
   },
   "docs/choice.md": {

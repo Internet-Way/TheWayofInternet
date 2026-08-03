@@ -15,6 +15,6 @@ If you have links, resources, or tools that should be part of this index, or if 
 
 <!-- - **Join our Discord:** [Discord](/discord)-->
 - **Contributors :** [Contributors](/contributors)
-<!-- - **Visit our GitHub:** [GitHub](https://github.com/Internet-Way/bitinternet) -->
+<!-- - **Visit our GitHub:** [GitHub](https://github.com/Internet-Way/bitindex) -->
 
 Thank you for your patience and support!

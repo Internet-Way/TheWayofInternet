@@ -1,16 +1,16 @@
 # Graph Report - TheWayofInternet  (2026-08-03)
 
 ## Corpus Check
-- 62 files · ~88,292 words
+- 62 files · ~88,482 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 527 nodes · 704 edges · 83 communities (25 shown, 58 thin omitted)
+- 529 nodes · 706 edges · 83 communities (25 shown, 58 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c783112c`
+- Built from commit: `6e663f43`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -25,7 +25,7 @@
 - AGENTS.md — Agent Context
 - qBittorrent
 - 1337x
-- Contributors.vue
+- index.ts
 - devDependencies
 - dependencies
 - ThemePalette.vue
@@ -134,8 +134,8 @@ Cohesion: 0.14
 Nodes (20): FMHY (fmhy.net), Base64 URL Encoding Practice, Microsoft Activation Scripts (MAS), begin.md — Piracy Knowledge Base, r/Piracy Megathread (rentry.org), How Torrenting Works, uBlock Origin, Unsafe Sites & Red Flags Knowledge (+12 more)
 
 ### Community 1 - "state.ts"
-Cohesion: 0.07
-Nodes (31): availableThemes, currentDisplayName, { themeName, setTheme, getAvailableThemes, state, mode }, content, iconClass, props, themeConfig, themeRegistry (+23 more)
+Cohesion: 0.08
+Nodes (26): availableThemes, currentDisplayName, { themeName, setTheme, getAvailableThemes, state, mode }, themeRegistry, catppuccinTheme, draculaTheme, rosePineTheme, tokyoNightTheme (+18 more)
 
 ### Community 3 - "ThemeHandler (Singleton)"
 Cohesion: 0.10
@@ -161,9 +161,9 @@ Nodes (25): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress conf
 Cohesion: 0.50
 Nodes (4): Deluge, qBittorrent, Transmission, Stremio
 
-### Community 10 - "Contributors.vue"
-Cohesion: 0.20
-Nodes (8): Contributor, contributors, { frontmatter }, avatarUrl, props, avatarUrls, filteredContributors, props
+### Community 10 - "index.ts"
+Cohesion: 0.13
+Nodes (13): Contributor, contributors, { frontmatter }, avatarUrl, props, avatarUrls, filteredContributors, props (+5 more)
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
@@ -230,9 +230,9 @@ Nodes (6): FMHY (Free Media Heck Yeah), r/Piracy Megathread, Safety First Rules,
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `ColorPicker.vue`, `bitindex`?**
-  _High betweenness centrality (0.136) - this node is a cross-community bridge._
+  _High betweenness centrality (0.135) - this node is a cross-community bridge._
 - **Why does `ThemeHandler (state.ts)` connect `ColorPicker.vue` to `AGENTS.md — Agent Context`?**
-  _High betweenness centrality (0.136) - this node is a cross-community bridge._
+  _High betweenness centrality (0.135) - this node is a cross-community bridge._
 - **Why does `index.md — Home Page` connect `bitindex` to `Get Started Guide`, `Media Content Pipeline`, `AGENTS.md — Agent Context`?**
   _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Get Started Guide` (e.g. with `downloading.md — Downloading` and `privacy.md — Ad Blocking and Privacy`) actually correct?**

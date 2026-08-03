@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadEnv } from "vite";
 import { abbr } from "@mdit/plugin-abbr";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -40,6 +40,28 @@ import { TooltipVitePlugin } from "./plugins/vite/tooltip-plugin";
 
 // @unocss-include
 
+const parseEnvFile = (dir: string): Record<string, string> => {
+  const out: Record<string, string> = {}
+  try {
+    const content = fs.readFileSync(path.resolve(dir, ".env"), "utf8")
+    for (const line of content.split(/\r?\n/)) {
+      const match = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/)
+      if (!match) continue
+      let value = match[2].trim()
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1)
+      }
+      out[match[1]] = value
+    }
+  } catch {
+    // no .env file present (e.g. Cloudflare Pages uses project env vars)
+  }
+  return out
+}
+
 let commitTitle = "development";
 let commitTimestamp = 0;
 try {
@@ -75,7 +97,7 @@ const timeAgo = (timestamp: number): string => {
   return "a few seconds"
 }
 
-const envFile = loadEnv("", path.resolve(__dirname, "../.."), "");
+const envFile = parseEnvFile(path.resolve(__dirname, "../.."));
 const envVar = (key: string) => process.env[key] || envFile[key] || "";
 
 const feedbackWebhooks = {
@@ -293,7 +315,7 @@ export default defineConfig({
       },
     },
     footer: {
-      message: `Last Edited ${timeAgo(commitTimestamp)} ago | <a href="https://github.com/Internet-Way/bitinternet/commit/${commitTitle}">${commitTitle}</a><br/>Made with 🖤 | This site doesnt host any files`,
+      message: `Last Edited ${timeAgo(commitTimestamp)} ago | <a href="https://github.com/Internet-Way/bitindex/commit/${commitTitle}">${commitTitle}</a><br/>Made with 🖤 | This site doesnt host any files`,
       copyright: "",
     },
   },
