@@ -335,3 +335,29 @@
 .dark .VPLocalSearchBox .backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
+
+/* Thin clean footer */
+.VPFooter {
+  padding: 14px 24px;
+}
+
+.VPFooter .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.VPFooter .message {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--vp-c-text-2);
+}
+
+.VPFooter .message a {
+  text-decoration: none;
+  color: var(--vp-c-text-3);
+}
+
+.VPFooter .message a:hover {
+  color: var(--vp-c-brand-1);
+}

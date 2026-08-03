@@ -1,13 +1,12 @@
 # bitindex — Agent Context
 
 ## Project
-- VitePress site at `docs/`, source resources at `reso/` (FMHY wiki dumps).
-- Package manager: **bun** (pnpm-lock.yaml removed; use `bun install`). Node is NOT installed on this machine.
-- Scripts (package.json): `bun run dev` (port 3000), `bun run build`, `bun run lint` (tsc --noEmit), `docs:dev`, `docs:build`, `docs:preview`.
+- VitePress site at `docs/` (FMHY wiki dumps used directly as the media pages).
+- Package manager: **pnpm** (`pnpm install`; `node_modules/.pnpm` layout; bun is NOT installed). Node is installed (pnpm 11.1.2).
+- Scripts (package.json): `pnpm run dev` (port 3000), `pnpm run build`, `pnpm run lint` (tsc --noEmit), `docs:dev`, `docs:build`, `docs:preview`.
 
 ## Content pipeline (media category pages)
-- Source files: `reso/{privacy,ai,video,audio,gaming,reading,torrenting,downloading}.md` — FMHY wiki copies.
-- Output: `docs/media/{privacy,ai,video,audio,gaming,reading,torrenting,downloading}.md` — curated pages, **max 20 entries each** (site-wide rule: "strictly capped at 20 entries").
+- `docs/media/{privacy,ai,video,audio,gaming,reading,torrenting,downloading}.md` — raw FMHY wiki copies used directly as the index pages (user's decision; not curated anymore).
 - **Heading rule**: H1 written exactly as the user specified:
   - privacy.md → `# Ad Blocking and Privacy`
   - ai.md → `# Artificial Intelligence`
@@ -54,7 +53,7 @@
 
 ## Misc
 - `docs/index.md` hero mentions "Site Under Construction"; features claim multi-source, quality verified, 20-entry cap.
-- Ignore reso files not in the mapping (developer-tools.md, misc.md, mobile.md, etc.) unless explicitly asked.
+- Media pages are verbatim FMHY dumps; old curation rubric below is retained for reference only.
 
 ## graphify
 

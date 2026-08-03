@@ -37,7 +37,7 @@
       "label": "__dirname",
       "file_type": "code",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "docs_vitepress_config_dirname",
       "community": 4,
@@ -48,7 +48,7 @@
       "label": "unocssConfigPath",
       "file_type": "code",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "docs_vitepress_config_unocssconfigpath",
       "community": 4,
@@ -56,10 +56,43 @@
       "norm_label": "unocssconfigpath"
     },
     {
+      "label": "envFile",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/config.mts",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "docs_vitepress_config_envfile",
+      "community": 4,
+      "community_name": "config.mts",
+      "norm_label": "envfile"
+    },
+    {
+      "label": "envVar()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/config.mts",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "docs_vitepress_config_envvar",
+      "community": 4,
+      "community_name": "config.mts",
+      "norm_label": "envvar()"
+    },
+    {
+      "label": "feedbackWebhooks",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/config.mts",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "docs_vitepress_config_feedbackwebhooks",
+      "community": 4,
+      "community_name": "config.mts",
+      "norm_label": "feedbackwebhooks"
+    },
+    {
       "label": "config()",
       "file_type": "code",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L191",
+      "source_location": "L225",
       "_origin": "ast",
       "id": "docs_vitepress_config_config",
       "community": 4,
@@ -147,7 +180,7 @@
       "label": "formatCommitRef()",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_formatcommitref",
       "community": 4,
@@ -158,7 +191,7 @@
       "label": "cfStart",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_cfstart",
       "community": 4,
@@ -169,7 +202,7 @@
       "label": "commitStart",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_commitstart",
       "community": 4,
@@ -180,7 +213,7 @@
       "label": "commitRef",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L42",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_commitref",
       "community": 4,
@@ -191,7 +224,7 @@
       "label": "feedback",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_feedback",
       "community": 4,
@@ -202,7 +235,7 @@
       "label": "socialLinks",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_sociallinks",
       "community": 4,
@@ -213,7 +246,7 @@
       "label": "nav",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_nav",
       "community": 4,
@@ -224,7 +257,7 @@
       "label": "sidebar",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L71",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "docs_vitepress_core_meta_sidebar",
       "community": 4,
@@ -612,8 +645,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_vitepress_theme_components_announcement",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "announcement.vue"
     },
     {
@@ -623,8 +656,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_vitepress_theme_components_announcement_frontmatter",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "{ frontmatter }"
     },
     {
@@ -634,8 +667,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_vitepress_theme_components_cardfield",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "cardfield.vue"
     },
     {
@@ -848,6 +881,457 @@
       "norm_label": "avatarurls"
     },
     {
+      "label": "Feedback.vue",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "feedback.vue"
+    },
+    {
+      "label": "FeedbackType",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_feedbacktype",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "feedbacktype"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_types",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "types"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_type",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "type"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_name",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "name"
+    },
+    {
+      "label": "link",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_link",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "link"
+    },
+    {
+      "label": "shortDesc",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_shortdesc",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "shortdesc"
+    },
+    {
+      "label": "longDesc",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_longdesc",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "longdesc"
+    },
+    {
+      "label": "contact",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_contact",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "contact"
+    },
+    {
+      "label": "editWhere",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_editwhere",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "editwhere"
+    },
+    {
+      "label": "editWhat",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_editwhat",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "editwhat"
+    },
+    {
+      "label": "thanksMsg",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_thanksmsg",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "thanksmsg"
+    },
+    {
+      "label": "status",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_status",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "status"
+    },
+    {
+      "label": "errorMsg",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_errormsg",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "errormsg"
+    },
+    {
+      "label": "webhookMap",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_webhookmap",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "webhookmap"
+    },
+    {
+      "label": "activeWebhook",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_activewebhook",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "activewebhook"
+    },
+    {
+      "label": "configured",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_configured",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "configured"
+    },
+    {
+      "label": "titles",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_titles",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "titles"
+    },
+    {
+      "label": "colors",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_colors",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "colors"
+    },
+    {
+      "label": "isLinkForm",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_islinkform",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "islinkform"
+    },
+    {
+      "label": "showName",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_showname",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "showname"
+    },
+    {
+      "label": "longRequired",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_longrequired",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "longrequired"
+    },
+    {
+      "label": "truncate()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_truncate",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "truncate()"
+    },
+    {
+      "label": "validate()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_validate",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "validate()"
+    },
+    {
+      "label": "buildFields()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_buildfields",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "buildfields()"
+    },
+    {
+      "label": "resetForm()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_resetform",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "resetform()"
+    },
+    {
+      "label": "submit()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_feedback_submit",
+      "community": 36,
+      "community_name": "Feedback.vue",
+      "norm_label": "submit()"
+    },
+    {
+      "label": "HeadingFeedback.vue",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "headingfeedback.vue"
+    },
+    {
+      "label": "route",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_route",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "route"
+    },
+    {
+      "label": "open",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_open",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "open"
+    },
+    {
+      "label": "where",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_where",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "where"
+    },
+    {
+      "label": "what",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_what",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "what"
+    },
+    {
+      "label": "status",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_status",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "status"
+    },
+    {
+      "label": "errorMsg",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_errormsg",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "errormsg"
+    },
+    {
+      "label": "configured",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_configured",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "configured"
+    },
+    {
+      "label": "clearPencils()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_clearpencils",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "clearpencils()"
+    },
+    {
+      "label": "setup()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_setup",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "setup()"
+    },
+    {
+      "label": "openFor()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_openfor",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "openfor()"
+    },
+    {
+      "label": "close()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_close",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "close()"
+    },
+    {
+      "label": "onKeydown()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_onkeydown",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "onkeydown()"
+    },
+    {
+      "label": "submit()",
+      "file_type": "code",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "docs_vitepress_theme_components_headingfeedback_submit",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
+      "norm_label": "submit()"
+    },
+    {
       "label": "InputField.vue",
       "file_type": "code",
       "source_file": "docs/.vitepress/theme/components/InputField.vue",
@@ -865,8 +1349,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_vitepress_theme_components_pageheader",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "pageheader.vue"
     },
     {
@@ -876,8 +1360,8 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "docs_vitepress_theme_components_pageheader_page_frontmatter",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "{ page, frontmatter }"
     },
     {
@@ -887,8 +1371,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_vitepress_theme_components_sidebarcard",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "sidebarcard.vue"
     },
     {
@@ -1195,8 +1679,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_vitepress_theme_core_layout",
-      "community": 5,
-      "community_name": "ColorPicker.vue",
+      "community": 37,
+      "community_name": "HeadingFeedback.vue",
       "norm_label": "layout.vue"
     },
     {
@@ -1214,7 +1698,7 @@
       "label": "themeConfig",
       "file_type": "code",
       "source_file": "docs/.vitepress/theme/index.ts",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "docs_vitepress_theme_index_themeconfig",
       "community": 1,
@@ -1855,8 +2339,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_devdependencies_iconify_json_fluent",
-      "community": 11,
-      "community_name": "devDependencies",
+      "community": 246,
+      "community_name": "@iconify-json/fluent",
       "norm_label": "@iconify-json/fluent"
     },
     {
@@ -1866,8 +2350,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "iconify_json_fluent",
-      "community": 11,
-      "community_name": "devDependencies",
+      "community": 246,
+      "community_name": "@iconify-json/fluent",
       "norm_label": "@iconify-json/fluent"
     },
     {
@@ -1877,8 +2361,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_devdependencies_iconify_json_fluent_mdl2",
-      "community": 37,
-      "community_name": "@iconify-json/fluent-mdl2",
+      "community": 11,
+      "community_name": "devDependencies",
       "norm_label": "@iconify-json/fluent-mdl2"
     },
     {
@@ -1888,8 +2372,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "iconify_json_fluent_mdl2",
-      "community": 37,
-      "community_name": "@iconify-json/fluent-mdl2",
+      "community": 11,
+      "community_name": "devDependencies",
       "norm_label": "@iconify-json/fluent-mdl2"
     },
     {
@@ -3065,8 +3549,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "package_dependencies_feed",
-      "community": 12,
-      "community_name": "dependencies",
+      "community": 245,
+      "community_name": "feed",
       "norm_label": "feed"
     },
     {
@@ -3076,8 +3560,8 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "feed",
-      "community": 12,
-      "community_name": "dependencies",
+      "community": 245,
+      "community_name": "feed",
       "norm_label": "feed"
     },
     {
@@ -3109,8 +3593,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "package_dependencies_mark_js",
-      "community": 47,
-      "community_name": "mark.js",
+      "community": 12,
+      "community_name": "dependencies",
       "norm_label": "mark.js"
     },
     {
@@ -3120,8 +3604,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "mark_js",
-      "community": 47,
-      "community_name": "mark.js",
+      "community": 12,
+      "community_name": "dependencies",
       "norm_label": "mark.js"
     },
     {
@@ -3334,6 +3818,28 @@
       "norm_label": "unocss.config.ts"
     },
     {
+      "label": "feedback.md",
+      "file_type": "document",
+      "source_file": "docs/feedback.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_feedback",
+      "community": 244,
+      "community_name": "feedback.md",
+      "norm_label": "feedback.md"
+    },
+    {
+      "label": "Feedback",
+      "file_type": "document",
+      "source_file": "docs/feedback.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_feedback_feedback",
+      "community": 244,
+      "community_name": "feedback.md",
+      "norm_label": "feedback"
+    },
+    {
       "label": "AGENTS.md \u2014 Agent Context",
       "file_type": "document",
       "source_file": "AGENTS.md",
@@ -3462,9 +3968,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "choice.md \u2014 author's choices",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_choice_author_choices"
     },
@@ -3537,9 +4043,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "ai.md \u2014 artificial intelligence",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_media_ai_media_page"
     },
@@ -3552,9 +4058,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "audio.md \u2014 listening",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_media_audio_media_page"
     },
@@ -3582,9 +4088,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "gaming.md \u2014 gaming",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_media_gaming_media_page"
     },
@@ -3597,9 +4103,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "privacy.md \u2014 ad blocking and privacy",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_media_privacy_media_page"
     },
@@ -3612,9 +4118,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "reading.md \u2014 reading",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_media_reading_media_page"
     },
@@ -3627,9 +4133,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 241,
       "norm_label": "media content pipeline",
-      "community_name": "Get Started Guide",
+      "community_name": "Media Content Pipeline",
       "_origin": "semantic",
       "id": "agents_content_pipeline"
     },
@@ -3642,9 +4148,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 241,
       "norm_label": "fmhy wiki dump sourcing",
-      "community_name": "Get Started Guide",
+      "community_name": "Media Content Pipeline",
       "_origin": "semantic",
       "id": "agents_fmhy_sourcing"
     },
@@ -3657,9 +4163,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 241,
       "norm_label": "20-entry cap rule",
-      "community_name": "Get Started Guide",
+      "community_name": "Media Content Pipeline",
       "_origin": "semantic",
       "id": "agents_entry_cap"
     },
@@ -3672,9 +4178,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "per-category tier rubric",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "rationale": "User criteria per category define the crown (3-5/page), star (7-9/page) and minimum tiers; exemptions exist for special tools (Pi-hole-style network tools, legendary archival indexes, private trackers, abandonware, academic archives).",
       "_origin": "semantic",
       "id": "agents_tier_rubric"
@@ -3688,9 +4194,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 242,
       "norm_label": "fmhy ordering principle",
-      "community_name": "Get Started Guide",
+      "community_name": "The Top-Tier Only",
       "rationale": "FMHY orders entries by trust: entries at the top of a section are the most trusted and highest quality, quality decreases further down, and stars follow the same trend; curation must preserve this ordering.",
       "_origin": "semantic",
       "id": "agents_fmhy_ordering"
@@ -3704,9 +4210,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 241,
       "norm_label": "h1 heading rules",
-      "community_name": "Get Started Guide",
+      "community_name": "Media Content Pipeline",
       "_origin": "semantic",
       "id": "agents_heading_rule"
     },
@@ -3734,9 +4240,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "ad blocking & privacy criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_privacy_rubric"
     },
@@ -3749,9 +4255,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "artificial intelligence criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_ai_rubric"
     },
@@ -3764,9 +4270,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "streaming criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_streaming_rubric"
     },
@@ -3779,9 +4285,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "listening criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_listening_rubric"
     },
@@ -3794,9 +4300,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "gaming criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_gaming_rubric"
     },
@@ -3809,9 +4315,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "reading criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_reading_rubric"
     },
@@ -3824,9 +4330,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "torrenting criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_torrenting_rubric"
     },
@@ -3839,9 +4345,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "downloading criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "agents_downloading_rubric"
     },
@@ -3854,9 +4360,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "sidebar media resources section (meta.ts)",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_vitepress_core_meta_media_section"
     },
@@ -4199,9 +4705,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 241,
       "norm_label": "site quality control criteria",
-      "community_name": "Get Started Guide",
+      "community_name": "Media Content Pipeline",
       "_origin": "semantic",
       "id": "docs_begin_quality_control"
     },
@@ -4274,9 +4780,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
+      "community": 0,
       "norm_label": "fmhy (fmhy.net)",
-      "community_name": "AGENTS.md \u2014 Agent Context",
+      "community_name": "Get Started Guide",
       "_origin": "semantic",
       "id": "agents_fmhy"
     },
@@ -4289,9 +4795,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 47,
       "norm_label": "fitgirl repacks",
-      "community_name": "Get Started Guide",
+      "community_name": "Per-Category Tier Rubric",
       "_origin": "semantic",
       "id": "docs_begin_fitgirl"
     },
@@ -4319,9 +4825,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 241,
       "norm_label": "quality-over-quantity curation goal",
-      "community_name": "Get Started Guide",
+      "community_name": "Media Content Pipeline",
       "_origin": "semantic",
       "id": "docs_get_started_curation_goal"
     },
@@ -9448,8 +9954,8 @@
       "community": 3,
       "norm_label": "theme registry (registry.ts)",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_registry",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_registry"
     },
     {
       "label": "theme-palette.ts",
@@ -9463,8 +9969,8 @@
       "community": 3,
       "norm_label": "theme-palette.ts",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_palette",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_palette"
     },
     {
       "label": "Mode Sync (MutationObserver)",
@@ -9478,8 +9984,8 @@
       "community": 3,
       "norm_label": "mode sync (mutationobserver)",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_mutationsync",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_mutationsync"
     },
     {
       "label": "Theme Persistence (vitepress-theme-name)",
@@ -9493,8 +9999,8 @@
       "community": 3,
       "norm_label": "theme persistence (vitepress-theme-name)",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_persistence",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_persistence"
     },
     {
       "label": "theme-changed-apply-colors Event",
@@ -9508,8 +10014,8 @@
       "community": 3,
       "norm_label": "theme-changed-apply-colors event",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_event",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_event"
     },
     {
       "label": "exports.ts",
@@ -9523,8 +10029,8 @@
       "community": 3,
       "norm_label": "exports.ts",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_exports",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_exports"
     },
     {
       "label": "VitePress (Display Mode Owner)",
@@ -9538,8 +10044,8 @@
       "community": 3,
       "norm_label": "vitepress (display mode owner)",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_vitepress",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_vitepress"
     },
     {
       "label": "bitindex",
@@ -9553,8 +10059,8 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_bitindex",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_bitindex"
     },
     {
       "label": "Multi-Source",
@@ -9568,14 +10074,14 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_multi_source",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_multi_source"
     },
     {
       "label": "Quality Verified",
       "file_type": "document",
       "source_file": "docs/index.md",
-      "community": 0,
+      "community": 242,
       "norm_label": "quality verified",
       "source_location": "line 32",
       "source_url": null,
@@ -9583,8 +10089,8 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_quality_verified",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "docs_index_quality_verified"
     },
     {
       "label": "Always Updated",
@@ -9598,8 +10104,8 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_always_updated",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_always_updated"
     },
     {
       "label": "Open Source",
@@ -9613,8 +10119,8 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_open_source",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_open_source"
     },
     {
       "label": "Highly Organized",
@@ -9628,15 +10134,15 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_highly_organized",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_highly_organized"
     },
     {
       "label": "The Top-Tier Only",
       "file_type": "document",
       "source_file": "docs/index.md",
       "rationale": "Site-wide rule: each category is strictly capped at 20 entries so users only get the best content, avoiding the noise and low-quality entries of larger wikis.",
-      "community": 0,
+      "community": 242,
       "norm_label": "the top-tier only",
       "source_location": "line 52",
       "source_url": null,
@@ -9644,139 +10150,139 @@
       "author": null,
       "contributor": null,
       "_origin": "semantic",
-      "id": "docs_index_top_tier_only",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "docs_index_top_tier_only"
     },
     {
       "label": "Curated Media Pages (docs/media)",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 241,
       "norm_label": "curated media pages (docs/media)",
       "_origin": "semantic",
-      "id": "agents_media_pages",
-      "community_name": "Get Started Guide"
+      "community_name": "Media Content Pipeline",
+      "id": "agents_media_pages"
     },
     {
       "label": "Tier Markers (crown/star/plain)",
       "file_type": "rationale",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 242,
       "norm_label": "tier markers (crown/star/plain)",
       "_origin": "semantic",
-      "id": "agents_tier_markers",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "agents_tier_markers"
     },
     {
       "label": "Editors' Choice Tier",
       "file_type": "rationale",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 242,
       "norm_label": "editors' choice tier",
       "_origin": "semantic",
-      "id": "agents_editor_choice",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "agents_editor_choice"
     },
     {
       "label": "Star Tier",
       "file_type": "rationale",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 242,
       "norm_label": "star tier",
       "_origin": "semantic",
-      "id": "agents_star_tier",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "agents_star_tier"
     },
     {
       "label": "Minimum Tier",
       "file_type": "rationale",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 242,
       "norm_label": "minimum tier",
       "_origin": "semantic",
-      "id": "agents_minimum_tier",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "agents_minimum_tier"
     },
     {
       "label": "Markdown Plugins (markdown/)",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "markdown plugins (markdown/)",
       "_origin": "semantic",
-      "id": "agents_markdown_plugins",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_markdown_plugins"
     },
     {
       "label": "icon-transformer.ts",
       "file_type": "code",
       "source_file": "AGENTS.md",
       "rationale": "crown to crown-icon mapping was added here as the user's preferred approach for the crown tier marker; the crown icon was verified to exist in @iconify-json/twemoji.",
-      "community": 6,
+      "community": 7,
       "norm_label": "icon-transformer.ts",
       "_origin": "semantic",
-      "id": "agents_icon_transformer",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_icon_transformer"
     },
     {
       "label": "emojiMap",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "emojimap",
       "_origin": "semantic",
-      "id": "agents_emoji_map",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_emoji_map"
     },
     {
       "label": "starredlink.ts",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "starredlink.ts",
       "_origin": "semantic",
-      "id": "agents_starredlink",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_starredlink"
     },
     {
       "label": "tooltip.ts",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "tooltip.ts",
       "_origin": "semantic",
-      "id": "agents_tooltip_plugin",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_tooltip_plugin"
     },
     {
       "label": "iconLinks",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "iconlinks",
       "_origin": "semantic",
-      "id": "agents_icon_links",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_icon_links"
     },
     {
       "label": "core/meta.ts (nav & sidebar)",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 241,
       "norm_label": "core/meta.ts (nav & sidebar)",
       "_origin": "semantic",
-      "id": "agents_meta_ts",
-      "community_name": "Get Started Guide"
+      "community_name": "Media Content Pipeline",
+      "id": "agents_meta_ts"
     },
     {
       "label": "Media Resources Sidebar Section",
       "file_type": "code",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 241,
       "norm_label": "media resources sidebar section",
       "_origin": "semantic",
-      "id": "agents_media_resources_sidebar",
-      "community_name": "Get Started Guide"
+      "community_name": "Media Content Pipeline",
+      "id": "agents_media_resources_sidebar"
     },
     {
       "label": "VitePress config.mts",
@@ -9785,49 +10291,49 @@
       "community": 7,
       "norm_label": "vitepress config.mts",
       "_origin": "semantic",
-      "id": "agents_config_mts",
-      "community_name": "AGENTS.md \u2014 Agent Context"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "agents_config_mts"
     },
     {
       "label": "Lint/Build Verification Workflow",
       "file_type": "rationale",
       "source_file": "AGENTS.md",
-      "community": 0,
+      "community": 241,
       "norm_label": "lint/build verification workflow",
       "_origin": "semantic",
-      "id": "agents_verification",
-      "community_name": "Get Started Guide"
+      "community_name": "Media Content Pipeline",
+      "id": "agents_verification"
     },
     {
       "label": "Markdown Emoji Transformation",
       "file_type": "rationale",
       "source_file": "README.md",
       "rationale": "Raw Unicode emojis in markdown text and headings are converted into optimized Iconify/Twemoji components with precise regex and token replacement.",
-      "community": 6,
+      "community": 7,
       "norm_label": "markdown emoji transformation",
       "_origin": "semantic",
-      "id": "readme_markdown_emoji_transformation",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_markdown_emoji_transformation"
     },
     {
       "label": "unicodeEmojiPlugin",
       "file_type": "code",
       "source_file": "README.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "unicodeemojiplugin",
       "_origin": "semantic",
-      "id": "readme_unicode_emoji_plugin",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_unicode_emoji_plugin"
     },
     {
       "label": "Twemoji Iconify Spans",
       "file_type": "code",
       "source_file": "README.md",
-      "community": 6,
+      "community": 7,
       "norm_label": "twemoji iconify spans",
       "_origin": "semantic",
-      "id": "readme_twemoji_icons",
-      "community_name": "bitindex"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_twemoji_icons"
     },
     {
       "label": "MiniSearch Local Search",
@@ -9836,8 +10342,8 @@
       "community": 7,
       "norm_label": "minisearch local search",
       "_origin": "semantic",
-      "id": "readme_local_search",
-      "community_name": "AGENTS.md \u2014 Agent Context"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_local_search"
     },
     {
       "label": "VitePress",
@@ -9846,8 +10352,8 @@
       "community": 7,
       "norm_label": "vitepress",
       "_origin": "semantic",
-      "id": "readme_vitepress",
-      "community_name": "AGENTS.md \u2014 Agent Context"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_vitepress"
     },
     {
       "label": "Vue 3",
@@ -9856,8 +10362,8 @@
       "community": 7,
       "norm_label": "vue 3",
       "_origin": "semantic",
-      "id": "readme_vue3",
-      "community_name": "AGENTS.md \u2014 Agent Context"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_vue3"
     },
     {
       "label": "UnoCSS",
@@ -9866,8 +10372,8 @@
       "community": 7,
       "norm_label": "unocss",
       "_origin": "semantic",
-      "id": "readme_unocss",
-      "community_name": "AGENTS.md \u2014 Agent Context"
+      "community_name": "AGENTS.md \u2014 Agent Context",
+      "id": "readme_unocss"
     },
     {
       "label": "bitindex Theme Engine",
@@ -9876,8 +10382,8 @@
       "community": 3,
       "norm_label": "bitindex theme engine",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_theme_engine",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_theme_engine"
     },
     {
       "label": "Theme Interface",
@@ -9886,8 +10392,8 @@
       "community": 3,
       "norm_label": "theme interface",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_theme_interface",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_theme_interface"
     },
     {
       "label": "ThemeState",
@@ -9896,8 +10402,8 @@
       "community": 3,
       "norm_label": "themestate",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_themetate",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_themetate"
     },
     {
       "label": "state.ts",
@@ -9906,8 +10412,8 @@
       "community": 3,
       "norm_label": "state.ts",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_state_ts",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_state_ts"
     },
     {
       "label": "Dynamic Color Themes (color-swarm)",
@@ -9916,8 +10422,8 @@
       "community": 3,
       "norm_label": "dynamic color themes (color-swarm)",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_color_swarm",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_color_swarm"
     },
     {
       "label": "Modes/Themes Orthogonality",
@@ -9927,8 +10433,8 @@
       "community": 3,
       "norm_label": "modes/themes orthogonality",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_orthogonality",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_orthogonality"
     },
     {
       "label": "CSS Variables Reference",
@@ -9937,8 +10443,8 @@
       "community": 3,
       "norm_label": "css variables reference",
       "_origin": "semantic",
-      "id": "docs_vitepress_theme_themes_theme_guide_css_variables",
-      "community_name": "ThemeHandler (Singleton)"
+      "community_name": "ThemeHandler (Singleton)",
+      "id": "docs_vitepress_theme_themes_theme_guide_css_variables"
     },
     {
       "label": "Site Under Construction Notice",
@@ -9947,8 +10453,8 @@
       "community": 6,
       "norm_label": "site under construction notice",
       "_origin": "semantic",
-      "id": "docs_blogs_notice_under_construction",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_blogs_notice_under_construction"
     },
     {
       "label": "Call for Contributors",
@@ -9957,38 +10463,38 @@
       "community": 6,
       "norm_label": "call for contributors",
       "_origin": "semantic",
-      "id": "docs_blogs_notice_contributor_call",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_blogs_notice_contributor_call"
     },
     {
       "label": "FMHY (Free Media Heck Yeah)",
       "file_type": "document",
       "source_file": "docs/get-started.md",
-      "community": 0,
+      "community": 243,
       "norm_label": "fmhy (free media heck yeah)",
       "_origin": "semantic",
-      "id": "docs_get_started_fmhy",
-      "community_name": "Get Started Guide"
+      "community_name": "Safety First Rules",
+      "id": "docs_get_started_fmhy"
     },
     {
       "label": "r/Piracy Megathread",
       "file_type": "document",
       "source_file": "docs/get-started.md",
-      "community": 0,
+      "community": 243,
       "norm_label": "r/piracy megathread",
       "_origin": "semantic",
-      "id": "docs_get_started_rpiracy",
-      "community_name": "Get Started Guide"
+      "community_name": "Safety First Rules",
+      "id": "docs_get_started_rpiracy"
     },
     {
       "label": "uBlock Origin",
       "file_type": "code",
       "source_file": "docs/get-started.md",
-      "community": 0,
+      "community": 243,
       "norm_label": "ublock origin",
       "_origin": "semantic",
-      "id": "docs_get_started_ublock_origin",
-      "community_name": "Get Started Guide"
+      "community_name": "Safety First Rules",
+      "id": "docs_get_started_ublock_origin"
     },
     {
       "label": "Firefox Browser",
@@ -9997,8 +10503,8 @@
       "community": 0,
       "norm_label": "firefox browser",
       "_origin": "semantic",
-      "id": "docs_get_started_firefox",
-      "community_name": "Get Started Guide"
+      "community_name": "Get Started Guide",
+      "id": "docs_get_started_firefox"
     },
     {
       "label": "Browser Recommendations",
@@ -10007,8 +10513,8 @@
       "community": 0,
       "norm_label": "browser recommendations",
       "_origin": "semantic",
-      "id": "docs_get_started_browsers",
-      "community_name": "Get Started Guide"
+      "community_name": "Get Started Guide",
+      "id": "docs_get_started_browsers"
     },
     {
       "label": "VPN Setup",
@@ -10017,8 +10523,8 @@
       "community": 0,
       "norm_label": "vpn setup",
       "_origin": "semantic",
-      "id": "docs_get_started_vpn",
-      "community_name": "Get Started Guide"
+      "community_name": "Get Started Guide",
+      "id": "docs_get_started_vpn"
     },
     {
       "label": "Torrenting Guide",
@@ -10027,8 +10533,8 @@
       "community": 0,
       "norm_label": "torrenting guide",
       "_origin": "semantic",
-      "id": "docs_get_started_torrenting",
-      "community_name": "Get Started Guide"
+      "community_name": "Get Started Guide",
+      "id": "docs_get_started_torrenting"
     },
     {
       "label": "qBittorrent",
@@ -10037,49 +10543,49 @@
       "community": 0,
       "norm_label": "qbittorrent",
       "_origin": "semantic",
-      "id": "docs_get_started_qbittorrent",
-      "community_name": "Get Started Guide"
+      "community_name": "Get Started Guide",
+      "id": "docs_get_started_qbittorrent"
     },
     {
       "label": "Safety First Rules",
       "file_type": "rationale",
       "source_file": "docs/get-started.md",
-      "community": 0,
+      "community": 243,
       "norm_label": "safety first rules",
       "_origin": "semantic",
-      "id": "docs_get_started_safety_rules",
-      "community_name": "Get Started Guide"
+      "community_name": "Safety First Rules",
+      "id": "docs_get_started_safety_rules"
     },
     {
       "label": "Unsafe Site Lists",
       "file_type": "rationale",
       "source_file": "docs/get-started.md",
-      "community": 0,
+      "community": 243,
       "norm_label": "unsafe site lists",
       "_origin": "semantic",
-      "id": "docs_get_started_unsafe_lists",
-      "community_name": "Get Started Guide"
+      "community_name": "Safety First Rules",
+      "id": "docs_get_started_unsafe_lists"
     },
     {
       "label": "Quality Over Quantity",
       "file_type": "rationale",
       "source_file": "docs/get-started.md",
-      "community": 0,
+      "community": 242,
       "norm_label": "quality over quantity",
       "_origin": "semantic",
-      "id": "docs_get_started_quality_over_quantity",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "docs_get_started_quality_over_quantity"
     },
     {
       "label": "Big Wiki Noise Problem",
       "file_type": "rationale",
       "source_file": "docs/get-started.md",
       "rationale": "Big free media wikis (FMHY, r/Piracy, Awesome, Wotaku.wiki, EverythingMoe) mix good and bad, active and dead, safe and risky resources; bitindex solves this by curating only the best of the best with a strict 20-entry cap per section.",
-      "community": 0,
+      "community": 243,
       "norm_label": "big wiki noise problem",
       "_origin": "semantic",
-      "id": "docs_get_started_wiki_problem",
-      "community_name": "Get Started Guide"
+      "community_name": "Safety First Rules",
+      "id": "docs_get_started_wiki_problem"
     },
     {
       "label": "Safe Sites by Category",
@@ -10088,8 +10594,8 @@
       "community": 0,
       "norm_label": "safe sites by category",
       "_origin": "semantic",
-      "id": "docs_get_started_safe_sites",
-      "community_name": "Get Started Guide"
+      "community_name": "Get Started Guide",
+      "id": "docs_get_started_safe_sites"
     },
     {
       "label": "Site Under Construction",
@@ -10103,8 +10609,8 @@
       "community": 6,
       "norm_label": "site under construction",
       "_origin": "semantic",
-      "id": "docs_index_announcement",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_announcement"
     },
     {
       "label": "20-Entry Cap Rationale",
@@ -10115,11 +10621,11 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 242,
       "norm_label": "20-entry cap rationale",
       "_origin": "semantic",
-      "id": "docs_index_top_tier_only_rationale",
-      "community_name": "Get Started Guide"
+      "community_name": "The Top-Tier Only",
+      "id": "docs_index_top_tier_only_rationale"
     },
     {
       "label": "Community Driven Feature Removal",
@@ -10133,8 +10639,8 @@
       "community": 6,
       "norm_label": "community driven feature removal",
       "_origin": "semantic",
-      "id": "docs_index_community_driven_rationale",
-      "community_name": "bitindex"
+      "community_name": "bitindex",
+      "id": "docs_index_community_driven_rationale"
     }
   ],
   "links": [
@@ -10142,7 +10648,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L191",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10153,7 +10659,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10164,7 +10670,40 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L7",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_config",
+      "target": "docs_vitepress_config_envfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/config.mts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_config",
+      "target": "docs_vitepress_config_envvar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/config.mts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_config",
+      "target": "docs_vitepress_config_feedbackwebhooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/config.mts",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10176,7 +10715,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10188,7 +10727,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10200,7 +10739,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10212,7 +10751,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10224,7 +10763,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10236,7 +10775,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10248,7 +10787,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10260,7 +10799,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10272,7 +10811,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10284,7 +10823,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10296,7 +10835,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L31",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10308,7 +10847,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L31",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10320,7 +10859,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L32",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10332,7 +10871,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L32",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10344,7 +10883,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10356,7 +10895,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10368,7 +10907,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L33",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10380,7 +10919,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L33",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config",
@@ -10393,7 +10932,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L206",
+      "source_location": "L240",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config_config",
@@ -10405,7 +10944,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L209",
+      "source_location": "L243",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config_config",
@@ -10417,7 +10956,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L207",
+      "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config_config",
@@ -10429,7 +10968,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L208",
+      "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config_config",
@@ -10441,7 +10980,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "docs/.vitepress/config.mts",
-      "source_location": "L210",
+      "source_location": "L244",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_config_config",
@@ -10557,7 +11096,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10568,7 +11107,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10579,7 +11118,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10601,7 +11140,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10612,7 +11151,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10634,7 +11173,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10656,7 +11195,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L71",
+      "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -10667,7 +11206,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/meta.ts",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_meta",
@@ -11437,6 +11976,543 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_activewebhook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_buildfields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_configured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_contact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_editwhat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_editwhere",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_errormsg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_feedbacktype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_islinkform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_link",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_longdesc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_longrequired",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_resetform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_shortdesc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_showname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_submit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_thanksmsg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_titles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_truncate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_validate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback",
+      "target": "docs_vitepress_theme_components_feedback_webhookmap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/index.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_index",
+      "target": "docs_vitepress_theme_components_feedback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback_buildfields",
+      "target": "docs_vitepress_theme_components_feedback_truncate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L126",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback_submit",
+      "target": "docs_vitepress_theme_components_feedback_validate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L148",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback_submit",
+      "target": "docs_vitepress_theme_components_feedback_buildfields",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/Feedback.vue",
+      "source_location": "L156",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_feedback_submit",
+      "target": "docs_vitepress_theme_components_feedback_resetform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_clearpencils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_close",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_configured",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_errormsg",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_onkeydown",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_open",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_openfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_setup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_status",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_submit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_what",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback",
+      "target": "docs_vitepress_theme_components_headingfeedback_where",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/core/Layout.vue",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_core_layout",
+      "target": "docs_vitepress_theme_components_headingfeedback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback_setup",
+      "target": "docs_vitepress_theme_components_headingfeedback_clearpencils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback_setup",
+      "target": "docs_vitepress_theme_components_headingfeedback_openfor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/.vitepress/theme/components/HeadingFeedback.vue",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_vitepress_theme_components_headingfeedback_onkeydown",
+      "target": "docs_vitepress_theme_components_headingfeedback_close",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/theme/components/PageHeader.vue",
       "source_location": "L4",
       "weight": 1.0,
@@ -11450,7 +12526,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/theme/core/Layout.vue",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_theme_core_layout",
@@ -11474,7 +12550,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/theme/core/Layout.vue",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_theme_core_layout",
@@ -11833,7 +12909,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/theme/index.ts",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_theme_index",
@@ -14591,6 +15667,17 @@
       "_origin": "ast",
       "source": "package_dependencies_zod",
       "target": "zod",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/feedback.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "docs_feedback",
+      "target": "docs_feedback_feedback",
       "confidence_score": 1.0
     },
     {
@@ -18983,5 +20070,5 @@
       "source_file": "docs/index.md"
     }
   ],
-  "built_at_commit": "4a8dbe1766c48885feb401cdb88ae7a99579fc93"
+  "built_at_commit": "b1853244b2fb1b6d1e6ea66f10908d8fd974a760"
 }

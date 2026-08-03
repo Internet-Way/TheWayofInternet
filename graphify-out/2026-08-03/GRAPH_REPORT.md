@@ -1,16 +1,16 @@
-# Graph Report - TheWayofInternet  (2026-08-02)
+# Graph Report - TheWayofInternet  (2026-08-03)
 
 ## Corpus Check
-- 94 files · ~201,848 words
+- 97 files · ~203,981 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 768 nodes · 799 edges · 240 communities (35 shown, 205 thin omitted)
-- Extraction: 88% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 91 edges (avg confidence: 0.79)
+- 814 nodes · 851 edges · 247 communities (41 shown, 206 thin omitted)
+- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 91 edges (avg confidence: 0.79)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4a8dbe17`
+- Built from commit: `b1853244`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -51,7 +51,8 @@
 - m0nkrus
 - @iconify-json/carbon
 - @headlessui/vue
-- @iconify-json/fluent-mdl2
+- Feedback.vue
+- HeadingFeedback.vue
 - @iconify-json/gravity-ui
 - @iconify-json/heroicons-solid
 - @iconify-json/logos
@@ -61,7 +62,7 @@
 - @iconify-json/ph
 - @iconify-json/qlementine-icons
 - @iconify-json/simple-icons
-- mark.js
+- Per-Category Tier Rubric
 - markdown-it
 - @mdit/plugin-align
 - @mdit/plugin-attrs
@@ -252,6 +253,12 @@
 - Tubi
 - WatchFlux
 - Z-Stream
+- Media Content Pipeline
+- The Top-Tier Only
+- Safety First Rules
+- feedback.md
+- feed
+- @iconify-json/fluent
 
 ## God Nodes (most connected - your core abstractions)
 1. `ThemeHandler (Singleton)` - 24 edges
@@ -268,13 +275,13 @@
 ## Surprising Connections (you probably didn't know these)
 - `README.md — Project Overview` --conceptually_related_to--> `ThemeHandler (state.ts)`  [INFERRED]
   README.md → docs/.vitepress/theme/themes/state.ts
+- `Per-Category Tier Rubric` --semantically_similar_to--> `Site Quality Control Criteria`  [INFERRED] [semantically similar]
+  AGENTS.md → docs/begin.md
 - `VitePress Site Config (config.mts)` --conceptually_related_to--> `MiniSearch Enhanced Local Search`  [INFERRED]
   docs/.vitepress/config.mts → README.md
 - `AGENTS.md — Agent Context` --references--> `Sidebar Media Resources Section (meta.ts)`  [EXTRACTED]
   AGENTS.md → docs/.vitepress/core/meta.ts
 - `FMHY Wiki Dump Sourcing` --semantically_similar_to--> `Site Quality Control Criteria`  [INFERRED] [semantically similar]
-  AGENTS.md → docs/begin.md
-- `Per-Category Tier Rubric` --semantically_similar_to--> `Site Quality Control Criteria`  [INFERRED] [semantically similar]
   AGENTS.md → docs/begin.md
 
 ## Import Cycles
@@ -283,11 +290,11 @@
 ## Hyperedges (group relationships)
 - **Homepage Features** — docs_index_multi_source, docs_index_quality_verified, docs_index_always_updated, docs_index_open_source, docs_index_highly_organized, docs_index_top_tier_only [EXTRACTED 0.75]
 
-## Communities (240 total, 205 thin omitted)
+## Communities (247 total, 206 thin omitted)
 
 ### Community 0 - "Get Started Guide"
-Cohesion: 0.05
-Nodes (61): Artificial Intelligence Criteria, Media Content Pipeline, Downloading Criteria, Editors' Choice Tier, 20-Entry Cap Rule, FMHY Ordering Principle, FMHY Wiki Dump Sourcing, Gaming Criteria (+53 more)
+Cohesion: 0.14
+Nodes (20): FMHY (fmhy.net), Base64 URL Encoding Practice, Microsoft Activation Scripts (MAS), begin.md — Piracy Knowledge Base, r/Piracy Megathread (rentry.org), How Torrenting Works, uBlock Origin, Unsafe Sites & Red Flags Knowledge (+12 more)
 
 ### Community 1 - "state.ts"
 Cohesion: 0.07
@@ -302,20 +309,20 @@ Cohesion: 0.10
 Nodes (40): applyTheme, Brand color interaction, Catppuccin Theme, Dynamic Color Themes (color-swarm), color-* dynamic themes, ColorPicker.vue, CSS Variables Reference, CSS variables mapping (+32 more)
 
 ### Community 4 - "config.mts"
-Cohesion: 0.09
-Nodes (25): config(), __dirname, unocssConfigPath, cfStart, commitRef, commitStart, excluded, feedback (+17 more)
+Cohesion: 0.08
+Nodes (27): config(), __dirname, envFile, feedbackWebhooks, unocssConfigPath, cfStart, commitRef, commitStart (+19 more)
 
 ### Community 5 - "ColorPicker.vue"
-Cohesion: 0.08
-Nodes (24): { frontmatter }, ColorNames, colorOptions, { frontmatter, page }, generateThemeFromColor(), normalizeColorName(), presetThemeNames, selectedColor (+16 more)
+Cohesion: 0.11
+Nodes (22): ColorNames, colorOptions, { frontmatter, page }, generateThemeFromColor(), normalizeColorName(), presetThemeNames, selectedColor, { setTheme, mode, themeName } (+14 more)
 
 ### Community 6 - "bitindex"
-Cohesion: 0.11
-Nodes (23): emojiMap, iconLinks, icon-transformer.ts, Markdown Plugins (markdown/), starredlink.ts, tooltip.ts, Call for Contributors, blogs/notice.md — Site Notice (+15 more)
+Cohesion: 0.19
+Nodes (14): Call for Contributors, blogs/notice.md — Site Notice, Site Under Construction Notice, ContributorList Component, Contributors Page, discord.md — Discord, Always Updated, Site Under Construction (+6 more)
 
 ### Community 7 - "AGENTS.md — Agent Context"
-Cohesion: 0.14
-Nodes (21): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, FMHY (fmhy.net), blog.md — BLOG Index, blogs/test.md — Test Blog, Post Component (<Post />), VitePress Site Config (config.mts) (+13 more)
+Cohesion: 0.10
+Nodes (29): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, emojiMap, iconLinks, icon-transformer.ts, Markdown Plugins (markdown/), starredlink.ts (+21 more)
 
 ### Community 8 - "Curation tier rubric (Editors' Choice / Star / Minimum)"
 Cohesion: 0.12
@@ -327,11 +334,11 @@ Nodes (8): Contributor, contributors, { frontmatter }, avatarUrl, props, avatarU
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
-Nodes (11): @iconify-json/fluent, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/fluent, @iconify-json/twemoji (+3 more)
+Nodes (11): @iconify-json/fluent-mdl2, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/fluent-mdl2, @iconify-json/twemoji (+3 more)
 
 ### Community 12 - "dependencies"
 Cohesion: 0.22
-Nodes (9): consola, feed, @mdi/font, dependencies, consola, feed, @mdi/font, @unocss/preset-uno (+1 more)
+Nodes (9): consola, mark.js, @mdi/font, dependencies, consola, mark.js, @mdi/font, @unocss/preset-uno (+1 more)
 
 ### Community 13 - "ThemePalette.vue"
 Cohesion: 0.25
@@ -413,14 +420,38 @@ Nodes (3): Library Genesis (LibGen), LibGen Mirrors, LibGen Tools
 Cohesion: 0.67
 Nodes (3): Plex, Jellyfin, Plex (media server)
 
+### Community 36 - "Feedback.vue"
+Cohesion: 0.09
+Nodes (26): activeWebhook, buildFields(), colors, configured, contact, editWhat, editWhere, errorMsg (+18 more)
+
+### Community 37 - "HeadingFeedback.vue"
+Cohesion: 0.11
+Nodes (14): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor() (+6 more)
+
+### Community 47 - "Per-Category Tier Rubric"
+Cohesion: 0.15
+Nodes (17): Artificial Intelligence Criteria, Downloading Criteria, Gaming Criteria, Listening Criteria, Ad Blocking & Privacy Criteria, Reading Criteria, Streaming Criteria, Per-Category Tier Rubric (+9 more)
+
+### Community 241 - "Media Content Pipeline"
+Cohesion: 0.24
+Nodes (10): Media Content Pipeline, 20-Entry Cap Rule, FMHY Wiki Dump Sourcing, H1 Heading Rules, Curated Media Pages (docs/media), Media Resources Sidebar Section, core/meta.ts (nav & sidebar), Lint/Build Verification Workflow (+2 more)
+
+### Community 242 - "The Top-Tier Only"
+Cohesion: 0.22
+Nodes (9): Editors' Choice Tier, FMHY Ordering Principle, Minimum Tier, Star Tier, Tier Markers (crown/star/plain), Quality Over Quantity, Quality Verified, The Top-Tier Only (+1 more)
+
+### Community 243 - "Safety First Rules"
+Cohesion: 0.40
+Nodes (6): FMHY (Free Media Heck Yeah), r/Piracy Megathread, Safety First Rules, uBlock Origin, Unsafe Site Lists, Big Wiki Noise Problem
+
 ## Ambiguous Edges - Review These
 - `ReVanced` → `yt-dlp (social media)`  [AMBIGUOUS]
   reso/mobile.md · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **409 isolated node(s):** `__dirname`, `unocssConfigPath`, `excluded`, `cfStart`, `commitStart` (+404 more)
+- **440 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+435 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **205 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **206 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -428,14 +459,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `ReVanced` and `yt-dlp (social media)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `ColorPicker.vue`, `bitindex`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `ThemeHandler (state.ts)` connect `ColorPicker.vue` to `AGENTS.md — Agent Context`?**
-  _High betweenness centrality (0.052) - this node is a cross-community bridge._
-- **Why does `index.md — Home Page` connect `bitindex` to `Get Started Guide`, `AGENTS.md — Agent Context`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+- **Why does `index.md — Home Page` connect `bitindex` to `Get Started Guide`, `Media Content Pipeline`, `AGENTS.md — Agent Context`?**
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Get Started Guide` (e.g. with `downloading.md — Downloading` and `privacy.md — Ad Blocking and Privacy`) actually correct?**
   _`Get Started Guide` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `Media Content Pipeline` (e.g. with `Lint/Build Verification Workflow` and `Quality-Over-Quantity Curation Goal`) actually correct?**
   _`Media Content Pipeline` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `__dirname`, `unocssConfigPath`, `excluded` to the rest of the system?**
-  _409 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `__dirname`, `unocssConfigPath`, `envFile` to the rest of the system?**
+  _440 weakly-connected nodes found - possible documentation gaps or missing edges._

@@ -179,21 +179,6 @@
     "ast_hash": "51a91318810c13debb6d76ad1dc98ee7",
     "semantic_hash": "51a91318810c13debb6d76ad1dc98ee7"
   },
-  "docs/test-debug.js": {
-    "mtime": 1774780481.9820814,
-    "ast_hash": "8dcdc620700fdd96537d772b5a776eea",
-    "semantic_hash": "8dcdc620700fdd96537d772b5a776eea"
-  },
-  "docs/test-regex.js": {
-    "mtime": 1774780167.748398,
-    "ast_hash": "1d7bbbeb391857e56b042fbd6ca2103b",
-    "semantic_hash": "1d7bbbeb391857e56b042fbd6ca2103b"
-  },
-  "metadata.json": {
-    "mtime": 1785659185.304845,
-    "ast_hash": "37f9f68d533f2ed11def61708040ea4b",
-    "semantic_hash": "37f9f68d533f2ed11def61708040ea4b"
-  },
   "package.json": {
     "mtime": 1785585379.817838,
     "ast_hash": "cbfdea483f41f301fee06037b5a4b7b2",
@@ -225,19 +210,14 @@
     "semantic_hash": "d0af2d5149cd7f1050c7cefcf8e6429d"
   },
   "docs/blog.md": {
-    "mtime": 1774758991.8515968,
-    "ast_hash": "af0a63e61193fd7d8a38b58811300682",
-    "semantic_hash": "af0a63e61193fd7d8a38b58811300682"
+    "mtime": 1785741121.440216,
+    "ast_hash": "6ee9ba27087e8ea8f1a0dcd16152645f",
+    "semantic_hash": ""
   },
   "docs/blogs/notice.md": {
     "mtime": 1785662199.9529364,
     "ast_hash": "a145aeaae6b8289e1da38bd45a9f9611",
     "semantic_hash": ""
-  },
-  "docs/blogs/test.md": {
-    "mtime": 1774852607.3565547,
-    "ast_hash": "7ac5b922d4c490fccadd1d9594ed69d6",
-    "semantic_hash": "7ac5b922d4c490fccadd1d9594ed69d6"
   },
   "docs/choice.md": {
     "mtime": 1774758989.6347082,
@@ -265,44 +245,44 @@
     "semantic_hash": ""
   },
   "docs/media/ai.md": {
-    "mtime": 1785599281.6553507,
-    "ast_hash": "de678b63ca7ab2e1e65c1b9a2dcdbe5b",
-    "semantic_hash": "de678b63ca7ab2e1e65c1b9a2dcdbe5b"
+    "mtime": 1785599281.8029954,
+    "ast_hash": "80d785de77151f77383a868422fabd9a",
+    "semantic_hash": ""
   },
   "docs/media/audio.md": {
-    "mtime": 1785599281.6815903,
-    "ast_hash": "8104a6c2891a511634e555ef436e2b0f",
-    "semantic_hash": "8104a6c2891a511634e555ef436e2b0f"
+    "mtime": 1785599281.8059938,
+    "ast_hash": "316bb60baa7f59d225525e06130d4f05",
+    "semantic_hash": ""
   },
   "docs/media/downloading.md": {
-    "mtime": 1785599281.704579,
-    "ast_hash": "1bbea0afff27abd5d9b0917a8d6a98d4",
-    "semantic_hash": "1bbea0afff27abd5d9b0917a8d6a98d4"
+    "mtime": 1785599281.8529894,
+    "ast_hash": "c41a4928351160249fcfdf42a5fabac4",
+    "semantic_hash": ""
   },
   "docs/media/gaming.md": {
-    "mtime": 1785599281.7270305,
-    "ast_hash": "5a932c564a243c10e24a58b126b67fcb",
-    "semantic_hash": "5a932c564a243c10e24a58b126b67fcb"
+    "mtime": 1785599281.979356,
+    "ast_hash": "4e56a363f1c4fff2cf84f429219c7694",
+    "semantic_hash": ""
   },
   "docs/media/privacy.md": {
-    "mtime": 1785599281.7460203,
-    "ast_hash": "ee161dc3e871fd778891bcd505071682",
-    "semantic_hash": "ee161dc3e871fd778891bcd505071682"
+    "mtime": 1785599282.1626232,
+    "ast_hash": "1f25289ce2e6ac56ee62516ded67469a",
+    "semantic_hash": ""
   },
   "docs/media/reading.md": {
-    "mtime": 1785599281.7689896,
-    "ast_hash": "c61f8b5a80605304032709ef12a2c5f0",
-    "semantic_hash": "c61f8b5a80605304032709ef12a2c5f0"
+    "mtime": 1785599282.1655915,
+    "ast_hash": "2be314828434889aa2d75002bc3d7d35",
+    "semantic_hash": ""
   },
   "docs/media/torrenting.md": {
-    "mtime": 1785599281.7869873,
-    "ast_hash": "c98f5f81aad71548580b9a60c42283ed",
-    "semantic_hash": "c98f5f81aad71548580b9a60c42283ed"
+    "mtime": 1785599282.2979815,
+    "ast_hash": "f8133a647371fd77fb6359fca6b999fe",
+    "semantic_hash": ""
   },
   "docs/media/video.md": {
-    "mtime": 1785599281.8019996,
-    "ast_hash": "e7213102fbc9b3c19240fd663b6a56e2",
-    "semantic_hash": "e7213102fbc9b3c19240fd663b6a56e2"
+    "mtime": 1785599282.3475065,
+    "ast_hash": "6b8f85eaec36a58574aac2e3fe60443f",
+    "semantic_hash": ""
   },
   "docs/notes.md": {
     "mtime": 1783765881.0564187,
@@ -319,161 +299,6 @@
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
-  "reso/ai.md": {
-    "mtime": 1785599281.8029954,
-    "ast_hash": "80d785de77151f77383a868422fabd9a",
-    "semantic_hash": "80d785de77151f77383a868422fabd9a"
-  },
-  "reso/audio.md": {
-    "mtime": 1785599281.8059938,
-    "ast_hash": "316bb60baa7f59d225525e06130d4f05",
-    "semantic_hash": "316bb60baa7f59d225525e06130d4f05"
-  },
-  "reso/beginners-guide.md": {
-    "mtime": 1785599281.8320534,
-    "ast_hash": "3852c76161c7a89e5910d06b233ffe17",
-    "semantic_hash": "3852c76161c7a89e5910d06b233ffe17"
-  },
-  "reso/developer-tools.md": {
-    "mtime": 1785599281.8529894,
-    "ast_hash": "a7a103cbde6d44f4f9c1801bcdd6a62f",
-    "semantic_hash": "a7a103cbde6d44f4f9c1801bcdd6a62f"
-  },
-  "reso/downloading.md": {
-    "mtime": 1785599281.8529894,
-    "ast_hash": "c41a4928351160249fcfdf42a5fabac4",
-    "semantic_hash": "c41a4928351160249fcfdf42a5fabac4"
-  },
-  "reso/educational.md": {
-    "mtime": 1785599281.8680289,
-    "ast_hash": "e7a257c0c069f6cba50a3ddec22e8173",
-    "semantic_hash": "e7a257c0c069f6cba50a3ddec22e8173"
-  },
-  "reso/feedback.md": {
-    "mtime": 1785599281.8980377,
-    "ast_hash": "9b21e2d293da6d78c6eb5f51f595978c",
-    "semantic_hash": "9b21e2d293da6d78c6eb5f51f595978c"
-  },
-  "reso/file-tools.md": {
-    "mtime": 1785599281.9309938,
-    "ast_hash": "cc430654fb7ad1016a721b6c9f41ddc0",
-    "semantic_hash": "cc430654fb7ad1016a721b6c9f41ddc0"
-  },
-  "reso/gaming-tools.md": {
-    "mtime": 1785599281.96935,
-    "ast_hash": "cf4eb499ad2c6fd5c47699755f24ca62",
-    "semantic_hash": "cf4eb499ad2c6fd5c47699755f24ca62"
-  },
-  "reso/gaming.md": {
-    "mtime": 1785599281.979356,
-    "ast_hash": "4e56a363f1c4fff2cf84f429219c7694",
-    "semantic_hash": "4e56a363f1c4fff2cf84f429219c7694"
-  },
-  "reso/image-tools.md": {
-    "mtime": 1785599282.003368,
-    "ast_hash": "19fc33972875f764dc44c40c81f3a31b",
-    "semantic_hash": "19fc33972875f764dc44c40c81f3a31b"
-  },
-  "reso/index.md": {
-    "mtime": 1785599282.0313454,
-    "ast_hash": "ad46f30f468ee39212766eb7e8c8b3bc",
-    "semantic_hash": "ad46f30f468ee39212766eb7e8c8b3bc"
-  },
-  "reso/internet-tools.md": {
-    "mtime": 1785599282.0543673,
-    "ast_hash": "d66c99ac72a452cfd076fc5dab604e7f",
-    "semantic_hash": "d66c99ac72a452cfd076fc5dab604e7f"
-  },
-  "reso/linux-macos.md": {
-    "mtime": 1785599282.070354,
-    "ast_hash": "bbb710458396059b5c03c2ee79b08873",
-    "semantic_hash": "bbb710458396059b5c03c2ee79b08873"
-  },
-  "reso/misc.md": {
-    "mtime": 1785599282.1013541,
-    "ast_hash": "d4e8bfb90a44b87ccb0744dc26ce6483",
-    "semantic_hash": "d4e8bfb90a44b87ccb0744dc26ce6483"
-  },
-  "reso/mobile.md": {
-    "mtime": 1785599282.1203442,
-    "ast_hash": "5a295913de69858df721644309150e9b",
-    "semantic_hash": "5a295913de69858df721644309150e9b"
-  },
-  "reso/non-english.md": {
-    "mtime": 1785599282.135575,
-    "ast_hash": "3504f96c628bc65a0920e1f89edcd0de",
-    "semantic_hash": "3504f96c628bc65a0920e1f89edcd0de"
-  },
-  "reso/posts.md": {
-    "mtime": 1785599282.1605954,
-    "ast_hash": "f15f229efe43fa94c6f4b34faa76c7a5",
-    "semantic_hash": "f15f229efe43fa94c6f4b34faa76c7a5"
-  },
-  "reso/privacy.md": {
-    "mtime": 1785599282.1626232,
-    "ast_hash": "1f25289ce2e6ac56ee62516ded67469a",
-    "semantic_hash": "1f25289ce2e6ac56ee62516ded67469a"
-  },
-  "reso/reading.md": {
-    "mtime": 1785599282.1655915,
-    "ast_hash": "2be314828434889aa2d75002bc3d7d35",
-    "semantic_hash": "2be314828434889aa2d75002bc3d7d35"
-  },
-  "reso/sandbox.md": {
-    "mtime": 1785599282.188593,
-    "ast_hash": "ff076ed0a8ce537cba90c4d567882070",
-    "semantic_hash": "ff076ed0a8ce537cba90c4d567882070"
-  },
-  "reso/social-media-tools.md": {
-    "mtime": 1785599282.2065973,
-    "ast_hash": "2737c29bd7d401db9d467e0fa4aa9d2d",
-    "semantic_hash": "2737c29bd7d401db9d467e0fa4aa9d2d"
-  },
-  "reso/startpage.md": {
-    "mtime": 1785599282.2306156,
-    "ast_hash": "67892beba520bea7e6545a9c33493f4b",
-    "semantic_hash": "67892beba520bea7e6545a9c33493f4b"
-  },
-  "reso/storage.md": {
-    "mtime": 1785599282.2496274,
-    "ast_hash": "b6c70b14b9fd84f1fe75e3b4c6139423",
-    "semantic_hash": "b6c70b14b9fd84f1fe75e3b4c6139423"
-  },
-  "reso/system-tools.md": {
-    "mtime": 1785599282.258587,
-    "ast_hash": "956826f8d8583dfb6f581251d8f92cdd",
-    "semantic_hash": "956826f8d8583dfb6f581251d8f92cdd"
-  },
-  "reso/temp.md": {
-    "mtime": 1785599282.2689533,
-    "ast_hash": "941143bbbc123ca932f29d77e6bdb151",
-    "semantic_hash": "941143bbbc123ca932f29d77e6bdb151"
-  },
-  "reso/text-tools.md": {
-    "mtime": 1785599282.2960024,
-    "ast_hash": "ace25a1fdf800a2b9d1f06b7c595f5c4",
-    "semantic_hash": "ace25a1fdf800a2b9d1f06b7c595f5c4"
-  },
-  "reso/torrenting.md": {
-    "mtime": 1785599282.2979815,
-    "ast_hash": "f8133a647371fd77fb6359fca6b999fe",
-    "semantic_hash": "f8133a647371fd77fb6359fca6b999fe"
-  },
-  "reso/unsafe.md": {
-    "mtime": 1785599282.3184426,
-    "ast_hash": "4eafdedc84b5d4588ab2686e05863a77",
-    "semantic_hash": "4eafdedc84b5d4588ab2686e05863a77"
-  },
-  "reso/video-tools.md": {
-    "mtime": 1785599282.345467,
-    "ast_hash": "30e74fbcba74ef6397b6bad9108ff104",
-    "semantic_hash": "30e74fbcba74ef6397b6bad9108ff104"
-  },
-  "reso/video.md": {
-    "mtime": 1785599282.3475065,
-    "ast_hash": "6b8f85eaec36a58574aac2e3fe60443f",
-    "semantic_hash": "6b8f85eaec36a58574aac2e3fe60443f"
-  },
   "docs/public/logo.png": {
     "mtime": 1785586547.9747458,
     "ast_hash": "1d03264c603e3027b758a5f424640f9e",
@@ -485,8 +310,8 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/HeadingFeedback.vue": {
-    "mtime": 1785737585.097238,
-    "ast_hash": "c5ffaa31218df85ea920b69679b0068c",
+    "mtime": 1785738166.6705785,
+    "ast_hash": "bcbf37c70e278f4c527982a318a97deb",
     "semantic_hash": ""
   },
   "docs/feedback.md": {

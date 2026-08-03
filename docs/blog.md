@@ -1,4 +1,3 @@
 # BLOG
 
-- [A test blog](/blogs/test)
-
+Coming soon.
