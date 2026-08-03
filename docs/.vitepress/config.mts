@@ -55,8 +55,8 @@ const envFile = loadEnv("", path.resolve(__dirname, "../.."), "");
 const envVar = (key: string) => process.env[key] || envFile[key] || "";
 
 const feedbackWebhooks = {
-  addStar: envVar("DISCORD_WEBHOOK_ADD_STAR"),
-  removeUnstar: envVar("DISCORD_WEBHOOK_REMOVE_UNSTAR"),
+  addRemove: envVar("DISCORD_WEBHOOK_ADD_REMOVE"),
+  starUnstar: envVar("DISCORD_WEBHOOK_STAR_UNSTAR"),
   edit: envVar("DISCORD_WEBHOOK_EDIT"),
   thanks: envVar("DISCORD_WEBHOOK_THANKS"),
 };
@@ -127,9 +127,9 @@ export default defineConfig({
   },
   vite: {
     define: {
-      __DISCORD_WEBHOOK_ADD_STAR__: JSON.stringify(feedbackWebhooks.addStar),
-      __DISCORD_WEBHOOK_REMOVE_UNSTAR__: JSON.stringify(
-        feedbackWebhooks.removeUnstar
+      __DISCORD_WEBHOOK_ADD_REMOVE__: JSON.stringify(feedbackWebhooks.addRemove),
+      __DISCORD_WEBHOOK_STAR_UNSTAR__: JSON.stringify(
+        feedbackWebhooks.starUnstar
       ),
       __DISCORD_WEBHOOK_EDIT__: JSON.stringify(feedbackWebhooks.edit),
       __DISCORD_WEBHOOK_THANKS__: JSON.stringify(feedbackWebhooks.thanks),

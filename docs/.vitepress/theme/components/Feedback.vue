@@ -1,109 +1,105 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-declare const __DISCORD_WEBHOOK_ADD_STAR__: string
-declare const __DISCORD_WEBHOOK_REMOVE_UNSTAR__: string
+declare const __DISCORD_WEBHOOK_ADD_REMOVE__: string
+declare const __DISCORD_WEBHOOK_STAR_UNSTAR__: string
 declare const __DISCORD_WEBHOOK_EDIT__: string
 declare const __DISCORD_WEBHOOK_THANKS__: string
 
-type FeedbackType = 'add' | 'remove' | 'edit' | 'thanks'
+type FeedbackType = 'add' | 'remove' | 'star' | 'unstar' | 'edit' | 'thanks'
 
 const types: { value: FeedbackType; label: string }[] = [
-  { value: 'add', label: 'Add Link / Star Link' },
-  { value: 'remove', label: 'Remove Link / Unstar Link' },
-  { value: 'edit', label: 'Suggest Edit' },
-  { value: 'thanks', label: 'Say Thanks' }
+  { value: 'add', label: 'Add a link' },
+  { value: 'remove', label: 'Remove a link' },
+  { value: 'star', label: 'Star a link' },
+  { value: 'unstar', label: 'Unstar a link' },
+  { value: 'edit', label: 'Fix a mistake' },
+  { value: 'thanks', label: 'Say thanks' }
 ]
 
 const type = ref<FeedbackType>('add')
-const addMode = ref<'add' | 'star'>('add')
-const removeMode = ref<'remove' | 'unstar'>('remove')
 
 const name = ref('')
 const link = ref('')
 const shortDesc = ref('')
 const longDesc = ref('')
 const contact = ref('')
-
-const rmLink = ref('')
-const rmLongDesc = ref('')
-const rmContact = ref('')
-
 const editWhere = ref('')
 const editWhat = ref('')
-
 const thanksMsg = ref('')
 
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const errorMsg = ref('')
 
 const webhookMap: Record<FeedbackType, string> = {
-  add: __DISCORD_WEBHOOK_ADD_STAR__,
-  remove: __DISCORD_WEBHOOK_REMOVE_UNSTAR__,
+  add: __DISCORD_WEBHOOK_ADD_REMOVE__,
+  remove: __DISCORD_WEBHOOK_ADD_REMOVE__,
+  star: __DISCORD_WEBHOOK_STAR_UNSTAR__,
+  unstar: __DISCORD_WEBHOOK_STAR_UNSTAR__,
   edit: __DISCORD_WEBHOOK_EDIT__,
   thanks: __DISCORD_WEBHOOK_THANKS__
 }
 
 const activeWebhook = computed(() => webhookMap[type.value])
-const webhookConfigured = computed(() => Boolean(activeWebhook.value))
+const configured = computed(() => Boolean(activeWebhook.value))
 
-const typeTitle = computed(() => {
-  switch (type.value) {
-    case 'add':
-      return addMode.value === 'star' ? '⭐ Star Link' : '➕ Add Link'
-    case 'remove':
-      return removeMode.value === 'unstar' ? '⭐ Unstar Link' : '➖ Remove Link'
-    case 'edit':
-      return '✏️ Suggest Edit'
-    case 'thanks':
-      return '💜 Say Thanks'
-  }
-})
+const titles: Record<FeedbackType, string> = {
+  add: 'Add Link',
+  remove: 'Remove Link',
+  star: 'Star Link',
+  unstar: 'Unstar Link',
+  edit: 'Fix a mistake',
+  thanks: 'Say thanks'
+}
 
-const truncate = (s: string, n = 1000) =>
-  s.length > n ? s.slice(0, n - 1) + '…' : s
+const colors: Record<FeedbackType, number> = {
+  add: 0x2ecc71,
+  remove: 0xe74c3c,
+  star: 0xf1c40f,
+  unstar: 0xe67e22,
+  edit: 0x3498db,
+  thanks: 0x9b59b6
+}
+
+const isLinkForm = computed(() =>
+  type.value === 'add' || type.value === 'remove' || type.value === 'star' || type.value === 'unstar'
+)
+const showName = computed(() => type.value === 'add' || type.value === 'star')
+const longRequired = computed(() => type.value === 'remove' || type.value === 'star' || type.value === 'unstar')
+
+const truncate = (s: string, n = 1000) => (s.length > n ? s.slice(0, n - 1) + '…' : s)
 
 const validate = (): string | null => {
-  if (type.value === 'add') {
-    if (!name.value.trim()) return 'Name is required'
+  if (isLinkForm.value) {
+    if (showName.value && !name.value.trim()) return 'Name is required'
     if (!link.value.trim()) return 'Link is required'
-    if (!shortDesc.value.trim()) return 'Short Description is required'
-    if (addMode.value === 'star' && !longDesc.value.trim())
-      return 'Long Description is required for Star Link'
+    if (showName.value && !shortDesc.value.trim()) return 'Short description is required'
+    if (longRequired.value && !longDesc.value.trim()) return 'Description is required'
     if (!contact.value.trim()) return 'Contact is required'
-  } else if (type.value === 'remove') {
-    if (!rmLink.value.trim()) return 'Link is required'
-    if (!rmLongDesc.value.trim()) return 'Long Description is required'
-    if (!rmContact.value.trim()) return 'Contact is required'
   } else if (type.value === 'edit') {
     if (!editWhere.value.trim()) return 'Where is required'
     if (!editWhat.value.trim()) return 'What is required'
-  } else {
-    if (!thanksMsg.value.trim()) return 'Message is required'
+  } else if (!thanksMsg.value.trim()) {
+    return 'Message is required'
   }
   return null
 }
 
 const buildFields = () => {
-  if (type.value === 'add') {
-    const fields: { name: string; value: string; inline?: boolean }[] = [
-      { name: 'Action', value: addMode.value === 'star' ? 'Star Link' : 'Add Link', inline: true },
-      { name: 'Name', value: truncate(name.value.trim()), inline: true },
-      { name: 'Link', value: link.value.trim(), inline: false },
-      { name: 'Short Description', value: truncate(shortDesc.value.trim()), inline: false }
-    ]
-    if (longDesc.value.trim())
-      fields.push({ name: 'Long Description', value: truncate(longDesc.value.trim()), inline: false })
+  if (isLinkForm.value) {
+    const fields: { name: string; value: string; inline?: boolean }[] = []
+    if (showName.value) {
+      fields.push(
+        { name: 'Name', value: truncate(name.value.trim()), inline: true },
+        { name: 'Link', value: link.value.trim(), inline: false },
+        { name: 'Short description', value: truncate(shortDesc.value.trim()), inline: false }
+      )
+    } else {
+      fields.push({ name: 'Link', value: link.value.trim(), inline: false })
+    }
+    fields.push({ name: 'Long description', value: truncate(longDesc.value.trim()), inline: false })
     fields.push({ name: 'Contact', value: truncate(contact.value.trim()), inline: true })
     return fields
-  }
-  if (type.value === 'remove') {
-    return [
-      { name: 'Action', value: removeMode.value === 'unstar' ? 'Unstar Link' : 'Remove Link', inline: true },
-      { name: 'Link', value: rmLink.value.trim(), inline: false },
-      { name: 'Long Description', value: truncate(rmLongDesc.value.trim()), inline: false },
-      { name: 'Contact', value: truncate(rmContact.value.trim()), inline: true }
-    ]
   }
   if (type.value === 'edit') {
     return [
@@ -114,22 +110,12 @@ const buildFields = () => {
   return [{ name: 'Message', value: truncate(thanksMsg.value.trim()), inline: false }]
 }
 
-const colors: Record<FeedbackType, number> = {
-  add: 0x2ecc71,
-  remove: 0xe74c3c,
-  edit: 0x3498db,
-  thanks: 0x9b59b6
-}
-
 const resetForm = () => {
   name.value = ''
   link.value = ''
   shortDesc.value = ''
   longDesc.value = ''
   contact.value = ''
-  rmLink.value = ''
-  rmLongDesc.value = ''
-  rmContact.value = ''
   editWhere.value = ''
   editWhat.value = ''
   thanksMsg.value = ''
@@ -143,9 +129,9 @@ const submit = async () => {
     errorMsg.value = err
     return
   }
-  if (!webhookConfigured.value) {
+  if (!configured.value) {
     status.value = 'error'
-    errorMsg.value = 'This feedback channel is not configured yet. Please try again later.'
+    errorMsg.value = 'This channel is not configured yet. Please try again later.'
     return
   }
   status.value = 'sending'
@@ -154,23 +140,21 @@ const submit = async () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username: 'bitindex Feedback',
+        username: 'bitindex feedback',
         embeds: [
           {
-            title: typeTitle.value,
+            title: titles[type.value],
             color: colors[type.value],
             fields: buildFields(),
-            footer: {
-              text: `Submitted from bitindex • ${new Date().toLocaleString()}`
-            }
+            footer: { text: `Submitted from bitindex • ${new Date().toLocaleString()}` }
           }
         ]
       })
     })
-    if (!res.ok) throw new Error(`Discord responded with ${res.status}`)
+    if (!res.ok) throw new Error(String(res.status))
     status.value = 'success'
     resetForm()
-  } catch (e) {
+  } catch {
     status.value = 'error'
     errorMsg.value = 'Something went wrong while sending. Please try again.'
   }
@@ -178,295 +162,229 @@ const submit = async () => {
 </script>
 
 <template>
-  <div class="feedback-card">
-    <div class="f-group">
-      <label class="f-label" for="feedback-type">Feedback Type</label>
-      <select id="feedback-type" v-model="type" class="f-input">
-        <option v-for="t in types" :key="t.value" :value="t.value">
-          {{ t.label }}
-        </option>
-      </select>
+  <div class="panel">
+    <div class="field">
+      <label for="f-type">Request type</label>
+      <div class="select">
+        <select id="f-type" v-model="type">
+          <option v-for="t in types" :key="t.value" :value="t.value">{{ t.label }}</option>
+        </select>
+      </div>
     </div>
 
-    <template v-if="type === 'add'">
-      <div class="f-seg" role="tablist" aria-label="Add or Star">
-        <button
-          type="button"
-          class="f-seg-btn"
-          :class="{ active: addMode === 'add' }"
-          @click="addMode = 'add'"
-        >
-          ➕ Add Link
-        </button>
-        <button
-          type="button"
-          class="f-seg-btn"
-          :class="{ active: addMode === 'star' }"
-          @click="addMode = 'star'"
-        >
-          ⭐ Star Link
-        </button>
+    <template v-if="isLinkForm">
+      <div class="grid">
+        <div v-if="showName" class="field">
+          <label for="f-name">Name <span class="req">*</span></label>
+          <input id="f-name" v-model="name" type="text" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="f-contact">Contact <span class="req">*</span></label>
+          <input id="f-contact" v-model="contact" type="text" placeholder="Email or Discord username" />
+        </div>
+        <div class="field">
+          <label for="f-link">Link <span class="req">*</span></label>
+          <input id="f-link" v-model="link" type="text" placeholder="https://example.com" />
+        </div>
+        <div v-if="showName" class="field">
+          <label for="f-short">Short description <span class="req">*</span></label>
+          <input id="f-short" v-model="shortDesc" type="text" placeholder="One-line summary" />
+        </div>
       </div>
-      <div class="f-group">
-        <label class="f-label" for="f-name">Name <span class="req">*</span></label>
-        <input id="f-name" v-model="name" class="f-input" type="text" placeholder="Your name" />
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-link">Link <span class="req">*</span></label>
-        <input id="f-link" v-model="link" class="f-input" type="text" placeholder="https://example.com" />
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-short">Short Description <span class="req">*</span></label>
-        <input id="f-short" v-model="shortDesc" class="f-input" type="text" placeholder="What is it?" />
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-long">
-          Long Description <span v-if="addMode === 'star'" class="req">*</span>
+      <div class="field">
+        <label for="f-long">
+          {{ showName ? 'Long description' : 'Reason' }}
+          <span v-if="longRequired" class="req">*</span>
           <span v-else class="opt">optional</span>
         </label>
         <textarea
           id="f-long"
           v-model="longDesc"
-          class="f-input f-area"
-          rows="4"
-          placeholder="Details, features, why it deserves a spot…"
+          rows="3"
+          :placeholder="longRequired ? 'Why?' : 'Details, if needed…'"
         ></textarea>
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-contact">
-          Contact Email / Discord Username <span class="req">*</span>
-        </label>
-        <input id="f-contact" v-model="contact" class="f-input" type="text" placeholder="So we can reach you" />
-      </div>
-    </template>
-
-    <template v-else-if="type === 'remove'">
-      <div class="f-seg" role="tablist" aria-label="Remove or Unstar">
-        <button
-          type="button"
-          class="f-seg-btn"
-          :class="{ active: removeMode === 'remove' }"
-          @click="removeMode = 'remove'"
-        >
-          ➖ Remove Link
-        </button>
-        <button
-          type="button"
-          class="f-seg-btn"
-          :class="{ active: removeMode === 'unstar' }"
-          @click="removeMode = 'unstar'"
-        >
-          ⭐ Unstar Link
-        </button>
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-rm-link">Link <span class="req">*</span></label>
-        <input id="f-rm-link" v-model="rmLink" class="f-input" type="text" placeholder="https://example.com" />
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-rm-long">Long Description <span class="req">*</span></label>
-        <textarea
-          id="f-rm-long"
-          v-model="rmLongDesc"
-          class="f-input f-area"
-          rows="4"
-          placeholder="Why should it be removed/unstarred?"
-        ></textarea>
-      </div>
-      <div class="f-group">
-        <label class="f-label" for="f-rm-contact">
-          Contact Email / Discord Username <span class="req">*</span>
-        </label>
-        <input id="f-rm-contact" v-model="rmContact" class="f-input" type="text" placeholder="So we can reach you" />
       </div>
     </template>
 
     <template v-else-if="type === 'edit'">
-      <div class="f-group">
-        <label class="f-label" for="f-edit-where">
-          Where <span class="req">*</span>
-        </label>
-        <input
-          id="f-edit-where"
-          v-model="editWhere"
-          class="f-input"
-          type="text"
-          placeholder="Page link or anchor, e.g. /media/ai#chatbots"
-        />
+      <div class="field">
+        <label for="f-where">Where <span class="req">*</span></label>
+        <input id="f-where" v-model="editWhere" type="text" placeholder="Page or anchor, e.g. /media/ai#chatbots" />
       </div>
-      <div class="f-group">
-        <label class="f-label" for="f-edit-what">What <span class="req">*</span></label>
-        <textarea
-          id="f-edit-what"
-          v-model="editWhat"
-          class="f-input f-area"
-          rows="5"
-          placeholder="Describe the change you want…"
-        ></textarea>
+      <div class="field">
+        <label for="f-what">What <span class="req">*</span></label>
+        <textarea id="f-what" v-model="editWhat" rows="4" placeholder="Describe the change…"></textarea>
       </div>
     </template>
 
     <template v-else>
-      <div class="f-group">
-        <label class="f-label" for="f-thanks">Message <span class="req">*</span></label>
-        <input
-          id="f-thanks"
-          v-model="thanksMsg"
-          class="f-input"
-          type="text"
-          placeholder="A short thank you message"
-          maxlength="300"
-        />
+      <div class="field">
+        <label for="f-thanks">Message <span class="req">*</span></label>
+        <input id="f-thanks" v-model="thanksMsg" type="text" placeholder="Short thank-you note" maxlength="300" />
       </div>
     </template>
 
-    <p v-if="!webhookConfigured" class="f-hint">
-      This feedback channel is not configured yet.
-    </p>
-
-    <p v-if="status === 'error'" class="f-status f-error">{{ errorMsg }}</p>
-    <p v-else-if="status === 'success'" class="f-status f-success">
-      Thanks! Your feedback has been submitted.
-    </p>
-
-    <button
-      type="button"
-      class="f-submit"
-      :disabled="status === 'sending' || !webhookConfigured"
-      @click="submit"
-    >
-      {{ status === 'sending' ? 'Sending…' : 'Submit Feedback' }}
-    </button>
+    <div class="footer">
+      <p v-if="configured" class="note">{{ types.find((t) => t.value === type)?.label }}</p>
+      <p v-else class="note iswarn">This channel is not configured yet.</p>
+      <p v-if="status === 'error'" class="note note-error" aria-live="polite">{{ errorMsg }}</p>
+      <p v-else-if="status === 'success'" class="note note-ok" aria-live="polite">Thanks, your feedback was sent.</p>
+      <button
+        type="button"
+        class="btn"
+        :disabled="status === 'sending' || !configured"
+        @click="submit"
+      >
+        {{ status === 'sending' ? 'Sending…' : 'Send' }}
+      </button>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.feedback-card {
-  max-width: 680px;
-  padding: 24px;
-  border-radius: 12px;
-  background: var(--vp-c-bg-elv);
+.panel {
+  max-width: 640px;
+  padding: 20px;
+  border-radius: 10px;
   border: 1px solid var(--vp-c-divider);
-  margin: 24px 0;
+  background: var(--vp-c-bg);
 }
 
-.f-group:not(:last-child) {
-  margin-bottom: 16px;
+.field {
+  margin-bottom: 14px;
 }
 
-.f-label {
+.field label {
   display: block;
-  font-size: 13px;
+  margin: 0 0 6px;
+  font-size: 12.5px;
   font-weight: 600;
-  color: var(--vp-c-text-1);
-  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+  color: var(--vp-c-text-2);
 }
 
 .req {
-  color: #e74c3c;
+  color: var(--vp-c-danger-1);
 }
 
 .opt {
-  color: var(--vp-c-text-3);
+  margin-left: 4px;
   font-weight: 400;
+  color: var(--vp-c-text-3);
 }
 
-.f-input {
+input,
+textarea,
+select {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 12px;
+  padding: 8px 11px;
+  font: inherit;
   font-size: 14px;
+  line-height: 1.5;
   color: var(--vp-c-text-1);
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.f-input:focus {
-  border-color: var(--vp-c-brand-1);
-}
-
-.f-area {
+textarea {
   resize: vertical;
-  font-family: inherit;
-  line-height: 1.5;
+  min-height: 72px;
 }
 
-select.f-input {
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 0 0 1px var(--vp-c-brand-1);
+}
+
+.select {
+  position: relative;
+}
+
+.select::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid var(--vp-c-text-3);
+  border-bottom: 1.5px solid var(--vp-c-text-3);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 36px;
   cursor: pointer;
 }
 
-.f-seg {
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 14px;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 18px;
 }
 
-.f-seg-btn {
-  flex: 1;
-  padding: 10px 12px;
+.note {
+  margin: 0;
   font-size: 13px;
-  font-weight: 500;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: var(--vp-c-text-3);
 }
 
-.f-seg-btn:hover {
-  border-color: var(--vp-c-brand-1);
-  color: var(--vp-c-text-1);
+.note.iswarn {
+  color: var(--vp-c-warning-1, #c26b1d);
 }
 
-.f-seg-btn.active {
-  background: var(--vp-c-brand-soft);
-  border-color: var(--vp-c-brand-1);
+.note-error {
+  color: var(--vp-c-danger-1);
+}
+
+.note-ok {
   color: var(--vp-c-brand-1);
 }
 
-.f-hint {
-  font-size: 13px;
-  color: var(--vp-c-text-3);
-  margin: 12px 0 0;
-}
-
-.f-status {
-  font-size: 14px;
-  margin: 12px 0 0;
-}
-
-.f-error {
-  color: #e74c3c;
-}
-
-.f-success {
-  color: #2ecc71;
-}
-
-.f-submit {
-  margin-top: 20px;
-  padding: 12px 28px;
-  font-size: 14px;
+.btn {
+  padding: 8px 18px;
+  font: inherit;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--vp-button-brand-text);
   background: var(--vp-button-brand-bg);
   border: 1px solid var(--vp-button-brand-border);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.f-submit:hover:not(:disabled) {
+.btn:hover:not(:disabled) {
   background: var(--vp-button-brand-hover-bg);
   border-color: var(--vp-button-brand-hover-border);
 }
 
-.f-submit:disabled {
-  opacity: 0.5;
+.btn:disabled {
+  opacity: 0.55;
   cursor: not-allowed;
 }
 </style>

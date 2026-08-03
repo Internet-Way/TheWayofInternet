@@ -23,7 +23,7 @@ declare module 'vitepress/dist/client/theme-default/components/VPNavScreen.vue' 
   export default component
 }
 
-declare const __DISCORD_WEBHOOK_ADD_STAR__: string
-declare const __DISCORD_WEBHOOK_REMOVE_UNSTAR__: string
+declare const __DISCORD_WEBHOOK_ADD_REMOVE__: string
+declare const __DISCORD_WEBHOOK_STAR_UNSTAR__: string
 declare const __DISCORD_WEBHOOK_EDIT__: string
 declare const __DISCORD_WEBHOOK_THANKS__: string
