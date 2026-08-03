@@ -63,38 +63,20 @@ const parseEnvFile = (dir: string): Record<string, string> => {
 }
 
 let commitTitle = "development";
-let commitTimestamp = 0;
+let commitIso = "";
 try {
   commitTitle = execSync("git log -1 --pretty=%h", {
     stdio: ["pipe", "pipe", "ignore"],
   })
     .toString()
     .trim();
-  commitTimestamp = Number(
-    execSync("git log -1 --format=%ct", { stdio: ["pipe", "pipe", "ignore"] })
-      .toString()
-      .trim()
-  );
+  commitIso = execSync("git log -1 --format=%cI", {
+    stdio: ["pipe", "pipe", "ignore"],
+  })
+    .toString()
+    .trim();
 } catch {
   // fallback if Git is unavailable (Cloudflare Pages preview)
-}
-
-const timeAgo = (timestamp: number): string => {
-  if (!timestamp) return "some time"
-  const diff = Math.floor(Date.now() / 1000) - timestamp
-  const units = [
-    { n: 31536000, s: "year" },
-    { n: 2592000, s: "month" },
-    { n: 604800, s: "week" },
-    { n: 86400, s: "day" },
-    { n: 3600, s: "hour" },
-    { n: 60, s: "min" }
-  ]
-  for (const { n, s } of units) {
-    const v = Math.floor(diff / n)
-    if (v >= 1) return `${v} ${s}${v > 1 ? "s" : ""}`
-  }
-  return "a few seconds"
 }
 
 const envFile = parseEnvFile(path.resolve(__dirname, "../.."));
@@ -315,7 +297,7 @@ export default defineConfig({
       },
     },
     footer: {
-      message: `Last Edited ${timeAgo(commitTimestamp)} ago | <a href="https://github.com/Internet-Way/bitindex/commit/${commitTitle}">${commitTitle}</a><br/>Made with 🖤 | This site doesnt host any files`,
+      message: `Last Edited <time id="last-edited" datetime="${commitIso}">a few seconds</time> ago | <a href="https://github.com/Internet-Way/bitindex/commit/${commitTitle}">${commitTitle}</a><br/>Made with 🖤 | This site doesnt host any files`,
       copyright: "",
     },
   },

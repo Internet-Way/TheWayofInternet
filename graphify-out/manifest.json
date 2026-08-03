@@ -1,7 +1,7 @@
 {
   "docs/.vitepress/config.mts": {
-    "mtime": 1785749882.5959468,
-    "ast_hash": "fccc9bfca8513098c0b7b41c0cf9b61a",
+    "mtime": 1785751770.5362725,
+    "ast_hash": "bc7f557b5dbf8bab930856ba5d76968a",
     "semantic_hash": ""
   },
   "docs/.vitepress/core/contributors.ts": {
@@ -10,8 +10,8 @@
     "semantic_hash": "c9978c55ab28b141ffc40a38038d188c"
   },
   "docs/.vitepress/core/meta.ts": {
-    "mtime": 1785749880.696213,
-    "ast_hash": "0c8555e73d386c9a18ac8fb368973715",
+    "mtime": 1785751792.8599577,
+    "ast_hash": "9d32f8ec17d9d8ac611a0bb8c7cdcfd9",
     "semantic_hash": ""
   },
   "docs/.vitepress/core/vue-shim.d.ts": {
@@ -125,8 +125,8 @@
     "semantic_hash": "6476cde810458406fed3924bcbf3e818"
   },
   "docs/.vitepress/theme/core/Layout.vue": {
-    "mtime": 1785737369.7482796,
-    "ast_hash": "0c6722ddf71d5a2ddad19ada837759c3",
+    "mtime": 1785751788.5043466,
+    "ast_hash": "ae6d7a3dfbce634e921b1376c2501947",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/index.ts": {
@@ -244,46 +244,6 @@
     "ast_hash": "f7221a3303574d2964513aeea664c4f2",
     "semantic_hash": ""
   },
-  "docs/media/ai.md": {
-    "mtime": 1785599281.8029954,
-    "ast_hash": "80d785de77151f77383a868422fabd9a",
-    "semantic_hash": ""
-  },
-  "docs/media/audio.md": {
-    "mtime": 1785599281.8059938,
-    "ast_hash": "316bb60baa7f59d225525e06130d4f05",
-    "semantic_hash": ""
-  },
-  "docs/media/downloading.md": {
-    "mtime": 1785599281.8529894,
-    "ast_hash": "c41a4928351160249fcfdf42a5fabac4",
-    "semantic_hash": ""
-  },
-  "docs/media/gaming.md": {
-    "mtime": 1785599281.979356,
-    "ast_hash": "4e56a363f1c4fff2cf84f429219c7694",
-    "semantic_hash": ""
-  },
-  "docs/media/privacy.md": {
-    "mtime": 1785599282.1626232,
-    "ast_hash": "1f25289ce2e6ac56ee62516ded67469a",
-    "semantic_hash": ""
-  },
-  "docs/media/reading.md": {
-    "mtime": 1785599282.1655915,
-    "ast_hash": "2be314828434889aa2d75002bc3d7d35",
-    "semantic_hash": ""
-  },
-  "docs/media/torrenting.md": {
-    "mtime": 1785599282.2979815,
-    "ast_hash": "f8133a647371fd77fb6359fca6b999fe",
-    "semantic_hash": ""
-  },
-  "docs/media/video.md": {
-    "mtime": 1785599282.3475065,
-    "ast_hash": "6b8f85eaec36a58574aac2e3fe60443f",
-    "semantic_hash": ""
-  },
   "docs/notes.md": {
     "mtime": 1783765881.0564187,
     "ast_hash": "2c726117f9ce60a90670930d94410204",
@@ -317,6 +277,31 @@
   "docs/feedback.md": {
     "mtime": 1785665778.29453,
     "ast_hash": "cf9fa6aaf77b5f16e170e68a4d30077e",
+    "semantic_hash": ""
+  },
+  "docs/index/ai.md": {
+    "mtime": 1785751742.908441,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "docs/index/audio.md": {
+    "mtime": 1785751804.0040152,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "docs/index/gaming.md": {
+    "mtime": 1785751820.2674787,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "docs/index/privacy.md": {
+    "mtime": 1785751700.7822337,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "docs/index/video.md": {
+    "mtime": 1785751768.891711,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   }
 }

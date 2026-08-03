@@ -1,3 +1,3 @@
 # BLOG
 
-Coming soon.
+- [Test Blog](/blogs/test)

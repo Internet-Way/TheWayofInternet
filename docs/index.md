@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "bitindex"
   # text: "A Free Media Index"
-  tagline: "Free Media Index with the best stuffs of the internet"
+  # tagline: "Free Media Index with the best stuffs of the internet"
   image:
     src: /logo.png
     alt: bitindex logo

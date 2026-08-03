@@ -1,51 +1,38 @@
 # Graph Report - TheWayofInternet  (2026-08-03)
 
 ## Corpus Check
-- 62 files · ~88,482 words
+- 59 files · ~47,022 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 529 nodes · 706 edges · 83 communities (25 shown, 58 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 35 edges (avg confidence: 0.78)
+- 504 nodes · 675 edges · 69 communities (24 shown, 45 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.76)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6e663f43`
+- Built from commit: `76491f6c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Get Started Guide
 - state.ts
-- Torrenting (curated media page)
+- @iconify-json/carbon
 - ThemeHandler (Singleton)
 - config.mts
 - ColorPicker.vue
-- bitindex
+- Per-Category Tier Rubric
 - AGENTS.md — Agent Context
-- qBittorrent
-- 1337x
 - index.ts
 - devDependencies
 - dependencies
 - ThemePalette.vue
 - scripts
 - VPNav.vue
-- Simkl
 - blog.data.ts
-- @iconify-json/fluent-mdl2
-- Radarr
 - vue-shim.d.ts
 - blog.md — BLOG Index
-- ExT (Indexer)
-- Streaming (curated media page)
-- animepahe
-- Cineby
-- Letterboxd
-- Miruro
-- Streamed
 - iconLinks Social Icons
-- m0nkrus
 - Feedback.vue
 - HeadingFeedback.vue
 - @iconify-json/gravity-ui
@@ -57,7 +44,6 @@
 - @iconify-json/ph
 - @iconify-json/qlementine-icons
 - @iconify-json/simple-icons
-- Per-Category Tier Rubric
 - markdown-it
 - @mdit/plugin-align
 - @mdit/plugin-attrs
@@ -86,24 +72,19 @@
 - vue
 - @vue/compiler-sfc
 - alternates.md — Alternatives Page
-- rTorrent
-- Pahe
 - Notes (testnote)
 - Site Logo
 - Storage (empty placeholder)
-- Media Content Pipeline
-- The Top-Tier Only
-- Safety First Rules
 - feedback.md
 - @iconify-json/fluent
 
 ## God Nodes (most connected - your core abstractions)
 1. `ThemeHandler (Singleton)` - 24 edges
-2. `Get Started Guide` - 21 edges
-3. `Media Content Pipeline` - 18 edges
-4. `ThemeHandler` - 14 edges
-5. `Per-Category Tier Rubric` - 14 edges
-6. `bitindex` - 13 edges
+2. `Get Started Guide` - 19 edges
+3. `ThemeHandler` - 14 edges
+4. `Per-Category Tier Rubric` - 14 edges
+5. `bitindex` - 13 edges
+6. `Media Content Pipeline` - 12 edges
 7. `begin.md — Piracy Knowledge Base` - 11 edges
 8. `ColorPicker.vue` - 11 edges
 9. `DisplayMode` - 9 edges
@@ -112,14 +93,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `README.md — Project Overview` --conceptually_related_to--> `ThemeHandler (state.ts)`  [INFERRED]
   README.md → docs/.vitepress/theme/themes/state.ts
-- `Per-Category Tier Rubric` --semantically_similar_to--> `Site Quality Control Criteria`  [INFERRED] [semantically similar]
-  AGENTS.md → docs/begin.md
 - `VitePress Site Config (config.mts)` --conceptually_related_to--> `MiniSearch Enhanced Local Search`  [INFERRED]
   docs/.vitepress/config.mts → README.md
 - `AGENTS.md — Agent Context` --references--> `Sidebar Media Resources Section (meta.ts)`  [EXTRACTED]
   AGENTS.md → docs/.vitepress/core/meta.ts
 - `AGENTS.md — Agent Context` --references--> `starredlink.ts — Star Link Styling`  [EXTRACTED]
   AGENTS.md → docs/.vitepress/plugins/markdown/starredlink.ts
+- `AGENTS.md — Agent Context` --references--> `tooltip.ts — Note Tooltip Component`  [EXTRACTED]
+  AGENTS.md → docs/.vitepress/plugins/markdown/tooltip.ts
 
 ## Import Cycles
 - None detected.
@@ -127,11 +108,11 @@
 ## Hyperedges (group relationships)
 - **Homepage Features** — docs_index_multi_source, docs_index_quality_verified, docs_index_always_updated, docs_index_open_source, docs_index_highly_organized, docs_index_top_tier_only [EXTRACTED 0.75]
 
-## Communities (83 total, 58 thin omitted)
+## Communities (69 total, 45 thin omitted)
 
 ### Community 0 - "Get Started Guide"
-Cohesion: 0.14
-Nodes (20): FMHY (fmhy.net), Base64 URL Encoding Practice, Microsoft Activation Scripts (MAS), begin.md — Piracy Knowledge Base, r/Piracy Megathread (rentry.org), How Torrenting Works, uBlock Origin, Unsafe Sites & Red Flags Knowledge (+12 more)
+Cohesion: 0.11
+Nodes (26): FMHY (fmhy.net), Base64 URL Encoding Practice, FitGirl Repacks, Microsoft Activation Scripts (MAS), begin.md — Piracy Knowledge Base, r/Piracy Megathread (rentry.org), How Torrenting Works, uBlock Origin (+18 more)
 
 ### Community 1 - "state.ts"
 Cohesion: 0.08
@@ -149,17 +130,13 @@ Nodes (27): config(), __dirname, envFile, feedbackWebhooks, unocssConfigPath, cf
 Cohesion: 0.11
 Nodes (22): ColorNames, colorOptions, { frontmatter, page }, generateThemeFromColor(), normalizeColorName(), presetThemeNames, selectedColor, { setTheme, mode, themeName } (+14 more)
 
-### Community 6 - "bitindex"
-Cohesion: 0.19
-Nodes (14): Call for Contributors, blogs/notice.md — Site Notice, Site Under Construction Notice, ContributorList Component, Contributors Page, discord.md — Discord, Always Updated, Site Under Construction (+6 more)
+### Community 6 - "Per-Category Tier Rubric"
+Cohesion: 0.06
+Nodes (43): Artificial Intelligence Criteria, Media Content Pipeline, Downloading Criteria, Editors' Choice Tier, 20-Entry Cap Rule, FMHY Ordering Principle, FMHY Wiki Dump Sourcing, Gaming Criteria (+35 more)
 
 ### Community 7 - "AGENTS.md — Agent Context"
 Cohesion: 0.11
-Nodes (25): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, emojiMap, iconLinks, icon-transformer.ts, Markdown Plugins (markdown/), starredlink.ts (+17 more)
-
-### Community 8 - "qBittorrent"
-Cohesion: 0.50
-Nodes (4): Deluge, qBittorrent, Transmission, Stremio
+Nodes (26): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, emojiMap, iconLinks, icon-transformer.ts, Markdown Plugins (markdown/), starredlink.ts (+18 more)
 
 ### Community 10 - "index.ts"
 Cohesion: 0.13
@@ -167,7 +144,7 @@ Nodes (13): Contributor, contributors, { frontmatter }, avatarUrl, props, avatar
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
-Nodes (11): @iconify-json/carbon, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/carbon, @iconify-json/twemoji (+3 more)
+Nodes (11): @iconify-json/fluent-mdl2, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/fluent-mdl2, @iconify-json/twemoji (+3 more)
 
 ### Community 12 - "dependencies"
 Cohesion: 0.05
@@ -189,10 +166,6 @@ Nodes (6): { frontmatter }, hasNavbar, isHidden, { isScreenOpen, closeScreen, to
 Cohesion: 0.33
 Nodes (4): BlogData, BlogEntry, categorize(), processBlogPosts()
 
-### Community 19 - "Radarr"
-Cohesion: 0.40
-Nodes (5): cross-seed, Jackett, Prowlarr, Radarr, Sonarr
-
 ### Community 20 - "vue-shim.d.ts"
 Cohesion: 0.40
 Nodes (4): vitepress/dist/client/theme-default/components/VPNavBar.vue, vitepress/dist/client/theme-default/components/VPNavScreen.vue, vitepress/dist/client/theme-default/composables/nav, *.vue
@@ -202,44 +175,28 @@ Cohesion: 0.09
 Nodes (26): activeWebhook, buildFields(), colors, configured, contact, editWhat, editWhere, errorMsg (+18 more)
 
 ### Community 37 - "HeadingFeedback.vue"
-Cohesion: 0.11
-Nodes (14): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor() (+6 more)
-
-### Community 47 - "Per-Category Tier Rubric"
-Cohesion: 0.15
-Nodes (17): Artificial Intelligence Criteria, Downloading Criteria, Gaming Criteria, Listening Criteria, Ad Blocking & Privacy Criteria, Reading Criteria, Streaming Criteria, Per-Category Tier Rubric (+9 more)
-
-### Community 241 - "Media Content Pipeline"
-Cohesion: 0.24
-Nodes (10): Media Content Pipeline, 20-Entry Cap Rule, FMHY Wiki Dump Sourcing, H1 Heading Rules, Curated Media Pages (docs/media), Media Resources Sidebar Section, core/meta.ts (nav & sidebar), Lint/Build Verification Workflow (+2 more)
-
-### Community 242 - "The Top-Tier Only"
-Cohesion: 0.22
-Nodes (9): Editors' Choice Tier, FMHY Ordering Principle, Minimum Tier, Star Tier, Tier Markers (crown/star/plain), Quality Over Quantity, Quality Verified, The Top-Tier Only (+1 more)
-
-### Community 243 - "Safety First Rules"
-Cohesion: 0.40
-Nodes (6): FMHY (Free Media Heck Yeah), r/Piracy Megathread, Safety First Rules, uBlock Origin, Unsafe Site Lists, Big Wiki Noise Problem
+Cohesion: 0.10
+Nodes (16): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor() (+8 more)
 
 ## Knowledge Gaps
-- **205 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+200 more)
+- **186 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+181 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **58 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `ColorPicker.vue`, `bitindex`?**
-  _High betweenness centrality (0.135) - this node is a cross-community bridge._
+- **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `ColorPicker.vue`, `Per-Category Tier Rubric`?**
+  _High betweenness centrality (0.142) - this node is a cross-community bridge._
 - **Why does `ThemeHandler (state.ts)` connect `ColorPicker.vue` to `AGENTS.md — Agent Context`?**
-  _High betweenness centrality (0.135) - this node is a cross-community bridge._
-- **Why does `index.md — Home Page` connect `bitindex` to `Get Started Guide`, `Media Content Pipeline`, `AGENTS.md — Agent Context`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
-- **Are the 2 inferred relationships involving `Get Started Guide` (e.g. with `downloading.md — Downloading` and `privacy.md — Ad Blocking and Privacy`) actually correct?**
-  _`Get Started Guide` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `Media Content Pipeline` (e.g. with `Lint/Build Verification Workflow` and `Quality-Over-Quantity Curation Goal`) actually correct?**
-  _`Media Content Pipeline` has 2 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.141) - this node is a cross-community bridge._
+- **Why does `index.md — Home Page` connect `Per-Category Tier Rubric` to `Get Started Guide`, `AGENTS.md — Agent Context`?**
+  _High betweenness centrality (0.089) - this node is a cross-community bridge._
 - **What connects `__dirname`, `unocssConfigPath`, `envFile` to the rest of the system?**
-  _205 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _186 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Get Started Guide` be split into smaller, more focused modules?**
-  _Cohesion score 0.14210526315789473 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1076923076923077 - nodes in this community are weakly interconnected._
+- **Should `state.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.08163265306122448 - nodes in this community are weakly interconnected._
+- **Should `ThemeHandler (Singleton)` be split into smaller, more focused modules?**
+  _Cohesion score 0.10128205128205128 - nodes in this community are weakly interconnected._
