@@ -35,8 +35,7 @@
   "33": "m0nkrus",
   "34": "@iconify-json/carbon",
   "35": "@headlessui/vue",
-  "36": "Feedback.vue",
-  "37": "HeadingFeedback.vue",
+  "37": "@iconify-json/fluent-mdl2",
   "38": "@iconify-json/gravity-ui",
   "39": "@iconify-json/heroicons-solid",
   "40": "@iconify-json/logos",
@@ -46,7 +45,7 @@
   "44": "@iconify-json/ph",
   "45": "@iconify-json/qlementine-icons",
   "46": "@iconify-json/simple-icons",
-  "47": "Per-Category Tier Rubric",
+  "47": "mark.js",
   "48": "markdown-it",
   "49": "@mdit/plugin-align",
   "50": "@mdit/plugin-attrs",
@@ -239,11 +238,5 @@
   "237": "VLC",
   "238": "Tubi",
   "239": "WatchFlux",
-  "240": "Z-Stream",
-  "241": "Media Content Pipeline",
-  "242": "The Top-Tier Only",
-  "243": "Safety First Rules",
-  "244": "feedback.md",
-  "245": "feed",
-  "246": "@iconify-json/fluent"
+  "240": "Z-Stream"
 }
