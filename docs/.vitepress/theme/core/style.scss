@@ -361,3 +361,26 @@
 .VPFooter .message a:hover {
   color: var(--vp-c-brand-1);
 }
+/* Native VitePress appearance toggle is handled by the settings menu — remove it everywhere */
+.VPNavBar .content .content-body .appearance,
+.VPNavBarExtra .group:has(.item.appearance),
+.VPNavScreenAppearance {
+  display: none !important;
+}
+
+/* Park the settings gear where the mode toggle used to be (between menu and social links) */
+.VPNavBar .content .content-body .settings-menu {
+  order: 1;
+}
+
+.VPNavBar .content .content-body .social-links {
+  order: 2;
+}
+
+.VPNavBar .content .content-body .extra {
+  order: 3;
+}
+
+.VPNavBar .content .content-body .hamburger {
+  order: 4;
+}

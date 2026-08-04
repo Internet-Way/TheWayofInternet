@@ -3,8 +3,8 @@ import { onMounted, onBeforeUnmount } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import Announcement from '../components/Announcement.vue'
 import HeadingFeedback from '../components/HeadingFeedback.vue'
-import Sidebar from '../components/SidebarCard.vue'
 import PageHeader from '../components/PageHeader.vue'
+import SettingsMenu from '../components/SettingsMenu.vue'
 
 const { Layout } = DefaultTheme
 
@@ -50,8 +50,8 @@ onBeforeUnmount(() => {
     <template #layout-top>
       <HeadingFeedback />
     </template>
-    <template #sidebar-nav-after>
-      <Sidebar />
+    <template #nav-bar-content-after>
+      <SettingsMenu />
     </template>
     <template #home-hero-info-before>
       <Announcement />

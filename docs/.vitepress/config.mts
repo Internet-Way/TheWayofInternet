@@ -108,6 +108,18 @@ export default defineConfig({
       { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon.png" },
     ],
     ["link", { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
+    [
+      "link",
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
+    ],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Outfit:wght@400..800&family=JetBrains+Mono:wght@400..700&family=Montserrat:wght@400..800&display=swap",
+      },
+    ],
     [
       "meta",
       {

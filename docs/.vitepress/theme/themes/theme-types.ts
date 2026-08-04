@@ -101,6 +101,8 @@ export interface ThemeRegistry {
 
 // Runtime state for the active theme
 export interface ThemeState {
-  currentTheme: string
+  accent: string | null
+  preset: string | null
   theme: Theme | null
+  font: string
 }

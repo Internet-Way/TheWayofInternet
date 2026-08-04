@@ -1,0 +1,14 @@
+[
+  { "name": "Swarm", "hex": "#0ea5e9" },
+  { "name": "Meadow", "hex": "#22c55e" },
+  { "name": "Carnation", "hex": "#f43f5e" },
+  { "name": "Merlin", "hex": "#eab308" },
+  { "name": "Lime", "hex": "#84cc16" },
+  { "name": "Rose", "hex": "#fb7185" },
+  { "name": "Violet", "hex": "#8b5cf6" },
+  { "name": "Amber", "hex": "#f59e0b" },
+  { "name": "Teal", "hex": "#14b8a6" },
+  { "name": "Indigo", "hex": "#6366f1" },
+  { "name": "Coral", "hex": "#f97316" },
+  { "name": "Slate", "hex": "#64748b" }
+]

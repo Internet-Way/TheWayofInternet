@@ -8,10 +8,13 @@ A complete reference for understanding, extending, and troubleshooting the bitin
 
 The theme system is built around two independent concepts:
 
-1. **Display Modes** — The native VitePress light/dark toggle (`appearance: true`). The mode is managed entirely by VitePress (HTML class, persistence, system preference); the theme engine only reads it.
-2. **Themes** — Named color schemes (Catppuccin, Dracula, etc.) that define palettes for both light and dark modes. Themes are independent from the display mode toggle.
+1. **Display Modes** — The native VitePress `appearance: true` mechanism (HTML `dark` class, persistence, system preference) still powers light/dark, but VitePress's own sun/moon switch UI is **removed** (hidden in `core/style.scss`) because mode switching now happens entirely in the settings menu. The theme engine reads the `dark` class; modes can be toggled via `ThemeHandler.toggleMode()`, which flips the class and persists it.
+2. **Fonts** — A site-wide typography selection (`fontOptions`) persisted under `vitepress-theme-font`. Choosing a font overrides `--vp-font-family-base` and `--vp-font-family-heading`, including any theme-defined fonts.
+3. **Themes** — Two coexist:
+   - **Accent color (default)** — A hue selected from `accents.json` (name + hex). The engine derives a full Tailwind-style ramp from the hex and builds a complete theme for both modes.
+   - **Preset theme** — Complete named color scheme (Catppuccin, Rosé Pine, Tokyo Night, Dracula) defined in `configs/`. Selecting a preset **locks the mode and accent selectors** in the settings UI until `None` is chosen again.
 
-> **Key principle:** Modes and themes are orthogonal. Switching from light to dark mode doesn't change your theme. Switching your theme doesn't change your mode.
+> **Key principle:** Accents and presets are mutually exclusive. Choosing a preset clears the accent. Choosing an accent clears the preset. A preset active also disables the mode switcher until the preset is set back to `None`.
 
 ---
 
@@ -22,23 +25,27 @@ docs/.vitepress/theme/themes/
 ├── theme-types.ts          Type definitions for the entire theme system
 ├── state.ts                ThemeHandler class — runtime engine
 ├── exports.ts              Barrel file re-exporting everything
-├── theme-palette.ts        Color swatches used by the sidebar ColorPicker
+├── theme-palette.ts        Tailwind-style ramps used to build accent themes (fallback for ramps)
+├── accents.json            Accent definitions (name + hex) — THE source of accents
 ├── Theme-Guide.md          This file
 │
 └── configs/
-    ├── registry.ts         Central registry mapping names → theme objects
-    ├── theme-catppuccin.ts Catppuccin theme definition
-    ├── theme-dracula.ts    Dracula theme definition
-    ├── theme-rose-pine.ts  Rosé Pine theme definition
-    └── theme-tokyonight.ts Tokyo Night theme definition
+    ├── registry.ts          Central registry mapping preset names → theme objects
+    ├── theme-catppuccin.ts  Catppuccin theme definition
+    ├── theme-dracula.ts     Dracula theme definition
+    ├── theme-rose-pine.ts   Rosé Pine theme definition
+    └── theme-tokyonight.ts  Tokyo Night theme definition
 ```
 
 ### Related UI Components
 
 | Component | Location | Role |
 |---|---|---|
-| `ThemeSelector.vue` | `theme/components/` | Shows the current theme name in the sidebar |
-| `ColorPicker.vue` | `theme/components/` | Sidebar palette — generates dynamic color themes and selects preset themes |
+| `SettingsMenu.vue` | `theme/components/` | Navbar gear → slim dropdown: mode toggle + accent selector (joined control) + preset selector |
+
+The accent + mode row is rendered as a single joined control — a square mode button and a rectangular accent dropdown with a divider "cut" between them. When a preset is selected, both gray out (`.locked`, `pointer-events: none`). A third dropdown selects the site font. Choosing `None` in the preset dropdown unlocks the mode/accent controls.
+
+**Navbar layout:** VitePress's native appearance switch (desktop `VPNavBarAppearance`, mobile `VPNavScreenAppearance`, and the `VPNavBarExtra` flyout entry) is permanently hidden in `core/style.scss`. The settings gear is parked exactly where the toggle used to be via flex `order` (`.settings-menu` = 1, `.social-links` = 2, `.extra` = 3, `.hamburger` = 4).
 
 ---
 
@@ -91,8 +98,9 @@ Runtime state tracked by the `ThemeHandler`:
 
 ```ts
 interface ThemeState {
-  currentTheme: string        // Active theme name (registry key)
-  theme: Theme | null         // Resolved theme object
+  accent: string | null    // Active accent slug (from accents.json), e.g. 'swarm'
+  preset: string | null    // Active preset theme name (registry key), or null
+  theme: Theme | null      // Resolved theme object (preset or generated accent)
 }
 ```
 
@@ -106,8 +114,8 @@ The `ThemeHandler` class is a **singleton** that manages all theme state. It is 
 
 ```
 Constructor → boot()
-  ├── Read saved theme from localStorage
-  ├── Resolve theme from registry
+  ├── Read saved accent + preset from localStorage (migrates legacy vitepress-theme-name)
+  ├── Validate against accents.json / themeRegistry
   └── Apply theme to DOM
 ```
 
@@ -117,7 +125,10 @@ Constructor → boot()
 
 | Key | Stores |
 |---|---|
-| `vitepress-theme-name` | Active theme name (e.g. `catppuccin`, `color-swarm`) |
+| `vitepress-theme-accent` | Active accent slug (e.g. `swarm`) |
+| `vitepress-theme-preset` | Active preset name (e.g. `catppuccin`), removed when `None` |
+| `vitepress-theme-font` | Active font name (`default`/`outfit`/`jetbrainsmono`/`montserrat`/`comicsans`) |
+| `vitepress-theme-name` | Legacy key (pre-accent model); migrated once on boot then removed |
 
 (The display mode is persisted by VitePress under its own key.)
 
@@ -125,7 +136,9 @@ Constructor → boot()
 
 1. Reads the effective mode from the `dark` class on `<html>` (managed by VitePress).
 2. Sets base background CSS variables for that mode.
-3. If a theme is active, calls `writeCSS()` with the matching mode palette.
+3. Sets `vp-theme-locked` class on `<html>` when a preset is active (used by the settings UI to gray out the mode/accent controls).
+4. Resolves the active theme (preset from registry, or generated accent theme) and calls `writeCSS()`.
+5. Calls `applyFont()` to layer the user-selected font on top of theme-defined fonts.
 
 ### How `writeCSS()` Works
 
@@ -145,24 +158,46 @@ For use in Vue components. Returns reactive refs and methods:
 
 ```ts
 const {
-  mode,              // Ref<DisplayMode> — follows VitePress's dark class via MutationObserver
-  themeName,         // Ref<string>
-  theme,             // Ref<Theme | null>
-  setTheme,          // (name: string) => void
-  getAvailableThemes,// () => { name, displayName }[]
-  state              // Ref<ThemeState>
+  mode,                // Ref<DisplayMode> — follows VitePress's dark class via MutationObserver
+  accent,              // Ref<string | null> — active accent slug
+  preset,              // Ref<string | null> — active preset name
+  theme,               // Ref<Theme | null>
+  font,                // Ref<string> — active font name (e.g. 'outfit')
+  isPresetActive,      // ComputedRef<boolean> — preset locks mode + accent selectors
+  setAccent,           // (slug: string) => void — clears preset, applies accent theme
+  setPreset,           // (name: string | null) => void   null = unlock, back to accent mode
+  setFont,             // (name: string) => void — applies + persists font choice
+  toggleMode,          // () => void — flips VitePress dark class (no-op visually when locked)
+  accentOptions,       // AccentOption[] — from accents.json ({ slug, name, hex })
+  presetOptions,       // { name, displayName }[] — preset themes, user-preferred order
+  fontOptions,         // FontOption[] — { name, label, stack }[]
+  state                // Ref<ThemeState>
 } = useTheme()
 ```
 
 ### Mode Sync
 
-The display mode is owned entirely by VitePress (`appearance: true` in the config, `vitepress-theme-appearance` storage key). The `ThemeHandler` does not manage, persist, or toggle the mode itself — it observes VitePress's `dark` class on `<html>` via a `MutationObserver` (set up in `boot()` on the client only) and re-applies the active theme palette whenever VitePress flips the class. This works on every page, including the home page where no sidebar components are mounted.
+The display mode is owned entirely by VitePress (`appearance: true` in the config, `vitepress-theme-appearance` storage key). The `ThemeHandler` does not manage or persist the mode itself — it observes VitePress's `dark` class on `<html>` via a `MutationObserver` (set up in `boot()` on the client only) and re-applies the active theme palette whenever VitePress flips the class. This works on every page, including the home page. `ThemeHandler.toggleMode()` exists so the settings menu can flip the same class + storage key without duplicating VitePress state.
+
+### Fonts
+
+`fontOptions` (`{ name, label, stack }`) lives in `state.ts`. Available fonts: `default`, `outfit`, `jetbrainsmono`, `montserrat`, `comicsans`. Google Fonts (Outfit, JetBrains Mono, Montserrat) are loaded via `<link>` in the VitePress `head` config; Comic Sans is a system font stack.
+
+**To add a font:** append an entry to `fontOptions` with a CSS font-family stack, and add the corresponding Google Fonts `<link>` to `head` in `config.mts` (or rely on a system font).
+
+`applyFont()` (called at the end of `applyTheme()`, after `writeCSS()` wipes the `--vp-*` variables) sets `--vp-font-family-base` and `--vp-font-family-heading` to the selected stack, or removes them for `default`. This means a user font choice overrides any theme-defined `fonts.body`/`fonts.heading`.
+
+### Accents (`accents.json`)
+
+Accents are defined in `themes/accents.json` as `{ name, hex }` entries. `accentOptions` (and the matching slug) is derived by lowercasing the name. The ramp used to build a full theme comes from `theme-palette.ts` when a matching slug exists there; otherwise it is derived from the hex by mixing toward white/black at fixed ratios.
+
+**To add an accent:** append `{ "name": "YourColor", "hex": "#123456" }` to `accents.json`. No code changes needed. (Optional: add a matching ramp to `theme-palette.ts` to overfit the shades.)
 
 ---
 
 ## Theme Registry (`configs/registry.ts`)
 
-The registry is a plain object mapping theme names to `Theme` objects:
+The registry is a plain object mapping preset theme names to `Theme` objects:
 
 ```ts
 import { catppuccinTheme } from './theme-catppuccin'
@@ -178,8 +213,7 @@ export const themeRegistry: ThemeRegistry = {
 }
 ```
 
-The `ColorPicker` component also dynamically registers themes at runtime:
-- **Color-based themes** (e.g. `color-swarm`, `color-meadow`) are generated from the palette and registered as `themeRegistry['color-<name>']`.
+Accent themes are **not** registered in the registry — they are generated on demand from `accents.json` and cached internally by the `ThemeHandler`.
 
 ---
 
@@ -334,27 +368,26 @@ For each block type (`info`, `tip`, `warning`, `danger`):
 
 ---
 
-## ColorPicker Integration
+## Settings Menu Integration
 
-The `ColorPicker.vue` component in the sidebar works alongside the theme system:
+The `SettingsMenu.vue` component in the navbar works alongside the theme system:
 
-1. **Color swatches** — Generates a `Theme` object from predefined color palettes (swarm, meadow, etc.) and registers it as `color-<name>` in the registry.
-2. **Preset themes** — Renders circles for each theme already in the registry (catppuccin, dracula, etc.).
+1. **Mode toggle** — Square button (rounded corners) showing sun/moon; calls `toggleMode()` which flips VitePress's `dark` class. Rendered joined to the accent selector with a divider, like one button split in two.
+2. **Accent selector** — Rectangular dropdown listing every entry from `accents.json` with a color dot + name + checkmark. Selecting one calls `setAccent(slug)`.
+3. **Preset selector** — Dropdown with `None` + all registered preset themes. Selecting a preset calls `setPreset(name)`; selecting `None` calls `setPreset(null)`.
+4. **Font selector** — Dropdown listing `fontOptions`; each item is rendered in its own font as a preview. Selecting one calls `setFont(name)`.
+5. **Locking** — While a preset is active, the mode button and accent selector get the `.locked` class (45% opacity, `pointer-events: none`, disabled). The font selector stays unlocked. The native VitePress appearance switch is hidden unconditionally (see "Navbar layout" above).
 
 ### Brand Color Interaction
 
-When a theme defines `brand` colors, they are set as inline CSS variables and **override** anything the ColorPicker sets. When a theme omits `brand`, the handler removes inline brand variables, and the ColorPicker's stylesheet takes priority.
-
-After a theme switch, the handler dispatches a `theme-changed-apply-colors` custom event. The ColorPicker listens for this to reapply its color selection when the new theme doesn't define brand colors.
-
----
+When a preset theme defines `brand` colors, they are set as inline CSS variables and take priority. Accent themes always define `brand`, so switching between the two fully re-applies brand colors.
 
 ## Troubleshooting
 
 | Issue | Cause | Fix |
 |---|---|---|
-| Theme not appearing in sidebar | Not registered in `registry.ts` | Import and add to `themeRegistry` |
-| Brand colors don't change | Theme defines `brand` in `ModeColors` | Remove `brand` from the theme to defer to ColorPicker |
-| Colors don't update after theme switch | `theme-changed-apply-colors` event not firing | Ensure `notifyColorPicker()` is called in `setTheme()` |
+| Accent not appearing in settings menu | Not in `accents.json` | Append `{ "name": ..., "hex": ... }` to `accents.json` |
+| Mode/accent selectors grayed out | A preset is active | Select `None` in the preset dropdown |
+| Colors don't update after accent switch | Stale localStorage | Clear `vitepress-theme-accent` / `vitepress-theme-preset` |
 | Theme preview missing | No `preview` property and no brand colors | Add a `preview` URL or define `brand` colors for gradient fallback |
 | Fonts not applying | `fonts.body` / `fonts.heading` not defined | Add the `fonts` property to your theme definition |
