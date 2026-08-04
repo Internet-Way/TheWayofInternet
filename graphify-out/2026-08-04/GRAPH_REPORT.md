@@ -1,23 +1,23 @@
-# Graph Report - TheWayofInternet  (2026-08-03)
+# Graph Report - TheWayofInternet  (2026-08-04)
 
 ## Corpus Check
-- 59 files · ~47,791 words
+- 59 files · ~49,420 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 507 nodes · 669 edges · 78 communities (31 shown, 47 thin omitted)
+- 524 nodes · 707 edges · 78 communities (31 shown, 47 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 21 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cafebd34`
+- Built from commit: `04ac39df`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Get Started Guide
 - state.ts
-- @iconify-json/carbon
+- @iconify-json/fluent
 - ThemeHandler (Singleton)
 - config.mts
 - Theme System — Developer Guide
@@ -42,6 +42,7 @@
 - iconLinks Social Icons
 - feedback.md
 - @iconify-json/fluent-mdl2
+- @iconify-json/material-symbols
 - Feedback.vue
 - HeadingFeedback.vue
 - @iconify-json/gravity-ui
@@ -83,19 +84,18 @@
 - Notes (testnote)
 - Site Logo
 - Storage (empty placeholder)
-- @iconify-json/fluent
 
 ## God Nodes (most connected - your core abstractions)
 1. `ThemeHandler (Singleton)` - 24 edges
-2. `Get Started Guide` - 19 edges
-3. `ThemeHandler` - 14 edges
+2. `ThemeHandler` - 19 edges
+3. `Get Started Guide` - 19 edges
 4. `Per-Category Tier Rubric` - 14 edges
 5. `Media Content Pipeline` - 12 edges
 6. `bitindex` - 12 edges
-7. `begin.md — Piracy Knowledge Base` - 11 edges
-8. `ColorPicker.vue` - 11 edges
-9. `DisplayMode` - 9 edges
-10. `theme-types.ts` - 9 edges
+7. `useTheme()` - 11 edges
+8. `begin.md — Piracy Knowledge Base` - 11 edges
+9. `ColorPicker.vue` - 11 edges
+10. `DisplayMode` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `README.md — Project Overview` --conceptually_related_to--> `ThemeHandler (state.ts)`  [INFERRED]
@@ -123,7 +123,7 @@ Nodes (20): FMHY (fmhy.net), Base64 URL Encoding Practice, FitGirl Repacks, Micr
 
 ### Community 1 - "state.ts"
 Cohesion: 0.07
-Nodes (36): selectAccent(), selectPreset(), themeRegistry, catppuccinTheme, draculaTheme, rosePineTheme, tokyoNightTheme, AccentOption (+28 more)
+Nodes (34): themeRegistry, catppuccinTheme, draculaTheme, rosePineTheme, tokyoNightTheme, ACCENT_TINT_KEYS, ACCENT_TINT_TOKENS, AccentOption (+26 more)
 
 ### Community 3 - "ThemeHandler (Singleton)"
 Cohesion: 0.10
@@ -151,25 +151,32 @@ Nodes (13): Contributor, contributors, { frontmatter }, avatarUrl, props, avatar
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
-Nodes (11): @iconify-json/material-symbols, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/material-symbols, @iconify-json/twemoji (+3 more)
+Nodes (11): @iconify-json/carbon, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/carbon, @iconify-json/twemoji (+3 more)
 
 ### Community 12 - "dependencies"
 Cohesion: 0.05
 Nodes (43): consola, feed, floating-vue, @headlessui/vue, mark.js, @mdi/font, minisearch, nprogress (+35 more)
 
 ### Community 13 - "SettingsMenu.vue"
-Cohesion: 0.12
-Nodes (12): { frontmatter }, { page, frontmatter }, accentOpen, currentAccent, currentPreset, locked, {
+Cohesion: 0.09
+Nodes (22): accentOpen, currentAccent, currentFont, currentPreset, fontOpen, locked, {
   mode,
   accent,
   preset,
+  font,
+  accentBg,
+  accentBgIntensity,
   isPresetActive,
   setAccent,
   setPreset,
+  setFont,
+  setAccentBg,
+  setAccentBgIntensity,
   toggleMode,
   accentOptions,
   presetOptions,
-}, open (+4 more)
+  fontOptions,
+}, onIntensityInput() (+14 more)
 
 ### Community 14 - "scripts"
 Cohesion: 0.22
@@ -212,28 +219,28 @@ Cohesion: 0.09
 Nodes (26): activeWebhook, buildFields(), colors, configured, contact, editWhat, editWhere, errorMsg (+18 more)
 
 ### Community 37 - "HeadingFeedback.vue"
-Cohesion: 0.18
-Nodes (12): clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor(), route (+4 more)
+Cohesion: 0.11
+Nodes (16): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor() (+8 more)
 
 ## Knowledge Gaps
-- **191 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+186 more)
+- **199 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+194 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `devDependencies` to `@iconify-json/carbon`, `scripts`, `@iconify-json/fluent-mdl2`, `@iconify-json/gravity-ui`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-attrs`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@mdit/plugin-spoiler`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vitepress`, `vue`, `@vue/compiler-sfc`, `@iconify-json/fluent`?**
-  _High betweenness centrality (0.063) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `devDependencies` to `@iconify-json/fluent`, `scripts`, `@iconify-json/fluent-mdl2`, `@iconify-json/material-symbols`, `@iconify-json/gravity-ui`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-attrs`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@mdit/plugin-spoiler`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vitepress`, `vue`, `@vue/compiler-sfc`?**
+  _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `Theme System — Developer Guide`, `Media Content Pipeline`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
+  _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **What connects `__dirname`, `unocssConfigPath`, `envFile` to the rest of the system?**
-  _191 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _199 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Get Started Guide` be split into smaller, more focused modules?**
   _Cohesion score 0.1368421052631579 - nodes in this community are weakly interconnected._
 - **Should `state.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.06836158192090395 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07171717171717172 - nodes in this community are weakly interconnected._
 - **Should `ThemeHandler (Singleton)` be split into smaller, more focused modules?**
   _Cohesion score 0.10128205128205128 - nodes in this community are weakly interconnected._

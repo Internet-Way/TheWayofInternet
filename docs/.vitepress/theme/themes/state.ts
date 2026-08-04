@@ -10,8 +10,14 @@ const PERSIST = {
   preset: 'vitepress-theme-preset',
   legacy: 'vitepress-theme-name',
   appearance: 'vitepress-theme-appearance',
-  font: 'vitepress-theme-font'
+  font: 'vitepress-theme-font',
+  accentBg: 'vitepress-theme-accent-bg',
+  accentBgIntensity: 'vitepress-theme-accent-bg-intensity'
 } as const
+
+// Accent-toned background tuning
+const ACCENT_BG_MAX = 50
+const ACCENT_BG_DEFAULT = 15
 
 export interface FontOption {
   name: string
@@ -102,6 +108,62 @@ function mixHex(hex: string, target: string, ratio: number): string {
   const to = hexToRgb(target)
   const mixed = from.map((c, i) => Math.round(c + (to[i] - c) * ratio))
   return '#' + mixed.map((c) => c.toString(16).padStart(2, '0')).join('')
+}
+
+// Convert a hex color to OKLCH (lightness, chroma, hue in degrees)
+function hexToOklch(hex: string): { l: number; c: number; h: number } {
+  const [r, g, b] = hexToRgb(hex).map((v) => v / 255)
+  const linear = (v: number) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4)
+  const [lr, lg, lb] = [linear(r), linear(g), linear(b)]
+  const l = 0.4122214708 * lr + 0.5363325363 * lg + 0.0514459929 * lb
+  const m = 0.2119034982 * lr + 0.6806995451 * lg + 0.1073969566 * lb
+  const s = 0.0883024619 * lr + 0.2817188376 * lg + 0.6299787005 * lb
+  const l_ = Math.cbrt(l)
+  const m_ = Math.cbrt(m)
+  const s_ = Math.cbrt(s)
+  const L = 0.2104542553 * l_ + 0.793617785 * m_ - 0.0040720468 * s_
+  const a = 1.9779984951 * l_ - 2.428592205 * m_ + 0.4505937099 * s_
+  const b_ = 0.0259040371 * l_ + 0.7827717662 * m_ - 0.808675766 * s_
+  const c = Math.sqrt(a * a + b_ * b_)
+  const h = (Math.atan2(b_, a) * 180) / Math.PI
+  return { l: L, c, h: h < 0 ? h + 360 : h }
+}
+
+// Accent-tinted replacements for the neutral tokens. Lightness matches the
+// base token values (alpha baked in for translucent ones), so contrast is
+// unchanged; only chroma/hue are driven by the accent. [l, c] or [l, c, alpha]
+type TintEntry = [number, number] | [number, number, number]
+const ACCENT_TINT_TOKENS: Record<DisplayMode, Record<string, TintEntry>> = {
+  dark: {
+    '--vp-c-bg': [0.187, 0.024],
+    '--vp-c-bg-alt': [0.164, 0.022],
+    '--vp-c-bg-elv': [0.164, 0.022, 0.8],
+    '--vp-c-bg-soft': [0.224, 0.028],
+    '--vp-c-default-1': [0.164, 0.022],
+    '--vp-c-default-2': [0.164, 0.022, 0.8],
+    '--vp-c-default-3': [0.187, 0.024],
+    '--vp-c-divider': [0.26, 0.032],
+    '--vp-c-border': [0.57, 0.02],
+    '--vp-c-gutter': [0.26, 0.032, 0.5],
+    '--vp-c-text-1': [0.894, 0.012],
+    '--vp-c-text-2': [0.675, 0.012],
+    '--vp-c-text-3': [0.496, 0.012],
+  },
+  light: {
+    '--vp-c-bg': [0.986, 0.012],
+    '--vp-c-bg-alt': [0.958, 0.024],
+    '--vp-c-bg-elv': [0.958, 0.024, 0.8],
+    '--vp-c-bg-soft': [0.958, 0.024],
+    '--vp-c-default-1': [0.958, 0.024],
+    '--vp-c-default-2': [0.958, 0.024, 0.8],
+    '--vp-c-default-3': [0.986, 0.012],
+    '--vp-c-divider': [0.828, 0.036],
+    '--vp-c-border': [0.815, 0.024],
+    '--vp-c-gutter': [0.913, 0.02],
+    '--vp-c-text-1': [0.224, 0.016],
+    '--vp-c-text-2': [0.309, 0.014],
+    '--vp-c-text-3': [0.396, 0.014],
+  },
 }
 
 const DERIVE_STEPS: Record<number, [string, number]> = {
@@ -282,6 +344,8 @@ export class ThemeHandler {
     preset: null,
     theme: null,
     font: 'default',
+    accentBg: false,
+    accentBgIntensity: ACCENT_BG_DEFAULT,
   })
   private _mode = ref<DisplayMode>('light')
   private _modeObserver: MutationObserver | null = null
@@ -299,6 +363,7 @@ export class ThemeHandler {
     const storedAccent = readStorage(PERSIST.accent)
     const storedPreset = readStorage(PERSIST.preset)
     const storedFont = readStorage(PERSIST.font)
+    const storedAccentBg = readStorage(PERSIST.accentBg)
 
     if (legacy) {
       if (legacy.startsWith('color-')) {
@@ -309,15 +374,21 @@ export class ThemeHandler {
       localStorage.removeItem(PERSIST.legacy)
     }
 
-    if (!state.accent) state.accent = storedAccent ?? 'swarm'
+    if (!state.accent) state.accent = storedAccent ?? 'sapphire'
     if (!state.preset) state.preset = storedPreset
 
     // Validate against known options
-    if (!accentOptions.some((a) => a.slug === state.accent)) state.accent = 'swarm'
+    if (!accentOptions.some((a) => a.slug === state.accent)) state.accent = 'sapphire'
     if (state.preset && !themeRegistry[state.preset]) state.preset = null
 
     if (fontOptionNames.includes(storedFont ?? '')) state.font = storedFont!
     else state.font = 'default'
+
+    state.accentBg = storedAccentBg === '1'
+    const rawIntensity = Number.parseInt(readStorage(PERSIST.accentBgIntensity) ?? '', 10)
+    state.accentBgIntensity = Number.isFinite(rawIntensity)
+      ? Math.min(ACCENT_BG_MAX, Math.max(0, rawIntensity))
+      : ACCENT_BG_DEFAULT
 
     this.observeModeChanges()
     this.applyTheme()
@@ -386,6 +457,7 @@ export class ThemeHandler {
 
     this.writeCSS(theme.modes[mode], theme)
     this.applyFont()
+    this.applyAccentBg()
   }
 
   private applyFont() {
@@ -400,6 +472,53 @@ export class ThemeHandler {
     }
     el.style.setProperty('--vp-font-family-base', font.stack)
     el.style.setProperty('--vp-font-family-heading', font.stack)
+  }
+
+  // Tint the whole neutral palette (backgrounds, surfaces, text) with the
+  // accent's hue/chroma in OKLCH — same lightness per token as the base theme,
+  // so contrast is unchanged but the page gets a vibrant accent wash instead
+  // of a single flat background color.
+  private applyAccentBg() {
+    if (!hasDocument()) return
+
+    const st = this._state.value
+    // writeCSS() above already wiped every --vp-* var and applied the theme's
+    // own tokens — only touch them here when a tint is actually active.
+    if (!st.accentBg || st.preset) return
+    const accent = accentOptions.find((a) => a.slug === st.accent)
+    if (!accent) return
+
+    const el = document.documentElement
+    const colorSet = rampFor(accent)
+    const { c: chroma, h: hue } = hexToOklch(colorSet[500])
+    // Tint scales with the accent's own chroma (full tint at C >= 0.10,
+    // grayscale accents stay gray), then with the intensity slider.
+    const strength = Math.min(1, chroma / 0.1) * (st.accentBgIntensity / ACCENT_BG_MAX) * 1.5
+    if (strength < 0.001) return
+
+    const mode = this.currentMode()
+    const tokens = ACCENT_TINT_TOKENS[mode]
+    for (const [key, [l, c, alpha]] of Object.entries(tokens)) {
+      const suffix = alpha === undefined ? '' : ` / ${alpha}`
+      el.style.setProperty(key, `oklch(${l} ${(c * strength).toFixed(4)} ${hue}${suffix})`)
+    }
+  }
+
+  public setAccentBg(enabled: boolean) {
+    this._state.value.accentBg = enabled
+    if (enabled) {
+      writeStorage(PERSIST.accentBg, '1')
+    } else {
+      removeStorage(PERSIST.accentBg)
+    }
+    this.applyTheme()
+  }
+
+  public setAccentBgIntensity(intensity: number) {
+    const clamped = Math.min(ACCENT_BG_MAX, Math.max(0, intensity))
+    this._state.value.accentBgIntensity = clamped
+    writeStorage(PERSIST.accentBgIntensity, String(clamped))
+    this.applyTheme()
   }
 
   public setFont(name: string) {
@@ -592,10 +711,14 @@ export function useTheme() {
     preset: computed(() => st.value.preset),
     theme: computed(() => st.value.theme),
     font: computed(() => st.value.font),
+    accentBg: computed(() => st.value.accentBg),
+    accentBgIntensity: computed(() => st.value.accentBgIntensity),
     isPresetActive: computed(() => st.value.preset !== null),
     setAccent: (slug: string) => handler.setAccent(slug),
     setPreset: (name: string | null) => handler.setPreset(name),
     setFont: (name: string) => handler.setFont(name),
+    setAccentBg: (enabled: boolean) => handler.setAccentBg(enabled),
+    setAccentBgIntensity: (v: number) => handler.setAccentBgIntensity(v),
     toggleMode: () => handler.toggleMode(),
     accentOptions,
     presetOptions,

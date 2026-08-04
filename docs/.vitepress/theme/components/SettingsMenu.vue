@@ -7,10 +7,14 @@ const {
   accent,
   preset,
   font,
+  accentBg,
+  accentBgIntensity,
   isPresetActive,
   setAccent,
   setPreset,
   setFont,
+  setAccentBg,
+  setAccentBgIntensity,
   toggleMode,
   accentOptions,
   presetOptions,
@@ -52,6 +56,15 @@ const selectPreset = (name: string | null) => {
 const selectFont = (name: string) => {
   setFont(name)
   fontOpen.value = false
+}
+
+const toggleAccentBg = () => {
+  setAccentBg(!accentBg.value)
+}
+
+const onIntensityInput = (e: Event) => {
+  const value = Number((e.target as HTMLInputElement).value)
+  setAccentBgIntensity(value)
 }
 
 const onClickOutside = (e: MouseEvent) => {
@@ -96,7 +109,9 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
 
     <Transition name="vp-settings">
       <div v-if="open" class="settings-panel">
-        <div class="mode-accent">
+        <div class="settings-group">
+          <span class="settings-caption">Accent Color</span>
+          <div class="mode-accent">
           <button
             class="mode-btn"
             type="button"
@@ -182,8 +197,40 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
             </button>
           </div>
         </Transition>
+        </div>
 
-        <div class="preset-select">
+        <div class="accent-bg-group" :class="{ locked }">
+          <span class="settings-caption">Use Accent Toned BG</span>
+          <div class="accent-bg-row">
+            <button
+              class="accent-bg-toggle"
+              type="button"
+              :class="{ on: accentBg }"
+              :disabled="locked"
+              :title="accentBg ? 'Disable accent toned background' : 'Enable accent toned background'"
+              @click="toggleAccentBg"
+            >
+              {{ accentBg ? 'ON' : 'OFF' }}
+            </button>
+            <div class="accent-bg-slider-wrap" :class="{ off: !accentBg }">
+              <input
+                class="accent-bg-slider"
+                type="range"
+                min="0"
+                max="50"
+                step="1"
+                :value="accentBgIntensity"
+                :disabled="locked || !accentBg"
+                @input="onIntensityInput"
+              />
+              <span class="accent-bg-value">{{ accentBgIntensity }}%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <span class="settings-caption">Preset</span>
+          <div class="preset-select">
           <button
             class="preset-btn"
             type="button"
@@ -229,8 +276,11 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
             </div>
           </Transition>
         </div>
+        </div>
 
-        <div class="preset-select">
+        <div class="settings-group">
+          <span class="settings-caption">Font</span>
+          <div class="preset-select">
           <button
             class="preset-btn"
             type="button"
@@ -267,6 +317,7 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
               </button>
             </div>
           </Transition>
+        </div>
         </div>
       </div>
     </Transition>
@@ -431,6 +482,103 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
   margin-left: auto;
   color: var(--vp-c-brand-1);
   font-weight: 600;
+}
+
+.settings-group {
+  margin-top: 8px;
+}
+
+.settings-group:first-child {
+  margin-top: 0;
+}
+
+.settings-caption {
+  display: block;
+  margin: 0 2px 4px;
+  color: var(--vp-c-text-3);
+  font-size: 11px;
+}
+
+.accent-bg-group {
+  margin-top: 8px;
+}
+
+.accent-bg-group.locked {
+  opacity: 0.45;
+}
+
+.accent-bg-row {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.accent-bg-toggle {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  padding: 0;
+  border: none;
+  border-right: 1px solid var(--vp-c-divider);
+  background: transparent;
+  color: var(--vp-c-text-3);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.accent-bg-toggle:hover:not(:disabled) {
+  color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-bg-alt);
+}
+
+.accent-bg-toggle.on {
+  color: var(--vp-c-brand-1);
+}
+
+.accent-bg-toggle:disabled {
+  cursor: not-allowed;
+}
+
+.accent-bg-slider-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  min-width: 0;
+  padding: 0 8px;
+  transition: opacity 0.25s;
+}
+
+.accent-bg-slider-wrap.off {
+  opacity: 0.45;
+}
+
+.accent-bg-slider {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--vp-c-brand-1);
+  cursor: pointer;
+}
+
+.accent-bg-slider:disabled {
+  cursor: not-allowed;
+}
+
+.accent-bg-value {
+  flex: none;
+  min-width: 30px;
+  text-align: right;
+  color: var(--vp-c-text-3);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
 }
 
 .preset-select {

@@ -1,7 +1,7 @@
 {
   "0": "Get Started Guide",
   "1": "state.ts",
-  "2": "@iconify-json/carbon",
+  "2": "@iconify-json/fluent",
   "3": "ThemeHandler (Singleton)",
   "4": "config.mts",
   "5": "Theme System — Developer Guide",
@@ -34,6 +34,7 @@
   "32": "ddl.md",
   "33": "reading.md",
   "34": "torrenting.md",
+  "35": "@iconify-json/material-symbols",
   "36": "Feedback.vue",
   "37": "HeadingFeedback.vue",
   "38": "@iconify-json/gravity-ui",
@@ -75,6 +76,5 @@
   "131": "Notes (testnote)",
   "132": "Site Logo",
   "133": "robots.txt",
-  "134": "Storage (empty placeholder)",
-  "246": "@iconify-json/fluent"
+  "134": "Storage (empty placeholder)"
 }

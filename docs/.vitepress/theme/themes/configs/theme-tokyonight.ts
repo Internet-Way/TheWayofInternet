@@ -12,9 +12,9 @@ export const tokyoNightTheme: Theme = {
         3: '#7dcfff',
         soft: '#9ece6a'
       },
-      bg: '#f8fafc',
-      bgAlt: '#eef2f5',
-      bgElv: '#e1e7ed',
+      bg: '#e1e2e7',
+      bgAlt: '#d5d7e0',
+      bgElv: '#f4f4f7',
       text: {
         1: '#1a1b26',
         2: '#343b58',

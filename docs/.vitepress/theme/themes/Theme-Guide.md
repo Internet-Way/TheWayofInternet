@@ -98,7 +98,7 @@ Runtime state tracked by the `ThemeHandler`:
 
 ```ts
 interface ThemeState {
-  accent: string | null    // Active accent slug (from accents.json), e.g. 'swarm'
+  accent: string | null    // Active accent slug (from accents.json), e.g. 'sapphire'
   preset: string | null    // Active preset theme name (registry key), or null
   theme: Theme | null      // Resolved theme object (preset or generated accent)
 }
@@ -125,9 +125,11 @@ Constructor → boot()
 
 | Key | Stores |
 |---|---|
-| `vitepress-theme-accent` | Active accent slug (e.g. `swarm`) |
+| `vitepress-theme-accent` | Active accent slug (e.g. `sapphire`) |
 | `vitepress-theme-preset` | Active preset name (e.g. `catppuccin`), removed when `None` |
 | `vitepress-theme-font` | Active font name (`default`/`outfit`/`jetbrainsmono`/`montserrat`/`comicsans`) |
+| `vitepress-theme-accent-bg` | `1` when "Use Accent Toned BG" is ON (removed when OFF) |
+| `vitepress-theme-accent-bg-intensity` | Accent BG tint intensity (0–50, clamped) |
 | `vitepress-theme-name` | Legacy key (pre-accent model); migrated once on boot then removed |
 
 (The display mode is persisted by VitePress under its own key.)
@@ -139,6 +141,7 @@ Constructor → boot()
 3. Sets `vp-theme-locked` class on `<html>` when a preset is active (used by the settings UI to gray out the mode/accent controls).
 4. Resolves the active theme (preset from registry, or generated accent theme) and calls `writeCSS()`.
 5. Calls `applyFont()` to layer the user-selected font on top of theme-defined fonts.
+6. Calls `applyAccentBg()` to tint the whole neutral palette (backgrounds, surfaces, borders, text) with the active accent when "Use Accent Toned BG" is ON.
 
 ### How `writeCSS()` Works
 
@@ -163,10 +166,14 @@ const {
   preset,              // Ref<string | null> — active preset name
   theme,               // Ref<Theme | null>
   font,                // Ref<string> — active font name (e.g. 'outfit')
+  accentBg,            // Ref<boolean> — "Use Accent Toned BG" toggle
+  accentBgIntensity,   // Ref<number> — tint intensity 0–50
   isPresetActive,      // ComputedRef<boolean> — preset locks mode + accent selectors
   setAccent,           // (slug: string) => void — clears preset, applies accent theme
   setPreset,           // (name: string | null) => void   null = unlock, back to accent mode
   setFont,             // (name: string) => void — applies + persists font choice
+  setAccentBg,         // (enabled: boolean) => void — toggles accent-toned background
+  setAccentBgIntensity,// (v: number) => void — sets tint intensity, clamps to 0–50
   toggleMode,          // () => void — flips VitePress dark class (no-op visually when locked)
   accentOptions,       // AccentOption[] — from accents.json ({ slug, name, hex })
   presetOptions,       // { name, displayName }[] — preset themes, user-preferred order
@@ -375,8 +382,12 @@ The `SettingsMenu.vue` component in the navbar works alongside the theme system:
 1. **Mode toggle** — Square button (rounded corners) showing sun/moon; calls `toggleMode()` which flips VitePress's `dark` class. Rendered joined to the accent selector with a divider, like one button split in two.
 2. **Accent selector** — Rectangular dropdown listing every entry from `accents.json` with a color dot + name + checkmark. Selecting one calls `setAccent(slug)`.
 3. **Preset selector** — Dropdown with `None` + all registered preset themes. Selecting a preset calls `setPreset(name)`; selecting `None` calls `setPreset(null)`.
-4. **Font selector** — Dropdown listing `fontOptions`; each item is rendered in its own font as a preview. Selecting one calls `setFont(name)`.
-5. **Locking** — While a preset is active, the mode button and accent selector get the `.locked` class (45% opacity, `pointer-events: none`, disabled). The font selector stays unlocked. The native VitePress appearance switch is hidden unconditionally (see "Navbar layout" above).
+4. **Accent Toned BG** — Joined control under the accent selector: a small ON/OFF square toggle + an intensity slider (0–50%) in the larger part, grayed out when OFF:
+   - **ON/OFF**: `setAccentBg(true/false)` persists to `vitepress-theme-accent-bg`.
+   - **Intensity**: `setAccentBgIntensity(v)` clamps 0–50 and persists to `vitepress-theme-accent-bg-intensity`.
+   - `applyAccentBg()` converts the accent's 500 hex to OKLCH and re-emits every neutral token (`--vp-c-bg`, `--vp-c-bg-alt`, `--vp-c-bg-elv`, `--vp-c-bg-soft`, `--vp-c-default-*`, `--vp-c-divider`, `--vp-c-border`, `--vp-c-gutter`, `--vp-c-text-1/2/3`) as `oklch(L C*strength H)` with each token's base lightness kept intact (contrast unchanged). Strength = `min(1, accentChroma / 0.1) * (intensity/50) * 1.5`, so colorful accents wash the whole page while grayscale accents stay gray. Skipped while a preset is active.
+5. **Font selector** — Dropdown listing `fontOptions`; each item is rendered in its own font as a preview. Selecting one calls `setFont(name)`.
+6. **Locking** — While a preset is active, the mode button and accent selector get the `.locked` class (45% opacity, `pointer-events: none`, disabled). The font selector stays unlocked. The native VitePress appearance switch is hidden unconditionally (see "Navbar layout" above).
 
 ### Brand Color Interaction
 

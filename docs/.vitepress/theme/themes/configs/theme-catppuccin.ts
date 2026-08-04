@@ -12,9 +12,9 @@ export const catppuccinTheme: Theme = {
         3: '#ad82dfff',
         soft: '#a78bfa'
       },
-      bg: '#f8fafc',
-      bgAlt: '#eef2f5',
-      bgElv: '#eef2f5',
+      bg: '#eff1f5',
+      bgAlt: '#e6e9ef',
+      bgElv: '#f8fafc',
       bgMark: '#1F1E2E',
       text: {
         1: '#353638ff',

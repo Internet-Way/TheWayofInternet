@@ -1,7 +1,7 @@
 {
   "docs/.vitepress/config.mts": {
-    "mtime": 1785751770.5362725,
-    "ast_hash": "bc7f557b5dbf8bab930856ba5d76968a",
+    "mtime": 1785816327.043286,
+    "ast_hash": "c300b8f0182d78537ebccbaecf94fdf9",
     "semantic_hash": ""
   },
   "docs/.vitepress/core/contributors.ts": {
@@ -135,8 +135,8 @@
     "semantic_hash": "bef748412857cd71634365618b825178"
   },
   "docs/.vitepress/theme/themes/state.ts": {
-    "mtime": 1785755015.590764,
-    "ast_hash": "88e16a77c8c28e1de868cfd218d252d6",
+    "mtime": 1785834575.5022163,
+    "ast_hash": "079414b33447d31dcd7213bff6be7ba6",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/themes/theme-palette.ts": {
@@ -145,8 +145,8 @@
     "semantic_hash": "9d85f39790528dd30661b9d6d3717049"
   },
   "docs/.vitepress/theme/themes/theme-types.ts": {
-    "mtime": 1785755021.004651,
-    "ast_hash": "a3b580a518dbad23015d1247a2af6e53",
+    "mtime": 1785817558.2595727,
+    "ast_hash": "402b1fb0eac81b29ea99ac0c5569d668",
     "semantic_hash": ""
   },
   "package.json": {
@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/themes/Theme-Guide.md": {
-    "mtime": 1785755205.9032738,
-    "ast_hash": "91d4a151686882db41ee99b4fa975f36",
+    "mtime": 1785834624.1157045,
+    "ast_hash": "525ed5e1a5807cf0ff1b184261b6e845",
     "semantic_hash": ""
   },
   "docs/alternates.md": {
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/SettingsMenu.vue": {
-    "mtime": 1785755068.4876406,
-    "ast_hash": "a2e82f38c77cd49dc6f3186cbf5e474e",
+    "mtime": 1785834984.6969392,
+    "ast_hash": "5226491b34e6af4964d10133edee7ce4",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/themes/accents.json": {

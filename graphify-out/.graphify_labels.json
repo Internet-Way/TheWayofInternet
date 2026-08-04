@@ -1,7 +1,7 @@
 {
   "0": "Get Started Guide",
   "1": "state.ts",
-  "2": "@iconify-json/carbon",
+  "2": "@iconify-json/fluent",
   "3": "ThemeHandler (Singleton)",
   "4": "config.mts",
   "5": "Theme System — Developer Guide",
@@ -12,7 +12,7 @@
   "10": "index.ts",
   "11": "devDependencies",
   "12": "dependencies",
-  "13": "theme-types.ts",
+  "13": "SettingsMenu.vue",
   "14": "scripts",
   "15": "VPNav.vue",
   "16": "gaming.md",
@@ -30,13 +30,14 @@
   "28": "discord.md",
   "29": "iconLinks Social Icons",
   "30": "feedback.md",
-  "31": "@iconify-json/fluent-mdl2",
+  "31": "@iconify-json/carbon",
   "32": "ddl.md",
   "33": "reading.md",
   "34": "torrenting.md",
   "35": "@iconify-json/material-symbols",
   "36": "Feedback.vue",
   "37": "HeadingFeedback.vue",
+  "38": "@iconify-json/gravity-ui",
   "39": "@iconify-json/heroicons-solid",
   "40": "@iconify-json/logos",
   "41": "@iconify-json/lucide",
@@ -75,6 +76,5 @@
   "131": "Notes (testnote)",
   "132": "Site Logo",
   "133": "robots.txt",
-  "134": "Storage (empty placeholder)",
-  "246": "@iconify-json/fluent"
+  "134": "Storage (empty placeholder)"
 }

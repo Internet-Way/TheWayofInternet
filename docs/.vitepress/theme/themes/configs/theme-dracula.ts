@@ -12,9 +12,9 @@ export const draculaTheme: Theme = {
         3: '#8be9fd',
         soft: '#f1fa8c'
       },
-      bg: '#f8fafc',
-      bgAlt: '#f1f5f9',
-      bgElv: '#e2e8f0',
+      bg: '#f1f5f9',
+      bgAlt: '#e2e8f0',
+      bgElv: '#fafcff',
       text: {
         1: '#282a36',
         2: '#44475a',

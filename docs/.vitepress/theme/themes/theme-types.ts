@@ -105,4 +105,6 @@ export interface ThemeState {
   preset: string | null
   theme: Theme | null
   font: string
+  accentBg: boolean
+  accentBgIntensity: number
 }
