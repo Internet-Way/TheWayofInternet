@@ -136,7 +136,7 @@
       "label": "contributors",
       "file_type": "code",
       "source_file": "docs/.vitepress/core/contributors.ts",
-      "source_location": "L14",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "docs_vitepress_core_contributors_contributors",
       "community": 10,
@@ -2438,8 +2438,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_devdependencies_iconify_json_fluent",
-      "community": 11,
-      "community_name": "devDependencies",
+      "community": 2,
+      "community_name": "@iconify-json/fluent",
       "norm_label": "@iconify-json/fluent"
     },
     {
@@ -2449,8 +2449,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "iconify_json_fluent",
-      "community": 11,
-      "community_name": "devDependencies",
+      "community": 2,
+      "community_name": "@iconify-json/fluent",
       "norm_label": "@iconify-json/fluent"
     },
     {
@@ -2460,8 +2460,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_devdependencies_iconify_json_fluent_mdl2",
-      "community": 2,
-      "community_name": "@iconify-json/fluent-mdl2",
+      "community": 11,
+      "community_name": "devDependencies",
       "norm_label": "@iconify-json/fluent-mdl2"
     },
     {
@@ -2471,8 +2471,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "iconify_json_fluent_mdl2",
-      "community": 2,
-      "community_name": "@iconify-json/fluent-mdl2",
+      "community": 11,
+      "community_name": "devDependencies",
       "norm_label": "@iconify-json/fluent-mdl2"
     },
     {
@@ -6547,7 +6547,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/.vitepress/core/contributors.ts",
-      "source_location": "L14",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "docs_vitepress_core_contributors",
@@ -14036,5 +14036,5 @@
       "source_file": "docs/index.md"
     }
   ],
-  "built_at_commit": "21e3cfc886b4e8223cf75de3b4f7ecf56b124dce"
+  "built_at_commit": "04ac39df2835f86240acc7c109dde5332dd8f7cb"
 }

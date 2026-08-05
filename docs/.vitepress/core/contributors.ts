@@ -1,4 +1,5 @@
 export interface Contributor {
+  id: string
   name: string
   aka: string
   pfp: string
@@ -7,11 +8,12 @@ export interface Contributor {
   discordId?: string
   github: string
   description: string
-  type: 'Author' | 'Co-Author'
+  type: 'Editor' | 'Co-Editor' | 'Special' | 'Contributor'
 }
 
 export const contributors: Contributor[] = [
   {
+    id: '1320',
     name: '𝖘𝖚𝖕𝖗𝖊𝖒𝖊𝖒𝖚𝖍𝖎𝖙',
     aka: '𝖘𝖚𝖕𝖗𝖊𝖒𝖆𝖈𝖞',
     pfp: 'none',
@@ -20,9 +22,10 @@ export const contributors: Contributor[] = [
     discordId: '1341440502104592507',
     github: 'https://github.com/SupremeMuhit',
     description: 'No Description Yet LOL',
-    type: 'Author'
+    type: 'Editor'
   },
   {
+    id: '1321',
     name: 'VORTEX',
     aka: 'none',
     pfp: 'none',
@@ -31,6 +34,6 @@ export const contributors: Contributor[] = [
     discordId: '1419714928134062191',
     github: 'https://github.com/VortexStack777',
     description: 'No Description Yet LOL',
-    type: 'Author'
+    type: 'Editor'
   }
 ]

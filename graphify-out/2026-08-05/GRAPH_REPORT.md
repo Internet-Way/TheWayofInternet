@@ -1,7 +1,7 @@
-# Graph Report - TheWayofInternet  (2026-08-05)
+# Graph Report - TheWayofInternet  (2026-08-04)
 
 ## Corpus Check
-- 59 files · ~49,469 words
+- 59 files · ~49,433 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,14 +10,14 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `21e3cfc8`
+- Built from commit: `04ac39df`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Get Started Guide
 - state.ts
-- @iconify-json/fluent-mdl2
+- @iconify-json/fluent
 - ThemeHandler (Singleton)
 - config.mts
 - Theme System — Developer Guide
@@ -151,7 +151,7 @@ Nodes (13): Contributor, contributors, { frontmatter }, avatarUrl, props, avatar
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
-Nodes (11): @iconify-json/fluent, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/fluent, @iconify-json/twemoji (+3 more)
+Nodes (11): @iconify-json/fluent-mdl2, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/fluent-mdl2, @iconify-json/twemoji (+3 more)
 
 ### Community 12 - "dependencies"
 Cohesion: 0.05
@@ -230,7 +230,7 @@ Nodes (16): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKe
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `devDependencies` to `@iconify-json/fluent-mdl2`, `scripts`, `@iconify-json/carbon`, `@iconify-json/material-symbols`, `@iconify-json/gravity-ui`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-attrs`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@mdit/plugin-spoiler`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vitepress`, `vue`, `@vue/compiler-sfc`?**
+- **Why does `devDependencies` connect `devDependencies` to `@iconify-json/fluent`, `scripts`, `@iconify-json/carbon`, `@iconify-json/material-symbols`, `@iconify-json/gravity-ui`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-attrs`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@mdit/plugin-spoiler`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vitepress`, `vue`, `@vue/compiler-sfc`?**
   _High betweenness centrality (0.059) - this node is a cross-community bridge._
 - **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `Theme System — Developer Guide`, `Media Content Pipeline`?**
   _High betweenness centrality (0.037) - this node is a cross-community bridge._

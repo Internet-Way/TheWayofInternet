@@ -1,7 +1,7 @@
 {
   "0": "Get Started Guide",
   "1": "state.ts",
-  "2": "@iconify-json/fluent-mdl2",
+  "2": "@iconify-json/fluent",
   "3": "ThemeHandler (Singleton)",
   "4": "config.mts",
   "5": "Theme System — Developer Guide",
