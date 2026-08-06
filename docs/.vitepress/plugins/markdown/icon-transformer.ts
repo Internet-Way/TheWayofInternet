@@ -18,37 +18,38 @@ export function emojiRender(md: MarkdownRenderer) {
   }
 }
 
+// Raw Unicode emoji → twemoji icon name lookup (shared with PageTitle)
+export const emojiMap: Record<string, string> = {
+  '📖': 'open-book',
+  '🔧': 'wrench',
+  '🛡️': 'shield',
+  '🛡': 'shield',
+  '📱': 'mobile-phone',
+  '🧭': 'compass',
+  '✔️': 'check-mark-button',
+  '👁️‍🗨️': 'eye-in-speech-bubble',
+  '⚠️': 'warning',
+  '⭐': 'star',
+  '🚀': 'rocket',
+  '✨': 'sparkles',
+  '📦': 'package',
+  '💡': 'light-bulb',
+  '🔒': 'locked',
+  '🔐': 'locked-with-key',
+  '🚫': 'no-entry',
+  '💻': 'laptop',
+  '📚': 'books',
+  '🎬': 'clapper-board',
+  '🌟': 'glowing-star',
+  '👑': 'crown',
+  '✔': 'check-mark',
+  '⚠': 'warning',
+  '❓': 'red-question-mark'
+}
+
 // Intercepts raw Unicode emojis in markdown text and headings and replaces them with Iconify / Twemoji icon spans
 export function unicodeEmojiPlugin(md: MarkdownRenderer) {
   md.core.ruler.after('inline', 'emoji-to-icon', (state) => {
-    const emojiMap: Record<string, string> = {
-      '📖': 'open-book',
-      '🔧': 'wrench',
-      '🛡️': 'shield',
-      '🛡': 'shield',
-      '📱': 'mobile-phone',
-      '🧭': 'compass',
-      '✔️': 'check-mark-button',
-      '👁️‍🗨️': 'eye-in-speech-bubble',
-      '⚠️': 'warning',
-      '⭐': 'star',
-      '🚀': 'rocket',
-      '✨': 'sparkles',
-      '📦': 'package',
-      '💡': 'light-bulb',
-      '🔒': 'locked',
-      '🔐': 'locked-with-key',
-      '🚫': 'no-entry',
-      '💻': 'laptop',
-      '📚': 'books',
-      '🎬': 'clapper-board',
-      '🌟': 'glowing-star',
-      '👑': 'crown',
-      '✔': 'check-mark',
-      '⚠': 'warning',
-      '❓': 'red-question-mark'
-    }
-
     const emojiRegex = new RegExp(
       `(${Object.keys(emojiMap)
         .sort((a, b) => b.length - a.length)

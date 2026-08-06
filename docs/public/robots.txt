@@ -22,4 +22,4 @@ Allow: /*.webp$
 Allow: /*.ico$
 
 # Sitemap
-Sitemap: https://thewayofinternet.pages.dev/sitemap.xml
+Sitemap: https://bitindex.pages.dev/sitemap.xml

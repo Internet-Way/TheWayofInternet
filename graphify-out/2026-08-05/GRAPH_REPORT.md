@@ -1,23 +1,23 @@
-# Graph Report - TheWayofInternet  (2026-08-04)
+# Graph Report - TheWayofInternet  (2026-08-05)
 
 ## Corpus Check
-- 59 files · ~49,433 words
+- 67 files · ~52,787 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 523 nodes · 706 edges · 78 communities (31 shown, 47 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 21 edges (avg confidence: 0.77)
+- 619 nodes · 831 edges · 101 communities (40 shown, 61 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.73)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `04ac39df`
+- Built from commit: `274cf139`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Get Started Guide
-- state.ts
-- @iconify-json/fluent
+- StatsPage.vue
+- Department 1
 - ThemeHandler (Singleton)
 - config.mts
 - Theme System — Developer Guide
@@ -29,7 +29,7 @@
 - SettingsMenu.vue
 - scripts
 - VPNav.vue
-- blog.data.ts
+- state.ts
 - vue-shim.d.ts
 - blog.md — BLOG Index
 - Media Content Pipeline
@@ -37,11 +37,8 @@
 - The Top-Tier Only
 - Safety First Rules
 - test.md
-- contributors.md
-- discord.md
 - iconLinks Social Icons
-- feedback.md
-- @iconify-json/carbon
+- floating-vue
 - @iconify-json/material-symbols
 - Feedback.vue
 - HeadingFeedback.vue
@@ -49,10 +46,12 @@
 - @iconify-json/heroicons-solid
 - @iconify-json/logos
 - @iconify-json/lucide
+- compilerOptions
 - @iconify-json/mdi
 - @iconify-json/ph
 - @iconify-json/qlementine-icons
 - @iconify-json/simple-icons
+- @iconify-json/fluent
 - markdown-it
 - @mdit/plugin-align
 - @mdit/plugin-attrs
@@ -66,6 +65,20 @@
 - @mdit/plugin-sup
 - @mdit/plugin-tab
 - @mdit/plugin-tasklist
+- vitepress
+- @headlessui/vue
+- @iconify-json/carbon
+- mark.js
+- StatsInfo.vue
+- nprogress
+- pathe
+- reka-ui
+- @resvg/resvg-js
+- tinycolor2
+- @types/nprogress
+- unocss
+- @unocss/preset-icons
+- vuetify
 - sass
 - sass-embedded
 - @types/markdown-it
@@ -77,9 +90,15 @@
 - vite-plugin-pwa
 - vite-plugin-terminal
 - vite-plugin-vuetify
-- vitepress
+- @vueuse/core
 - vue
 - @vue/compiler-sfc
+- @vueuse/integrations
+- x-satori
+- zod
+- theme-types.ts
+- ThemeHandler
+- feed
 - alternates.md — Alternatives Page
 - Notes (testnote)
 - Site Logo
@@ -90,12 +109,12 @@
 2. `ThemeHandler` - 19 edges
 3. `Get Started Guide` - 19 edges
 4. `Per-Category Tier Rubric` - 14 edges
-5. `Media Content Pipeline` - 12 edges
-6. `bitindex` - 12 edges
-7. `useTheme()` - 11 edges
-8. `begin.md — Piracy Knowledge Base` - 11 edges
-9. `ColorPicker.vue` - 11 edges
-10. `DisplayMode` - 9 edges
+5. `compilerOptions` - 13 edges
+6. `Media Content Pipeline` - 12 edges
+7. `bitindex` - 12 edges
+8. `useTheme()` - 11 edges
+9. `begin.md — Piracy Knowledge Base` - 11 edges
+10. `ColorPicker.vue` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `README.md — Project Overview` --conceptually_related_to--> `ThemeHandler (state.ts)`  [INFERRED]
@@ -115,23 +134,27 @@
 ## Hyperedges (group relationships)
 - **Homepage Features** — docs_index_multi_source, docs_index_quality_verified, docs_index_always_updated, docs_index_open_source, docs_index_highly_organized, docs_index_top_tier_only [EXTRACTED 0.75]
 
-## Communities (78 total, 47 thin omitted)
+## Communities (101 total, 61 thin omitted)
 
 ### Community 0 - "Get Started Guide"
 Cohesion: 0.14
 Nodes (20): FMHY (fmhy.net), Base64 URL Encoding Practice, FitGirl Repacks, Microsoft Activation Scripts (MAS), begin.md — Piracy Knowledge Base, r/Piracy Megathread (rentry.org), How Torrenting Works, uBlock Origin (+12 more)
 
-### Community 1 - "state.ts"
-Cohesion: 0.07
-Nodes (35): themeRegistry, catppuccinTheme, draculaTheme, rosePineTheme, tokyoNightTheme, ACCENT_TINT_TOKENS, AccentOption, accentOptions (+27 more)
+### Community 1 - "StatsPage.vue"
+Cohesion: 0.11
+Nodes (17): cleanHeading(), slugify(), buildPageStats(), MutableScope, PageStats, Parsed, parsePage(), ScopeStats (+9 more)
+
+### Community 2 - "Department 1"
+Cohesion: 0.12
+Nodes (16): Department 1, Department 2, Section 1, Section 2, Section 3, Section 4, Section 5, Section 6 (+8 more)
 
 ### Community 3 - "ThemeHandler (Singleton)"
 Cohesion: 0.10
 Nodes (40): applyTheme, Brand color interaction, Catppuccin Theme, Dynamic Color Themes (color-swarm), color-* dynamic themes, ColorPicker.vue, CSS Variables Reference, CSS variables mapping (+32 more)
 
 ### Community 4 - "config.mts"
-Cohesion: 0.08
-Nodes (27): config(), __dirname, envFile, feedbackWebhooks, unocssConfigPath, cfStart, commitRef, commitStart (+19 more)
+Cohesion: 0.07
+Nodes (30): config(), __dirname, envFile, feedbackWebhooks, unocssConfigPath, cfStart, commitRef, commitStart (+22 more)
 
 ### Community 5 - "Theme System — Developer Guide"
 Cohesion: 0.23
@@ -146,20 +169,20 @@ Cohesion: 0.11
 Nodes (26): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, emojiMap, iconLinks, icon-transformer.ts, Markdown Plugins (markdown/), starredlink.ts (+18 more)
 
 ### Community 10 - "index.ts"
-Cohesion: 0.13
-Nodes (13): Contributor, contributors, { frontmatter }, avatarUrl, props, avatarUrls, filteredContributors, props (+5 more)
+Cohesion: 0.08
+Nodes (20): Contributor, contributors, BlogData, BlogEntry, categorize(), processBlogPosts(), contributors, dateLabel (+12 more)
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
 Nodes (11): @iconify-json/fluent-mdl2, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/fluent-mdl2, @iconify-json/twemoji (+3 more)
 
 ### Community 12 - "dependencies"
-Cohesion: 0.05
-Nodes (43): consola, feed, floating-vue, @headlessui/vue, mark.js, @mdi/font, minisearch, nprogress (+35 more)
+Cohesion: 0.22
+Nodes (9): consola, @mdi/font, minisearch, dependencies, consola, @mdi/font, minisearch, @unocss/preset-uno (+1 more)
 
 ### Community 13 - "SettingsMenu.vue"
 Cohesion: 0.10
-Nodes (20): accentOpen, currentAccent, currentFont, currentPreset, fontOpen, locked, {
+Nodes (18): accentOpen, currentAccent, currentFont, currentPreset, fontOpen, locked, {
   mode,
   accent,
   preset,
@@ -176,7 +199,7 @@ Nodes (20): accentOpen, currentAccent, currentFont, currentPreset, fontOpen, loc
   accentOptions,
   presetOptions,
   fontOptions,
-}, onIntensityInput() (+12 more)
+}, onIntensityInput() (+10 more)
 
 ### Community 14 - "scripts"
 Cohesion: 0.22
@@ -186,9 +209,9 @@ Nodes (8): scripts, build, dev, docs:build, docs:dev, docs:preview, lint, type
 Cohesion: 0.25
 Nodes (6): { frontmatter }, hasNavbar, isHidden, { isScreenOpen, closeScreen, toggleScreen }, { width }, { y }
 
-### Community 17 - "blog.data.ts"
-Cohesion: 0.33
-Nodes (4): BlogData, BlogEntry, categorize(), processBlogPosts()
+### Community 17 - "state.ts"
+Cohesion: 0.11
+Nodes (20): ACCENT_TINT_TOKENS, AccentOption, accentOptions, DERIVE_STEPS, FontOption, fontOptionNames, fontOptions, generateAccentTheme() (+12 more)
 
 ### Community 20 - "vue-shim.d.ts"
 Cohesion: 0.40
@@ -220,27 +243,43 @@ Nodes (26): activeWebhook, buildFields(), colors, configured, contact, editWhat,
 
 ### Community 37 - "HeadingFeedback.vue"
 Cohesion: 0.11
-Nodes (16): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor() (+8 more)
+Nodes (17): { frontmatter }, clearPencils(), close(), configured, errorMsg, onKeydown(), open, openFor() (+9 more)
+
+### Community 42 - "compilerOptions"
+Cohesion: 0.09
+Nodes (22): docs/.vitepress/core/vue-shim.d.ts, docs/.vitepress/**/*.mts, docs/.vitepress/**/*.ts, DOM, DOM.Iterable, ES2022, node, unocss.config.ts (+14 more)
+
+### Community 65 - "StatsInfo.vue"
+Cohesion: 0.13
+Nodes (24): attach(), cleanup(), close(), detach(), findPage(), findScopeBySlug(), hovering, kindLabel (+16 more)
+
+### Community 93 - "theme-types.ts"
+Cohesion: 0.17
+Nodes (13): themeRegistry, catppuccinTheme, draculaTheme, rosePineTheme, tokyoNightTheme, AltButtonColors, BlockColorScheme, BrandButtonColors (+5 more)
+
+### Community 94 - "ThemeHandler"
+Cohesion: 0.30
+Nodes (4): hasDocument(), isBrowser(), readStorage(), ThemeHandler
 
 ## Knowledge Gaps
-- **198 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+193 more)
+- **248 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+243 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **61 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `devDependencies` to `@iconify-json/fluent`, `scripts`, `@iconify-json/carbon`, `@iconify-json/material-symbols`, `@iconify-json/gravity-ui`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-attrs`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@mdit/plugin-spoiler`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vitepress`, `vue`, `@vue/compiler-sfc`?**
-  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `devDependencies` to `scripts`, `@iconify-json/material-symbols`, `@iconify-json/gravity-ui`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `@iconify-json/fluent`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-attrs`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@mdit/plugin-spoiler`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `vitepress`, `@iconify-json/carbon`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vue`, `@vue/compiler-sfc`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `Theme System — Developer Guide`, `Media Content Pipeline`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+- **Why does `dependencies` connect `dependencies` to `mark.js`, `nprogress`, `pathe`, `reka-ui`, `@resvg/resvg-js`, `tinycolor2`, `@types/nprogress`, `unocss`, `@unocss/preset-icons`, `vuetify`, `scripts`, `@vueuse/core`, `feed`, `@vueuse/integrations`, `x-satori`, `zod`, `@headlessui/vue`, `floating-vue`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `__dirname`, `unocssConfigPath`, `envFile` to the rest of the system?**
-  _198 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _248 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Get Started Guide` be split into smaller, more focused modules?**
   _Cohesion score 0.1368421052631579 - nodes in this community are weakly interconnected._
-- **Should `state.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.06956521739130435 - nodes in this community are weakly interconnected._
-- **Should `ThemeHandler (Singleton)` be split into smaller, more focused modules?**
-  _Cohesion score 0.10128205128205128 - nodes in this community are weakly interconnected._
+- **Should `StatsPage.vue` be split into smaller, more focused modules?**
+  _Cohesion score 0.11231884057971014 - nodes in this community are weakly interconnected._
+- **Should `Department 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._

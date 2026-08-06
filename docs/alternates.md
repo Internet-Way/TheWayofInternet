@@ -1,4 +1,9 @@
-# Alternatives to you shitty favourite things.
+---
+title: Alternatives
+description: Alternatives to your favorite things.
+icon: i-twemoji-shuffle-tracks-button
+type: index
+---
 
 Soon things will be added here , very very very very very very very very very very soon
 

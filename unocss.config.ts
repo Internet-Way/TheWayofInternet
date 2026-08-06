@@ -54,6 +54,15 @@ export default defineConfig({
     'i-twemoji-check-mark',
     'i-twemoji-warning',
     'i-twemoji-red-question-mark',
+    'i-twemoji-robot',
+    'i-twemoji-musical-notes',
+    'i-twemoji-video-game',
+    'i-twemoji-magnet',
+    'i-twemoji-down-arrow',
+    'i-twemoji-newspaper',
+    'i-twemoji-memo',
+    'i-twemoji-card-file-box',
+    'i-twemoji-shuffle-tracks-button',
   ],
   theme: {
     colors: {

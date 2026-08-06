@@ -121,6 +121,7 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
     items: [
       { text: "Contributors", link: "/utilpages/contributors" },
       { text: "Feedback", link: "/utilpages/feedback" },
+      { text: "Statistics", link: "/utilpages/stats" },
       { text: "Storage", link: "/storage" },
       { text: "Notes", link: "/notes" },
     ],

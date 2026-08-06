@@ -1,8 +1,9 @@
 ---
 title: Test Blog
 description: Testing blog structure.
+type: blog
 date: 2026-03-25
-contributors: [𝖘𝖚𝖕𝖗𝖊𝖒𝖊𝖒𝖚𝖍𝖎𝖙]
+contributors: [1320]
 ---
 
 <Post />

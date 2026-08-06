@@ -1,3 +1,6 @@
-# BLOG
+---
+title: Blog
+type: utility
+---
 
-- [Test Blog](/blogs/test)
+<BlogIndex />

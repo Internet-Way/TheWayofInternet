@@ -1,7 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import MarkdownIt from 'markdown-it'
-import type { Plugin } from 'vite'
+// Import Plugin from vitepress's own vite copy so the returned plugin type
+// matches the one defineConfig() expects (root 'vite' resolves to a second copy).
+import type { Plugin } from 'vitepress/dist/node/index.js'
 
 export function TooltipVitePlugin(): Plugin {
   const virtualModuleId = 'virtual:tooltip-registry'

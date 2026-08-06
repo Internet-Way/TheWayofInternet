@@ -1,4 +1,7 @@
-# Notes
+---
+title: Notes
+type: utility
+---
 
 ### testnote
 

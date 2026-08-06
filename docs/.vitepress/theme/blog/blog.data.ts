@@ -34,7 +34,7 @@ type BlogData = ReturnType<typeof createContentLoader>
 declare const data: BlogData
 export { data }
 
-export default createContentLoader('posts/*.md', {
+export default createContentLoader('blogs/*.md', {
   includeSrc: true,
   transform: (raw) => processBlogPosts(raw)
 })

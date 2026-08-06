@@ -5,8 +5,16 @@
 - Package manager: **pnpm** (`pnpm install`; `node_modules/.pnpm` layout; bun is NOT installed). Node is installed (pnpm 11.1.2).
 - Scripts (package.json): `pnpm run dev` (port 3000), `pnpm run build`, `pnpm run lint` (tsc --noEmit), `docs:dev`, `docs:build`, `docs:preview`.
 
+## Page frontmatter (REQUIRED on every .md except `index.md`)
+- Three page types; the header is rendered from frontmatter (not an H1 in the body — no H1s in bodies):
+  - **index** — `title`, `description`, `icon`, `type: index`. Renders icon + gradient title + subtitle via `PageHeader.vue` → `PageTitle.vue`.
+    `icon` is an iconify class (e.g. `i-twemoji-shield`) or a raw emoji mapped by `emojiMap` (`icon-transformer.ts`). New `i-twemoji-*` icons must be added to the safelist in `unocss.config.ts`.
+  - **blog** — `title`, `description`, `type: blog`, `date` (YYYY-MM-DD), `contributors: [ID]` (contributor IDs from `core/contributors.ts`, e.g. `[1320]`). Blog posts must include `<Post />` as the first line of the body — it renders the header (title + subtitle, with `subtitle • date • editor` inline on one line) via `BlogPost.vue`. `PageHeader` skips blog pages.
+  - **utility** — `title`, `type: utility`. Renders title via `PageHeader.vue`, no subtitle.
+- `docs/index/{privacy,ai,video,audio,gaming,reading,torrenting,ddl}.md` are the 8 media stub pages (sidebar links `/index/*`).
+
 ## Content pipeline (media category pages)
-- `docs/media/{privacy,ai,video,audio,gaming,reading,torrenting,downloading}.md` — raw FMHY wiki copies used directly as the index pages (user's decision; not curated anymore).
+- Media category pages live at `docs/index/{privacy,ai,video,audio,gaming,reading,torrenting,ddl}.md` — currently frontmatter-only stubs (no H1 in body; header comes from frontmatter). When curated from FMHY wiki dumps, apply the rules below:
 - **Heading rule**: H1 written exactly as the user specified:
   - privacy.md → `# Ad Blocking and Privacy`
   - ai.md → `# Artificial Intelligence`
@@ -34,12 +42,12 @@
 
 ## Theme config
 - `docs/.vitepress/core/meta.ts` — `nav`, `sidebar`. Sidebar has a **"Media Resources"** section (enabled) with 8 items:
-  Privacy/Adblocking → `/media/privacy`, AI → `/media/ai`, Streaming → `/media/video`, Listening → `/media/audio`, Gaming → `/media/gaming`, Reading → `/media/reading`, Torrenting → `/media/torrenting`, Downloading → `/media/downloading`.
+  Privacy/Adblocking → `/index/privacy`, AI → `/index/ai`, Streaming → `/index/video`, Listening → `/index/audio`, Gaming → `/index/gaming`, Reading → `/index/reading`, Torrenting → `/index/torrenting`, Downloading → `/index/ddl`.
 - `docs/.vitepress/config.mts` — VitePress config (base '/', cleanUrls, local search, UnoCSS, PWA). Markdown plugins registered there.
 
 ## Verification
-- `bun run lint` (tsc --noEmit) and `bun run build` after changes.
-- Smoke test dev server (`bun run dev`) — check crown icon renders, sidebar links resolve.
+- `pnpm run lint` (tsc --noEmit) and `pnpm run build` after changes.
+- Smoke test dev server (`pnpm run dev`) — check crown icon renders, sidebar links resolve.
 
 ## User criteria per category (tier rubric)
 - **Ad Blocking and Privacy**: blocking efficiency, extension integrity, open-source auditing. 👑 = daily-driver quality, non-technical usability; ⭐ = 95%+ block tests, cosmetic filtering, <50MB memory, MV3, zero-log; minimum = filters updated <30 days, no stealth monetization. Exemptions: Pi-hole-type network tools from "simple UI" rule.
@@ -54,6 +62,15 @@
 ## Misc
 - `docs/index.md` hero mentions "Site Under Construction"; features claim multi-source, quality verified, 20-entry cap.
 - Media pages are verbatim FMHY dumps; old curation rubric below is retained for reference only.
+
+## Statistics system (docs/.vitepress/theme/stats/)
+- Every `.md` file is a page. Headings are tracked for **all** page types: the tree mirrors the right-side TOC/outline exactly (same `buildTree` pop rule: a heading pops its parent while `parent.level >= level`), so top-level headings are **departments**, their children **sections**, grandchildren **subsections** — regardless of absolute level (pages may start at H1, H2, or H3; e.g. `begin.md` has H2-only roots). Levels >3 are ignored. `lines` counts ONLY list-item lines (`- ` / `* ` / `+ ` / numbered) — plain text lines are ignored.
+- `stats.data.ts` — `createContentLoader('**/*.md', { includeSrc })` → `PageStats` per page: `{ url, title, type, lines, listItems, departments[] }`. Parser skips YAML frontmatter, fenced blocks (```/~~~), HTML comments, and `***`/`---` rules; each scope stores its heading + anchor `slug` + direct lines/list items.
+- **Gotcha**: content-loader `*.data.ts` build output exposes ONLY the `data` export — named helpers must live outside the loader. They're in `heading.ts` (`cleanHeading`, `slugify`; `slugify` approximates VitePress's github-slugger; keep `.toLowerCase()`). Do not import named exports from a `.data.ts`.
+- `StatsPage.vue` — Statistics page at `/utilpages/stats` (`<StatsPage />`, utility type, sidebar "Miscellaneous → Statistics"). Renders summary cards, a filter, and an expandable page → department → section → subsection tree.
+- `StatsInfo.vue` — mounted in `Layout.vue` `#layout-top`; injects `[i]` buttons into the right "On this page" TOC panel (`nav.VPDocAsideOutline`): hovering the `On this page` title → page stats, hovering a TOC link (`a.outline-link`) → that department/section/subsection's stats. Matching is by **index path**, NOT slug text: find the slug in `useData().page.headers` (VPHeader tree, order = parse order) → `number[]` path → `applyPath` maps `[h1i]`→department, `[h1i,h2i]`→section, `[h1i,h2i,h3i]`→subsection. The button attaches to the `a.outline-link` row itself (never `li` — it spans nested children height), host gets `position: relative; padding-right: 26px`, shown via CSS `a.outline-link:hover > .sii-chip`. Hovering the chip opens a **hover tooltip** (teleported to body, positioned left of the chip; chip keeps `.open` class so it stays visible; hides 150ms after the chip is left). Setup retries 10×100ms for hydration. Both components registered in `theme/index.ts`.
+- **Required config** (already set in `config.mts`): `markdown.headers: { level: [1, 2, 3] }` — VitePress 1.6.4 does NOT extract page headers by default, and without it the TOC is empty; `themeConfig.outline: [1, 3]` — must include level 1 so departments (H1) appear as TOC links. Headers land in `env.headers` during `md.render` (NOT `md.headers`).
+- Scope counting is per-scope-direct (a department's line count excludes its sections' lines); page totals are whole-file.
 
 ## graphify
 

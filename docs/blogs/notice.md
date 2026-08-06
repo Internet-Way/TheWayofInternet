@@ -1,4 +1,12 @@
-# Site Notice
+---
+title: Site Notice
+description: bitindex is currently under construction.
+type: blog
+date: 2026-08-05
+contributors: [1320]
+---
+
+<Post />
 
 ::: warning
 **bitindex** is currently under construction.

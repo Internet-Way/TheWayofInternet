@@ -3,33 +3,47 @@ import { ref, onMounted, computed } from 'vue'
 import { type Contributor, contributors as allContributors } from '../../core/contributors'
 
 const props = defineProps<{
-  contributors: string[]
+  contributors: (string | number)[]
 }>()
 
+// Frontmatter uses contributor IDs (e.g. [1320]) — fall back to name matching
+// for legacy frontmatter that still lists names.
 const filteredContributors = computed(() =>
-  allContributors.filter((c: Contributor) => props.contributors.includes(c.name))
+  allContributors.filter((c: Contributor) =>
+    props.contributors.some((id) => String(id) === c.id || id === c.name)
+  )
 )
+
+const avatarFor = (c: Contributor): string => {
+  if (c.pfp && c.pfp !== 'none') return c.pfp
+  if (c.discordId && c.discordId !== 'none') {
+    return `https://avatar-cyan.vercel.app/api/pfp/${c.discordId}/image`
+  }
+  if (c.github && c.github !== 'none') {
+    const username = c.github
+      .replace(/^https?:\/\/github\.com\//, '')
+      .replace(/\/+$/, '')
+    if (username) return `https://github.com/${username}.png`
+  }
+  return ''
+}
 
 const avatarUrls = ref<Record<string, string>>({})
 
 onMounted(() => {
   for (const c of filteredContributors.value) {
-    if (c.discordId && c.discordId !== 'none') {
-      avatarUrls.value[c.name] = `https://avatar-cyan.vercel.app/api/pfp/${c.discordId}/image`
-    } else if (c.github !== 'none') {
-      avatarUrls.value[c.name] = `${c.github}.png`
-    }
+    const url = avatarFor(c)
+    if (url) avatarUrls.value[c.name] = url
   }
 })
 </script>
 
 <template>
-  <div v-if="filteredContributors.length > 0" class="flex items-center gap-3">
-    <div v-for="c in filteredContributors" :key="c.name" class="flex items-center gap-1.5">
-      <span class="lowercase opacity-80">by</span>
-      <img 
+  <div v-if="filteredContributors.length > 0" class="inline-flex items-center gap-3">
+    <div v-for="c in filteredContributors" :key="c.name" class="inline-flex items-center gap-1.5">
+      <img
         v-if="avatarUrls[c.name]"
-        :src="avatarUrls[c.name]" 
+        :src="avatarUrls[c.name]"
         :alt="c.name"
         class="w-4 h-4 rounded-full border border-div object-cover"
       />

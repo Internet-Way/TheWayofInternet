@@ -5,6 +5,7 @@ import Announcement from '../components/Announcement.vue'
 import HeadingFeedback from '../components/HeadingFeedback.vue'
 import PageHeader from '../components/PageHeader.vue'
 import SettingsMenu from '../components/SettingsMenu.vue'
+import StatsInfo from '../stats/StatsInfo.vue'
 
 const { Layout } = DefaultTheme
 
@@ -49,6 +50,7 @@ onBeforeUnmount(() => {
   <Layout>
     <template #layout-top>
       <HeadingFeedback />
+      <StatsInfo />
     </template>
     <template #nav-bar-content-after>
       <SettingsMenu />

@@ -1,4 +1,9 @@
-# Get Started
+---
+title: Get Started
+description: Understand the fundamentals of the internet, stay safe, and start exploring the best free resources.
+icon: i-twemoji-rocket
+type: index
+---
 
 ### Welcome to **bitindex**.
 Welcome to bitindex! This guide will help you understand the fundamentals of the internet and get you up and running quickly.
@@ -9,7 +14,7 @@ Pre-Requisites (Must Do First)
 ✔️ `Recommended`: Change your [DNS](https://www.privacyguides.org/en/dns/) settings. - DNS can enhance the browsing experience by increasing speed and bypassing restrictions, as your Internet Service Provider (ISP) usually offers a slower default DNS that may censor websites according to their preferences.
 - `For direct downloads`: Use [BypassAllShortlinksDebloated](https://codeberg.org/gongchandang49/bypass-all-shortlinks-debloated). - File hosters use redirects to force users to view ads with timers, this will avoid them. Install ViolentMonkey add-on for Firefox, then install the BypassAllShortlinksDebloated script.
 - `For torrenting`: Install a reputable torrent client such as [qBittorrent](https://www.qbittorrent.org/). - Torrent client is a separate program that is essential for downloading files via [torrent files](https://en.wikipedia.org/wiki/Torrent_file), which is a method distinct from [direct downloads](https://en.wikipedia.org/wiki/Direct_download_link).
-- `For torrenting`: Set up a VPN network such as [AirVPN}(https://airvpn.org/) or [ProtonVPN](https://protonvpn.com/). - VPN enhances online privacy and security by encrypting the connection and masking the IP address, making it ideal for torrenting as it protects your identity, and allows access to restricted content.
+- `For torrenting`: Set up a VPN network such as [AirVPN](https://airvpn.org/) or [ProtonVPN](https://protonvpn.com/). - VPN enhances online privacy and security by encrypting the connection and masking the IP address, making it ideal for torrenting as it protects your identity, and allows access to restricted content.
 - `For torrenting`: [Bind the torrent client](https://protonvpn.com/support/bittorrent-vpn#how-to-bind-the-client-to-the-proton-vpn-interface) to the VPN interface. - Ensures torrenting only happen when the VPN is active, lowering the chances of a leak of the IP address to essentially zero. For more in-depth details, see our [Torrenting + VPN Guide](https://rentry.org/torrentvpn).
 !!! note ➜ `Quality over quantity` - The Megathread is subject to rigorous 👁️‍🗨️ [Quality Control](https://rentry.org/megathread-quality-control) checks, and often updated. - Visit our [r/Piracy](https://www.reddit.com/r/Piracy/), [r/Torrents](https://www.reddit.com/r/torrents/) communities for all the sailing discussions.
 
@@ -17,7 +22,7 @@ Pre-Requisites (Must Do First)
 
 🛡️ Safety First (Critical Rules)
 1. Only use trusted sites from this guide, [FMHY](https://fmhy.net/), or the [r/Piracy Megathread](https://rentry.org/megathread).
-2. Scan all downloaded files with [VirusTota]}(https://www.virustotal.com/) before opening. For help identifying false positives, use this [Scan Guide](https://claraiscute.neocities.org/Guides/vtguide).
+2. Scan all downloaded files with [VirusTotal](https://www.virustotal.com/) before opening. For help identifying false positives, use this [Scan Guide](https://claraiscute.neocities.org/Guides/vtguide).
 3. Never use your real email or password on untrusted sites. Use email aliasing via this [guide](https://www.reddit.com/r/FREEMEDIAHECKYEAH/wiki/internet-tools/#wiki_.25B7_email_aliasing).
 4. Avoid any site claiming to represent a scene group (CODEX, CPY, SKIDROW, etc.) – scene groups do not have public websites.
 5. Use uBlock Origin to avoid fake download buttons (usually large, bright, labeled "Download Now") – real buttons are small, text-based, and integrated into the site design.

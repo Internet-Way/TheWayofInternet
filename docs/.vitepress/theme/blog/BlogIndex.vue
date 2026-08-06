@@ -14,7 +14,7 @@ const formatDate = (raw: string): string => {
 <template>
   <div>
     <section>
-      <h1 class="flex items-center gap-2">Posts</h1>
+      <h2 class="flex items-center gap-2">Posts</h2>
       <p>Everything from Monthly Updates to fmhy updates.</p>
 
       We also have a

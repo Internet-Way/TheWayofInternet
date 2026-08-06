@@ -204,6 +204,7 @@ export default defineConfig({
       VitePWA({
         registerType: "autoUpdate",
         workbox: {
+          maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
           globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
           runtimeCaching: [
             {
@@ -261,6 +262,7 @@ export default defineConfig({
     },
   },
   markdown: {
+    headers: { level: [1, 2, 3] },
     emoji: { defs },
     config(md) {
       md.use(abbr);
@@ -286,25 +288,29 @@ export default defineConfig({
   },
   themeConfig: {
     logo: "/logo.png",
-    outline: [2, 6],
+    outline: [1, 3],
     nav,
     sidebar,
     socialLinks,
     search: {
       provider: "local",
-      detailedView: true,
       options: {
-        tokenize: (string) => string.split(/[\s\-]+/u).filter(Boolean),
-        processTerm: (term) => term.toLowerCase().trim(),
-      },
-      searchOptions: {
-        fuzzy: 0.25,
-        prefix: true,
-        boost: {
-          title: 4,
-          heading: 3,
-          text: 2,
-          tag: 1,
+        detailedView: true,
+        miniSearch: {
+          options: {
+            tokenize: (string: string) => string.split(/[\s\-]+/u).filter(Boolean),
+            processTerm: (term: string) => term.toLowerCase().trim(),
+          },
+          searchOptions: {
+            fuzzy: 0.25,
+            prefix: true,
+            boost: {
+              title: 4,
+              heading: 3,
+              text: 2,
+              tag: 1,
+            },
+          },
         },
       },
     },
