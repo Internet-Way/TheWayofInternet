@@ -1,5 +1,7 @@
 ---
 title: Notes
+subtitle: Scratch notes and working tests.
+id: notes
 type: utility
 ---
 

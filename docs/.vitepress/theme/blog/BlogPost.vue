@@ -27,7 +27,7 @@ const hasMeta = computed(
 <template>
   <PageTitle
     :title="frontmatter.title"
-    :subtitle="frontmatter.description"
+    :subtitle="frontmatter.subtitle || frontmatter.description"
   >
     <template v-if="hasMeta" #meta>
       <time v-if="dateLabel" :datetime="String(frontmatter.date)">{{ dateLabel }}</time>

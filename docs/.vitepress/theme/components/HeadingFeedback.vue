@@ -161,19 +161,18 @@ onBeforeUnmount(() => {
 
 <style>
 .mdh-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-right: -0.87em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
+  margin-left: 0.3em;
   padding: 0;
+  border: 0;
   background: none;
   cursor: pointer;
-  font-size: inherit;
+  font-size: 0.5em;
   font-weight: 500;
+  line-height: 1;
+  vertical-align: middle;
   color: var(--vp-c-text-3);
   opacity: 0;
   -webkit-user-select: none;
@@ -182,6 +181,7 @@ onBeforeUnmount(() => {
 }
 
 .mdh-btn svg {
+  display: block;
   width: 1em;
   height: 1em;
 }
@@ -205,10 +205,6 @@ onBeforeUnmount(() => {
 .vp-doc h4:hover .mdh-btn,
 .vp-doc h4 .mdh-btn:focus-visible {
   opacity: 1;
-}
-
-.vp-doc h2 .mdh-btn {
-  top: 24px;
 }
 
 @media (max-width: 560px) {

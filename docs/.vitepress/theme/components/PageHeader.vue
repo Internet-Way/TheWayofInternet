@@ -10,7 +10,9 @@ const show = computed(
   () =>
     frontmatter.value.layout !== 'home' &&
     frontmatter.value.layout !== 'page' &&
-    (frontmatter.value.type === 'index' || frontmatter.value.type === 'utility') &&
+    (frontmatter.value.type === 'index' ||
+      frontmatter.value.type === 'utility' ||
+      frontmatter.value.type === 'special') &&
     Boolean(frontmatter.value.title)
 )
 </script>
@@ -20,6 +22,6 @@ const show = computed(
     v-if="show"
     :icon="frontmatter.icon"
     :title="frontmatter.title"
-    :subtitle="frontmatter.description"
+    :subtitle="frontmatter.subtitle || frontmatter.description"
   />
 </template>

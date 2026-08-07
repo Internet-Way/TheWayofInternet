@@ -2,6 +2,7 @@
 title: Alternatives
 description: Alternatives to your favorite things.
 icon: i-twemoji-shuffle-tracks-button
+id: alternates
 type: index
 ---
 

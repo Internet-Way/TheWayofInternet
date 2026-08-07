@@ -3,6 +3,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 import { data as statsData } from '../stats/stats.data'
 import type { PageStats, ScopeStats } from '../stats/stats.data'
+import { showStatsButton } from './settings'
 
 interface VPHeader {
   level: number
@@ -136,7 +137,8 @@ const attachTo = (host: HTMLElement): void => {
   btn.type = 'button'
   btn.className = 'sii-chip'
   btn.setAttribute('aria-label', `Show statistics for ${kindLabel[scopeKind.value]}: ${scopeName.value}`)
-  btn.innerHTML = '<span class="sii-icon" aria-hidden="true">i</span>'
+  btn.innerHTML =
+    '<svg class="sii-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>'
   btn.addEventListener('mouseenter', () => {
     cancelHide()
     const current = btn
@@ -196,6 +198,7 @@ const cleanup = (): void => {
 
 const setup = (tries = 0): void => {
   cleanup()
+  if (!showStatsButton.value) return
   const nav = document.querySelector<HTMLElement>('#VPContent nav.VPDocAsideOutline')
   if (!nav) {
     if (tries < 10) timer = setTimeout(() => setup(tries + 1), 100)
@@ -254,6 +257,10 @@ onMounted(async () => {
       timer = setTimeout(() => setup(), 150)
     }
   )
+  watch(showStatsButton, () => {
+    if (timer) clearTimeout(timer)
+    setup()
+  })
 })
 
 onBeforeUnmount(() => {
@@ -311,6 +318,11 @@ onBeforeUnmount(() => {
   opacity: 0;
   transition: opacity 0.2s ease, background 0.2s ease;
   z-index: 2;
+}
+
+.sii-icon {
+  width: 0.7rem;
+  height: 0.7rem;
 }
 
 a.outline-link:hover > .sii-chip,

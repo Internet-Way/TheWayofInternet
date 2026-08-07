@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useTheme } from '../themes/state'
+import { showStatsButton, setShowStatsButton } from '../stats/settings'
 
 const {
   mode,
@@ -60,6 +61,10 @@ const selectFont = (name: string) => {
 
 const toggleAccentBg = () => {
   setAccentBg(!accentBg.value)
+}
+
+const toggleStatsButton = () => {
+  setShowStatsButton(!showStatsButton.value)
 }
 
 const onIntensityInput = (e: Event) => {
@@ -319,6 +324,22 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
           </Transition>
         </div>
         </div>
+
+        <div class="accent-bg-group">
+          <span class="settings-caption">Show Stats Button</span>
+          <div class="accent-bg-row">
+            <button
+              class="accent-bg-toggle"
+              type="button"
+              :class="{ on: showStatsButton }"
+              :title="showStatsButton ? 'Hide statistics chips in page contents' : 'Show statistics chips in page contents'"
+              @click="toggleStatsButton"
+            >
+              {{ showStatsButton ? 'ON' : 'OFF' }}
+            </button>
+            <span class="stats-hint">Statistics chips in page contents</span>
+          </div>
+        </div>
       </div>
     </Transition>
   </div>
@@ -544,6 +565,18 @@ onUnmounted(() => document.removeEventListener('click', onClickOutside))
 
 .accent-bg-toggle:disabled {
   cursor: not-allowed;
+}
+
+.stats-hint {
+  flex: 1;
+  min-width: 0;
+  padding: 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--vp-c-text-3);
+  font-size: 11px;
+  line-height: 30px;
 }
 
 .accent-bg-slider-wrap {

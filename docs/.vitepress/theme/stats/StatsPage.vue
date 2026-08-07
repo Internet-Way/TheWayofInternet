@@ -1,37 +1,24 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { data as statsData } from './stats.data'
-import type { PageStats, ScopeStats } from './stats.data'
+import type { PageStats } from './stats.data'
 
 const query = ref('')
 const expanded = ref(new Set<string>())
 
-type Kind = 'page' | 'department' | 'section' | 'subsection'
-
-interface Row {
+interface ScopeRow {
   key: string
   depth: number
-  kind: Kind
+  kind: 'department' | 'section' | 'subsection'
   heading: string
   lines: number
-  type?: string
-  url?: string
-  expandable?: boolean
+  expandable: boolean
 }
 
-const typeOrder: Record<string, number> = { index: 0, blog: 1, utility: 2 }
-
-const typeLabel: Record<string, string> = {
-  index: 'Index',
-  blog: 'Blog',
-  utility: 'Utility',
-}
+const keyOf = (p: PageStats): string => p.url
 
 const sorted = computed<PageStats[]>(() =>
-  [...statsData].sort(
-    (a, b) =>
-      (typeOrder[a.type] ?? 3) - (typeOrder[b.type] ?? 3) || a.title.localeCompare(b.title)
-  )
+  [...statsData].sort((a, b) => a.title.localeCompare(b.title))
 )
 
 const totals = computed(() => {
@@ -40,8 +27,10 @@ const totals = computed(() => {
   let subsections = 0
   let lines = 0
   let indexPages = 0
+  let blogPages = 0
   for (const p of statsData) {
     if (p.type === 'index') indexPages++
+    else if (p.type === 'blog') blogPages++
     lines += p.lines
     for (const d of p.departments) {
       depts++
@@ -49,13 +38,14 @@ const totals = computed(() => {
       for (const s of d.sections ?? []) subsections += s.subsections?.length ?? 0
     }
   }
-  return { pages: statsData.length, indexPages, depts, sections, subsections, lines }
+  return { pages: statsData.length, indexPages, blogPages, depts, sections, subsections, lines }
 })
 
 const visiblePages = computed(() => {
+  const indexPages = sorted.value.filter((p) => p.type === 'index')
   const q = query.value.trim().toLowerCase()
-  if (!q) return sorted.value
-  return sorted.value.filter(
+  if (!q) return indexPages
+  return indexPages.filter(
     (p) =>
       p.title.toLowerCase().includes(q) ||
       p.url.toLowerCase().includes(q) ||
@@ -63,59 +53,44 @@ const visiblePages = computed(() => {
   )
 })
 
-const rows = computed(() => {
-  const out: Row[] = []
-  const next = (p: PageStats) => statsData.indexOf(p)
-  for (const p of visiblePages.value) {
-    const pk = String(next(p))
-    const pageExpandable = p.departments.length > 0
+const scopeRows = (p: PageStats): ScopeRow[] => {
+  const out: ScopeRow[] = []
+  p.departments.forEach((d, di) => {
+    const dk = `${keyOf(p)}#${di}`
     out.push({
-      key: pk,
-      depth: 0,
-      kind: 'page',
-      heading: p.title,
-      lines: p.lines,
-      type: p.type,
-      url: p.url,
-      expandable: pageExpandable,
+      key: dk,
+      depth: 1,
+      kind: 'department',
+      heading: d.heading,
+      lines: d.lines,
+      expandable: (d.sections?.length ?? 0) > 0,
     })
-    if (!pageExpandable || !expanded.value.has(pk)) continue
-    p.departments.forEach((d, di) => {
-      const dk = `${pk}.${di}`
+    if (!expanded.value.has(dk)) return
+    d.sections?.forEach((s, si) => {
+      const sk = `${dk}.${si}`
       out.push({
-        key: dk,
-        depth: 1,
-        kind: 'department',
-        heading: d.heading,
-        lines: d.lines,
-        expandable: (d.sections?.length ?? 0) > 0,
+        key: sk,
+        depth: 2,
+        kind: 'section',
+        heading: s.heading,
+        lines: s.lines,
+        expandable: (s.subsections?.length ?? 0) > 0,
       })
-      if (!(d.sections?.length ?? 0) || !expanded.value.has(dk)) return
-      d.sections?.forEach((s, si) => {
-        const sk = `${dk}.${si}`
+      if (!expanded.value.has(sk)) return
+      s.subsections?.forEach((ss, xi) => {
         out.push({
-          key: sk,
-          depth: 2,
-          kind: 'section',
-          heading: s.heading,
-          lines: s.lines,
-          expandable: (s.subsections?.length ?? 0) > 0,
-        })
-        if (!(s.subsections?.length ?? 0) || !expanded.value.has(sk)) return
-        s.subsections?.forEach((ss, xi) => {
-          out.push({
-            key: `${sk}.${xi}`,
-            depth: 3,
-            kind: 'subsection',
-            heading: ss.heading,
-            lines: ss.lines,
-          })
+          key: `${sk}.${xi}`,
+          depth: 3,
+          kind: 'subsection',
+          heading: ss.heading,
+          lines: ss.lines,
+          expandable: false,
         })
       })
     })
-  }
+  })
   return out
-})
+}
 
 const toggle = (key: string): void => {
   const next = new Set(expanded.value)
@@ -128,10 +103,9 @@ const expandAll = (): void => {
   const keys = new Set<string>()
   for (const p of visiblePages.value) {
     if (p.departments.length === 0) continue
-    const pk = String(statsData.indexOf(p))
-    keys.add(pk)
+    keys.add(keyOf(p))
     p.departments.forEach((d, di) => {
-      const dk = `${pk}.${di}`
+      const dk = `${keyOf(p)}#${di}`
       if ((d.sections?.length ?? 0) > 0) keys.add(dk)
       d.sections?.forEach((s, si) => {
         const sk = `${dk}.${si}`
@@ -157,10 +131,11 @@ watch(query, () => {
     <div class="stats-summary">
       <span class="stat"><b>{{ totals.pages }}</b> pages</span>
       <span class="stat"><b>{{ totals.indexPages }}</b> index pages</span>
+      <span class="stat"><b>{{ totals.blogPages }}</b> blog pages</span>
+      <span class="stat"><b>{{ totals.lines }}</b> lines</span>
       <span class="stat"><b>{{ totals.depts }}</b> departments</span>
       <span class="stat"><b>{{ totals.sections }}</b> sections</span>
       <span class="stat"><b>{{ totals.subsections }}</b> subsections</span>
-      <span class="stat"><b>{{ totals.lines }}</b> lines</span>
     </div>
 
     <div class="stats-toolbar">
@@ -168,7 +143,7 @@ watch(query, () => {
         v-model="query"
         type="search"
         class="stats-filter"
-        placeholder="Filter pages, departments, sections…"
+        placeholder="Filter index pages, departments, sections…"
         aria-label="Filter statistics"
       />
       <div class="stats-actions">
@@ -183,28 +158,62 @@ watch(query, () => {
         <span class="tree-num">Lines</span>
       </div>
 
-      <template v-for="row in rows" :key="row.key">
-        <div class="tree-row" :style="{ '--ind': row.depth }">
+      <div v-for="p in visiblePages" :key="p.url" class="tree-page">
+        <div
+          class="tree-row tree-page-row"
+          :class="{ 'row-expandable': p.departments.length > 0 }"
+          @click="p.departments.length > 0 && toggle(keyOf(p))"
+        >
           <span class="tree-name-cell">
-            <span v-if="row.expandable" class="tree-caret" role="button" tabindex="0"
-              @click="toggle(row.key)"
-              @keydown.enter="toggle(row.key)"
-              >{{ expanded.has(row.key) ? '▾' : '▸' }}</span
+            <span
+              v-if="p.departments.length > 0"
+              class="tree-caret"
+              :class="{ open: expanded.has(keyOf(p)) }"
+              role="button"
+              tabindex="0"
+              aria-label="Expand page"
+              @click.stop="toggle(keyOf(p))"
+              @keydown.enter.stop="toggle(keyOf(p))"
             >
-            <template v-if="row.kind === 'page'">
-              <a v-if="row.url" :href="row.url" class="tree-link">{{ row.heading }}</a>
-              <span v-else class="tree-text">{{ row.heading }}</span>
-              <span v-if="row.type" class="tree-type">{{ typeLabel[row.type] }}</span>
-            </template>
-            <span v-else class="tree-scope" :class="`tree-scope-${row.kind}`">{{
-              row.heading
-            }}</span>
+              <svg class="caret-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+            </span>
+            <span v-else class="tree-caret tree-caret-ghost"></span>
+            <a :href="p.url" class="tree-link" @click.stop>{{ p.title }}</a>
           </span>
-          <span class="tree-num">{{ row.lines }}</span>
+          <span class="tree-num">{{ p.lines }}</span>
         </div>
-      </template>
 
-      <p v-if="rows.length === 0" class="tree-empty">No pages match your filter.</p>
+        <TransitionGroup v-if="expanded.has(keyOf(p))" name="tree" tag="div" class="tree-branch">
+          <div
+            v-for="r in scopeRows(p)"
+            :key="r.key"
+            class="tree-row tree-scope-row"
+            :class="{ 'row-expandable': r.expandable }"
+            :style="{ '--ind': r.depth }"
+            @click="r.expandable && toggle(r.key)"
+          >
+            <span class="tree-name-cell">
+              <span
+                v-if="r.expandable"
+                class="tree-caret"
+                :class="{ open: expanded.has(r.key) }"
+                role="button"
+                tabindex="0"
+                aria-label="Expand section"
+                @click.stop="toggle(r.key)"
+                @keydown.enter.stop="toggle(r.key)"
+              >
+                <svg class="caret-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+              </span>
+              <span v-else class="tree-caret tree-caret-ghost"></span>
+              <span class="tree-scope" :class="`tree-scope-${r.kind}`">{{ r.heading }}</span>
+            </span>
+            <span class="tree-num">{{ r.lines }}</span>
+          </div>
+        </TransitionGroup>
+      </div>
+
+      <p v-if="visiblePages.length === 0" class="tree-empty">No index pages match your filter.</p>
     </div>
   </div>
 </template>
@@ -309,6 +318,40 @@ watch(query, () => {
   background: var(--vp-c-bg-soft);
 }
 
+.tree-page-row {
+  background: var(--vp-c-bg-soft);
+}
+
+.tree-page-row.row-expandable {
+  cursor: pointer;
+}
+
+.tree-page-row:hover {
+  background: color-mix(in srgb, var(--vp-c-brand-1) 6%, var(--vp-c-bg-soft));
+}
+
+.tree-branch {
+  position: relative;
+}
+
+.tree-branch::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.4rem;
+  width: 1px;
+  background: var(--vp-c-divider);
+}
+
+.tree-scope-row.row-expandable {
+  cursor: pointer;
+}
+
+.tree-scope-row:hover {
+  background: var(--vp-c-bg-soft);
+}
+
 .tree-name-cell {
   display: flex;
   align-items: center;
@@ -317,21 +360,37 @@ watch(query, () => {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding-left: calc(var(--ind) * 1.2rem);
+  padding-left: calc(var(--ind, 0) * 1.35rem);
   color: var(--vp-c-text-1);
 }
 
 .tree-caret {
   flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 1rem;
-  text-align: center;
   color: var(--vp-c-text-3);
   cursor: pointer;
   user-select: none;
 }
 
+.tree-caret-ghost {
+  cursor: default;
+}
+
 .tree-caret:hover {
   color: var(--vp-c-brand-1);
+}
+
+.caret-svg {
+  width: 0.85em;
+  height: 0.85em;
+  transition: transform 0.18s ease;
+}
+
+.tree-caret.open .caret-svg {
+  transform: rotate(90deg);
 }
 
 .tree-link {
@@ -344,30 +403,14 @@ watch(query, () => {
   color: var(--vp-c-brand-1);
 }
 
-.tree-text {
-  font-weight: 600;
-}
-
-.tree-type {
-  flex: none;
-  padding: 0.05rem 0.4rem;
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  border-radius: 6px;
-  color: var(--vp-c-text-3);
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-}
-
 .tree-scope {
   color: var(--vp-c-text-2);
   font-size: 0.88rem;
 }
 
-.tree-row:not(.tree-head):hover {
-  background: var(--vp-c-bg-soft);
+.tree-scope-department {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
 }
 
 .tree-num {
@@ -386,5 +429,22 @@ watch(query, () => {
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
   border-top: 1px solid var(--vp-c-divider);
+}
+
+.tree-enter-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tree-enter-from {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.tree-leave-active {
+  transition: opacity 0.12s ease;
+}
+
+.tree-leave-to {
+  opacity: 0;
 }
 </style>

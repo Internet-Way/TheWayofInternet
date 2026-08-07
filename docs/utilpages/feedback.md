@@ -1,5 +1,7 @@
 ---
 title: Feedback
+subtitle: Reports and suggestions straight to the team.
+id: feedback
 type: utility
 ---
 

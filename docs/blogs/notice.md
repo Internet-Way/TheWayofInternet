@@ -1,6 +1,7 @@
 ---
 title: Site Notice
 description: bitindex is currently under construction.
+id: notice
 type: blog
 date: 2026-08-05
 contributors: [1320]

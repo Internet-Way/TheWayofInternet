@@ -1,5 +1,7 @@
 ---
 title: Contributors
+subtitle: The lovely people contributing to bitindex.
+id: contributors
 type: utility
 ---
 

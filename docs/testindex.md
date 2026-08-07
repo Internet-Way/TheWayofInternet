@@ -1,6 +1,7 @@
 ---
 title: Test Index
 description: Just Testing
+id: testindex
 type: index
 ---
 
