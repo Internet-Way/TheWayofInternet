@@ -1,5 +1,6 @@
 import type { MarkdownRenderer } from 'vitepress'
 import { icons as twemoji } from '@iconify-json/twemoji'
+import { MARKER_ALIASES, markerEmojiDefs, renderMarkerHtml } from './markers'
 
 // Build a lookup table from all available twemoji icon keys
 const iconKeys = Object.keys(twemoji.icons)
@@ -8,10 +9,16 @@ for (const key of iconKeys) {
   defs[key] = key
 }
 
-// Renders emoji tokens as twemoji icon spans
+// Marker shortcodes (`:windows:`, `:notoss:`, `:star:` …) become emoji tokens too
+for (const key of Object.keys(markerEmojiDefs)) {
+  defs[key] = key
+}
+
+// Renders emoji tokens as twemoji icon spans; marker aliases get tooltip wrappers
 export function emojiRender(md: MarkdownRenderer) {
   md.renderer.rules.emoji = (tokens, idx) => {
     const markup = tokens[idx].markup
+    if (MARKER_ALIASES[markup]) return renderMarkerHtml(markup)
     const isStarred = markup.startsWith('star')
     const className = `i-twemoji-${markup}${isStarred ? ' starred' : ''}`
     return `<span class="${className}"></span>`
@@ -83,8 +90,15 @@ export function unicodeEmojiPlugin(md: MarkdownRenderer) {
             }
 
             const iconName = emojiMap[emoji] || 'question'
+            // Star markers render as hoverable marker icons (⭐/🌟 are markers too)
+            let htmlContent: string
+            if (iconName === 'star' || iconName === 'glowing-star') {
+              htmlContent = renderMarkerHtml(iconName)
+            } else {
+              htmlContent = `<span class="i-twemoji-${iconName}" style="display:inline-block; vertical-align:middle; width:1.2em; height:1.2em; margin-right:0.25em;" title="${emoji}"></span>`
+            }
             const htmlToken = new state.Token('html_inline', '', 0)
-            htmlToken.content = `<span class="i-twemoji-${iconName}" style="display:inline-block; vertical-align:middle; width:1.2em; height:1.2em; margin-right:0.25em;" title="${emoji}"></span>`
+            htmlToken.content = htmlContent
             newChildren.push(htmlToken)
 
             lastIdx = emojiRegex.lastIndex

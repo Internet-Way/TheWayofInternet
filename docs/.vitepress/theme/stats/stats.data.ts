@@ -1,10 +1,12 @@
 import { createContentLoader } from 'vitepress'
 import { cleanHeading, slugify } from './heading'
+import { collectMarkersInLine } from '../../plugins/markdown/markers'
 
 export interface ScopeStats {
   heading: string
   slug: string
   lines: number
+  markers: Record<string, number>
   sections?: ScopeStats[]
   subsections?: ScopeStats[]
 }
@@ -14,6 +16,7 @@ export interface PageStats {
   title: string
   type: string
   lines: number
+  markers: Record<string, number>
   departments: ScopeStats[]
 }
 
@@ -28,18 +31,20 @@ interface MutableScope {
   heading: string
   slug: string
   lines: number
+  markers: Record<string, number>
   sections?: MutableScope[]
   subsections?: MutableScope[]
 }
 
 interface Parsed {
   lines: number
+  markers: Record<string, number>
   departments: MutableScope[]
 }
 
 function parsePage(src: string): Parsed {
   const rawLines = src.split(/\r?\n/)
-  const page: Parsed = { lines: 0, departments: [] }
+  const page: Parsed = { lines: 0, markers: {}, departments: [] }
   const stack: { h: number; scope: MutableScope }[] = []
   let i = 0
   let inFence = false
@@ -56,7 +61,7 @@ function parsePage(src: string): Parsed {
 
   const openScope = (heading: string, level: number): void => {
     while (stack.length && stack[stack.length - 1].h >= level) stack.pop()
-    const scope: MutableScope = { heading, slug: slugify(heading), lines: 0 }
+    const scope: MutableScope = { heading, slug: slugify(heading), lines: 0, markers: {} }
     const parent = stack[stack.length - 1]?.scope
     if (!parent) {
       page.departments.push(scope)
@@ -70,6 +75,13 @@ function parsePage(src: string): Parsed {
       return
     }
     stack.push({ h: level, scope })
+  }
+
+  // Records the markers present on a line into a markers map (one per distinct marker)
+  const countMarkers = (line: string, markers: Record<string, number>): void => {
+    for (const m of collectMarkersInLine(line)) {
+      markers[m] = (markers[m] ?? 0) + 1
+    }
   }
 
   for (; i < rawLines.length; i++) {
@@ -92,8 +104,11 @@ function parsePage(src: string): Parsed {
     if (!line || hrRe.test(line) || commentRe.test(line)) continue
     if (!listRe.test(line)) continue
     page.lines++
+    countMarkers(line, page.markers)
     if (stack.length) {
-      stack[stack.length - 1].scope.lines++
+      const scope = stack[stack.length - 1].scope
+      scope.lines++
+      countMarkers(line, scope.markers)
     }
   }
 
@@ -108,6 +123,7 @@ function buildPageStats(url: string, frontmatter: Record<string, unknown>, src?:
     title: String(frontmatter.title ?? url),
     type,
     lines: parsed.lines,
+    markers: parsed.markers,
     departments: parsed.departments,
   }
 }

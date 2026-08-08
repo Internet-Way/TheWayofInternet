@@ -53,4 +53,4 @@ docs/.vitepress/auto-imports.d.ts
 package-lock.json
 pnpm-workspace.yaml
 AGENTS.md
-userref/
+.userref/

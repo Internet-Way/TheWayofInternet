@@ -384,3 +384,18 @@
 .VPNavBar .content .content-body .hamburger {
   order: 4;
 }
+
+/* Marker icons (:windows:, :notoss:, ⭐ …) — hoverable tag icons */
+.marker-tip {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: -0.125em;
+  cursor: help;
+  margin: 0 0.1em;
+}
+
+.vp-doc .marker-tip > .i-twemoji-star,
+.vp-doc .marker-tip > .i-twemoji-glowing-star {
+  width: 1.2em;
+  height: 1.2em;
+}

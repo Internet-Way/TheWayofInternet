@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   "docs/blogs/test.md": {
-    "mtime": 1786178834.5690887,
-    "ast_hash": "a4e6a08e87fbd2e7911cc586caee0b60",
+    "mtime": 1786176970.3604276,
+    "ast_hash": "97c3fcc03e955a9e5131ca6d104f0c50",
     "semantic_hash": ""
   },
   "docs/index/ddl.md": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/stats/StatsPage.vue": {
-    "mtime": 1786179215.2915144,
-    "ast_hash": "d3a930fbc4df473037911ae2ef333c28",
+    "mtime": 1786176772.4604833,
+    "ast_hash": "cbd6882fb07575a7f6d91e495c4df3b6",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/stats/heading.ts": {

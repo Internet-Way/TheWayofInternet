@@ -1,9 +1,8 @@
 ---
 title: Beginner's Guide
 description: A welcoming starting point for new users to get involved and contribute.
-icon: i-twemoji-compass
 id: 002
-type: index
+type: special
 ---
 
 This guide goes beyond just listing tools—it explains *how* and *why* things work. Piracy has a steep learning curve, but understanding the underlying mechanics, quality standards, and terminology will make you self-sufficient, safe, and tech-literate in no time.

@@ -63,6 +63,18 @@ export default defineConfig({
     'i-twemoji-memo',
     'i-twemoji-card-file-box',
     'i-twemoji-shuffle-tracks-button',
+    'i-simple-icons-windows',
+    'i-simple-icons-linux',
+    'i-simple-icons-apple',
+    'i-simple-icons-android',
+    'i-simple-icons-ios',
+    'i-simple-icons-googlechrome',
+    'i-simple-icons-firefoxbrowser',
+    'i-simple-icons-tampermonkey',
+    'i-mdi-package-variant-closed-remove',
+    'i-mdi-key',
+    'i-mdi-web',
+    'i-twemoji-no-one-under-eighteen',
   ],
   theme: {
     colors: {

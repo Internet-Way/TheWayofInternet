@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { data as statsData } from './stats.data'
 import type { PageStats } from './stats.data'
+import { MARKER_ALIASES } from '../../plugins/markdown/markers'
 
 const query = ref('')
 const expanded = ref(new Set<string>())
@@ -12,6 +13,7 @@ interface ScopeRow {
   kind: 'department' | 'section' | 'subsection'
   heading: string
   lines: number
+  markers: Record<string, number>
   expandable: boolean
 }
 
@@ -30,25 +32,51 @@ const sorted = computed<PageStats[]>(() =>
   [...statsData].sort((a, b) => a.title.localeCompare(b.title))
 )
 
-const totals = computed(() => {
+const glance = computed(() => {
   let depts = 0
   let sections = 0
   let subsections = 0
   let lines = 0
   let indexPages = 0
   let blogPages = 0
+  const markers: Record<string, number> = {}
   for (const p of statsData) {
     if (p.type === 'index') indexPages++
     else if (p.type === 'blog') blogPages++
     lines += p.lines
+    for (const [k, n] of Object.entries(p.markers)) markers[k] = (markers[k] ?? 0) + n
     for (const d of p.departments) {
       depts++
       sections += d.sections?.length ?? 0
       for (const s of d.sections ?? []) subsections += s.subsections?.length ?? 0
     }
   }
-  return { pages: statsData.length, indexPages, blogPages, depts, sections, subsections, lines }
+  return [
+    { label: 'Pages', value: statsData.length },
+    { label: 'Index pages', value: indexPages },
+    { label: 'Blog pages', value: blogPages },
+    { label: 'Lines', value: lines },
+    { label: 'Departments', value: depts },
+    { label: 'Sections', value: sections },
+    { label: 'Subsections', value: subsections },
+    { label: 'Marked lines', value: Object.values(markers).reduce((a, b) => a + b, 0) },
+  ]
 })
+
+const markerTotals = computed(() =>
+  Object.entries(
+    statsData.reduce<Record<string, number>>((acc, p) => {
+      for (const [k, n] of Object.entries(p.markers)) acc[k] = (acc[k] ?? 0) + n
+      return acc
+    }, {})
+  )
+    .filter(([, n]) => n > 0)
+    .sort((a, b) => b[1] - a[1])
+)
+
+const starCount = (markers: Record<string, number> | undefined): number => markers?.star ?? 0
+const glowingCount = (markers: Record<string, number> | undefined): number =>
+  markers?.['glowing-star'] ?? 0
 
 const visiblePages = computed(() => {
   const indexPages = sorted.value.filter((p) => p.type === 'index')
@@ -72,6 +100,7 @@ const scopeRows = (p: PageStats): ScopeRow[] => {
       kind: 'department',
       heading: d.heading,
       lines: d.lines,
+      markers: d.markers,
       expandable: (d.sections?.length ?? 0) > 0,
     })
     if (!expanded.value.has(dk)) return
@@ -83,6 +112,7 @@ const scopeRows = (p: PageStats): ScopeRow[] => {
         kind: 'section',
         heading: s.heading,
         lines: s.lines,
+        markers: s.markers,
         expandable: (s.subsections?.length ?? 0) > 0,
       })
       if (!expanded.value.has(sk)) return
@@ -93,6 +123,7 @@ const scopeRows = (p: PageStats): ScopeRow[] => {
           kind: 'subsection',
           heading: ss.heading,
           lines: ss.lines,
+          markers: ss.markers,
           expandable: false,
         })
       })
@@ -137,93 +168,133 @@ watch(query, () => {
 
 <template>
   <div class="stats-page">
-    <div class="stats-summary">
-      <span class="stat"><b>{{ totals.pages }}</b> pages</span>
-      <span class="stat"><b>{{ totals.indexPages }}</b> index pages</span>
-      <span class="stat"><b>{{ totals.blogPages }}</b> blog pages</span>
-      <span class="stat"><b>{{ totals.lines }}</b> lines</span>
-      <span class="stat"><b>{{ totals.depts }}</b> departments</span>
-      <span class="stat"><b>{{ totals.sections }}</b> sections</span>
-      <span class="stat"><b>{{ totals.subsections }}</b> subsections</span>
-    </div>
-
-    <div class="stats-toolbar">
-      <input
-        v-model="query"
-        type="search"
-        class="stats-filter"
-        placeholder="Filter index pages, departments, sections…"
-        aria-label="Filter statistics"
-      />
-      <div class="stats-actions">
-        <button type="button" class="stats-action" @click="expandAll">Expand all</button>
-        <button type="button" class="stats-action" @click="collapseAll">Collapse all</button>
+    <section class="stats-block">
+      <h3 class="stats-title">At a Glance</h3>
+      <div class="stats-tree">
+        <div class="tree-row tree-head two-col">
+          <span>Metric</span>
+          <span class="tree-num">Count</span>
+        </div>
+        <div v-for="row in glance" :key="row.label" class="tree-row two-col">
+          <span class="tree-name-cell">{{ row.label }}</span>
+          <span class="tree-num tree-num-strong">{{ row.value }}</span>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="stats-tree">
-      <div class="tree-row tree-head">
-        <span class="tree-name-cell">Name</span>
-        <span class="tree-num">Lines</span>
-      </div>
-
-      <div v-for="p in visiblePages" :key="p.url" class="tree-page">
-        <div
-          class="tree-row tree-page-row"
-          :class="{ 'row-expandable': p.departments.length > 0 }"
-          @click="p.departments.length > 0 && toggle(keyOf(p))"
-        >
+    <section v-if="markerTotals.length" class="stats-block">
+      <h3 class="stats-title">Markers</h3>
+      <div class="stats-tree">
+        <div class="tree-row tree-head two-col">
+          <span>Marker</span>
+          <span class="tree-num">Lines</span>
+        </div>
+        <div v-for="[k, n] in markerTotals" :key="k" class="tree-row two-col">
           <span class="tree-name-cell">
             <span
-              v-if="p.departments.length > 0"
-              class="tree-caret"
-              :class="{ open: expanded.has(keyOf(p)) }"
-              role="button"
-              tabindex="0"
-              aria-label="Expand page"
-              @click.stop="toggle(keyOf(p))"
-              @keydown.enter.stop="toggle(keyOf(p))"
+              class="marker-tip"
+              :data-marker="k"
+              :data-tip="MARKER_ALIASES[k]?.label"
             >
-              <svg class="caret-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+              <span :class="MARKER_ALIASES[k]?.icon"></span>
             </span>
-            <span v-else class="tree-caret tree-caret-ghost"></span>
-            <a :href="hrefOf(p)" class="tree-link" @click.stop>{{ p.title }}</a>
+            <span class="tree-scope">{{ MARKER_ALIASES[k]?.label }}</span>
           </span>
-          <span class="tree-num">{{ p.lines }}</span>
+          <span class="tree-num tree-num-strong">{{ n }}</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-block">
+      <h3 class="stats-title">Pages</h3>
+      <div class="stats-toolbar">
+        <input
+          v-model="query"
+          type="search"
+          class="stats-filter"
+          placeholder="Filter index pages, departments, sections…"
+          aria-label="Filter statistics"
+        />
+        <div class="stats-actions">
+          <button type="button" class="stats-action" @click="expandAll">Expand all</button>
+          <button type="button" class="stats-action" @click="collapseAll">Collapse all</button>
+        </div>
+      </div>
+
+      <div class="stats-tree">
+        <div class="tree-row tree-head">
+          <span class="tree-name-cell">Name</span>
+          <span class="tree-star" title="Stars">
+            <span class="i-twemoji-star tree-head-icon"></span>
+          </span>
+          <span class="tree-star" title="Glowing stars">
+            <span class="i-twemoji-glowing-star tree-head-icon"></span>
+          </span>
+          <span class="tree-num">Lines</span>
         </div>
 
-        <TransitionGroup v-if="expanded.has(keyOf(p))" name="tree" tag="div" class="tree-branch">
+        <div v-for="p in visiblePages" :key="p.url" class="tree-page">
           <div
-            v-for="r in scopeRows(p)"
-            :key="r.key"
-            class="tree-row tree-scope-row"
-            :class="{ 'row-expandable': r.expandable }"
-            :style="{ '--ind': r.depth }"
-            @click="r.expandable && toggle(r.key)"
+            class="tree-row tree-page-row"
+            :class="{ 'row-expandable': p.departments.length > 0 }"
+            @click="p.departments.length > 0 && toggle(keyOf(p))"
           >
             <span class="tree-name-cell">
               <span
-                v-if="r.expandable"
+                v-if="p.departments.length > 0"
                 class="tree-caret"
-                :class="{ open: expanded.has(r.key) }"
+                :class="{ open: expanded.has(keyOf(p)) }"
                 role="button"
                 tabindex="0"
-                aria-label="Expand section"
-                @click.stop="toggle(r.key)"
-                @keydown.enter.stop="toggle(r.key)"
+                aria-label="Expand page"
+                @click.stop="toggle(keyOf(p))"
+                @keydown.enter.stop="toggle(keyOf(p))"
               >
                 <svg class="caret-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
               </span>
               <span v-else class="tree-caret tree-caret-ghost"></span>
-              <span class="tree-scope" :class="`tree-scope-${r.kind}`">{{ r.heading }}</span>
+              <a :href="hrefOf(p)" class="tree-link" @click.stop>{{ p.title }}</a>
             </span>
-            <span class="tree-num">{{ r.lines }}</span>
+            <span class="tree-star">{{ starCount(p.markers) }}</span>
+            <span class="tree-star">{{ glowingCount(p.markers) }}</span>
+            <span class="tree-num">{{ p.lines }}</span>
           </div>
-        </TransitionGroup>
-      </div>
 
-      <p v-if="visiblePages.length === 0" class="tree-empty">No index pages match your filter.</p>
-    </div>
+          <TransitionGroup v-if="expanded.has(keyOf(p))" name="tree" tag="div" class="tree-branch">
+            <div
+              v-for="r in scopeRows(p)"
+              :key="r.key"
+              class="tree-row tree-scope-row"
+              :class="{ 'row-expandable': r.expandable }"
+              :style="{ '--ind': r.depth }"
+              @click="r.expandable && toggle(r.key)"
+            >
+              <span class="tree-name-cell">
+                <span
+                  v-if="r.expandable"
+                  class="tree-caret"
+                  :class="{ open: expanded.has(r.key) }"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Expand section"
+                  @click.stop="toggle(r.key)"
+                  @keydown.enter.stop="toggle(r.key)"
+                >
+                  <svg class="caret-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
+                </span>
+                <span v-else class="tree-caret tree-caret-ghost"></span>
+                <span class="tree-scope" :class="`tree-scope-${r.kind}`">{{ r.heading }}</span>
+              </span>
+              <span class="tree-star">{{ starCount(r.markers) }}</span>
+              <span class="tree-star">{{ glowingCount(r.markers) }}</span>
+              <span class="tree-num">{{ r.lines }}</span>
+            </div>
+          </TransitionGroup>
+        </div>
+
+        <p v-if="visiblePages.length === 0" class="tree-empty">No index pages match your filter.</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -231,28 +302,35 @@ watch(query, () => {
 .stats-page {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-.stats-summary {
+.stats-block {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.1rem;
-  padding: 0.6rem 1rem;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 10px;
-  background: var(--vp-c-bg-soft);
-  font-size: 0.84rem;
-  color: var(--vp-c-text-2);
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
-.stat b {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--vp-c-text-1);
-  font-variant-numeric: tabular-nums;
-  margin-right: 0.25rem;
+.stats-title {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-3);
+}
+
+.marker-tip {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: -0.125em;
+  cursor: help;
+  margin-right: 0.45rem;
+}
+
+.marker-tip > span {
+  width: 1.25em;
+  height: 1.25em;
 }
 
 .stats-toolbar {
@@ -309,12 +387,20 @@ watch(query, () => {
 
 .tree-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 64px;
+  grid-template-columns: minmax(0, 1fr) 56px 56px 64px;
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 0.9rem;
   border-top: 1px solid var(--vp-c-divider);
   font-size: 0.9rem;
+}
+
+.tree-row.two-col {
+  grid-template-columns: minmax(0, 1fr) 120px;
+}
+
+.tree-row:hover {
+  background: var(--vp-c-bg-soft);
 }
 
 .tree-head {
@@ -355,10 +441,6 @@ watch(query, () => {
 
 .tree-scope-row.row-expandable {
   cursor: pointer;
-}
-
-.tree-scope-row:hover {
-  background: var(--vp-c-bg-soft);
 }
 
 .tree-name-cell {
@@ -422,10 +504,30 @@ watch(query, () => {
   color: var(--vp-c-text-1);
 }
 
+.tree-star {
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--vp-c-text-2);
+}
+
+.tree-head-icon {
+  width: 1.05em;
+  height: 1.05em;
+}
+
+.tree-head .tree-star {
+  color: var(--vp-c-text-3);
+}
+
 .tree-num {
   font-variant-numeric: tabular-nums;
   text-align: right;
   color: var(--vp-c-text-2);
+}
+
+.tree-num-strong {
+  font-weight: 700;
+  color: var(--vp-c-text-1);
 }
 
 .tree-head .tree-num {

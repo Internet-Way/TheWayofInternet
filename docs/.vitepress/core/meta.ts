@@ -80,16 +80,6 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
     ],
   },
   {
-    text: "Special Resources",
-    collapsed: false,
-    items: [
-      { text: "Alternatives", link: "/alternates" },
-      { text: "Author's Choice", link: "/choice" },
-      // { text: 'Otaku', link: '/specials/otaku' },
-      // { text: 'Minecraft', link: '/specials/minecraft' },
-    ],
-  },
-  {
     text: "Media Resources",
     collapsed: false,
     items: [

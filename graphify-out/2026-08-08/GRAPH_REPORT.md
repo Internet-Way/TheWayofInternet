@@ -1,11 +1,11 @@
 # Graph Report - TheWayofInternet  (2026-08-08)
 
 ## Corpus Check
-- 71 files · ~54,696 words
+- 71 files · ~54,568 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 675 nodes · 898 edges · 97 communities (39 shown, 58 thin omitted)
+- 673 nodes · 897 edges · 97 communities (39 shown, 58 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 22 edges (avg confidence: 0.71)
 - Token cost: 0 input · 0 output
 
@@ -20,7 +20,7 @@
 - Department 1
 - ThemeHandler (Singleton)
 - config.mts
-- icon-transformer.ts
+- Theme System — Developer Guide
 - SettingsMenu.vue
 - AGENTS.md — Agent Context
 - index.ts
@@ -31,9 +31,8 @@
 - VPNav.vue
 - state.ts
 - vue-shim.d.ts
-- floating-vue
+- feed
 - @iconify-json/fluent
-- @mdit/plugin-attrs
 - test.md
 - iconLinks Social Icons
 - @iconify-json/material-symbols
@@ -62,6 +61,7 @@
 - @mdit/plugin-tab
 - @mdit/plugin-tasklist
 - vitepress
+- @iconify-json/carbon
 - mark.js
 - StatsInfo.vue
 - nprogress
@@ -108,6 +108,8 @@
 10. `DisplayMode` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `README.md — Project Overview` --conceptually_related_to--> `ThemeHandler (state.ts)`  [INFERRED]
+  README.md → docs/.vitepress/theme/themes/state.ts
 - `VitePress Site Config (config.mts)` --conceptually_related_to--> `MiniSearch Enhanced Local Search`  [INFERRED]
   docs/.vitepress/config.mts → README.md
 - `AGENTS.md — Agent Context` --references--> `Sidebar Media Resources Section (meta.ts)`  [EXTRACTED]
@@ -116,8 +118,6 @@
   AGENTS.md → docs/.vitepress/plugins/markdown/starredlink.ts
 - `AGENTS.md — Agent Context` --references--> `tooltip.ts — Note Tooltip Component`  [EXTRACTED]
   AGENTS.md → docs/.vitepress/plugins/markdown/tooltip.ts
-- `README.md — Project Overview` --conceptually_related_to--> `ThemeHandler (state.ts)`  [INFERRED]
-  README.md → docs/.vitepress/theme/themes/state.ts
 
 ## Import Cycles
 - None detected.
@@ -132,8 +132,8 @@ Cohesion: 0.05
 Nodes (53): Artificial Intelligence Criteria, Media Content Pipeline, Downloading Criteria, Editors' Choice Tier, 20-Entry Cap Rule, FMHY Ordering Principle, FMHY Wiki Dump Sourcing, Gaming Criteria (+45 more)
 
 ### Community 1 - "StatsPage.vue"
-Cohesion: 0.09
-Nodes (22): collectMarkersInLine(), cleanHeading(), slugify(), buildPageStats(), MutableScope, PageStats, Parsed, parsePage() (+14 more)
+Cohesion: 0.10
+Nodes (21): collectMarkersInLine(), cleanHeading(), slugify(), buildPageStats(), MutableScope, PageStats, Parsed, parsePage() (+13 more)
 
 ### Community 2 - "Department 1"
 Cohesion: 0.12
@@ -147,9 +147,9 @@ Nodes (40): applyTheme, Brand color interaction, Catppuccin Theme, Dynamic Color
 Cohesion: 0.06
 Nodes (35): config(), __dirname, envFile, feedbackWebhooks, unocssConfigPath, cfStart, commitRef, commitStart (+27 more)
 
-### Community 5 - "icon-transformer.ts"
-Cohesion: 0.28
-Nodes (9): emojiMap, iconLinks, icon-transformer.ts, Markdown Plugins (markdown/), starredlink.ts, tooltip.ts, Markdown Emoji Transformation, Twemoji Iconify Spans (+1 more)
+### Community 5 - "Theme System — Developer Guide"
+Cohesion: 0.23
+Nodes (12): AMOLED Pure-Black Toggle, Modes-Themes Orthogonality Principle, Theme System — Developer Guide, writeCSS CSS Variable Mapping, Catppuccin Theme, DisplayMode (light/dark), Dracula Theme, Rosé Pine Theme (+4 more)
 
 ### Community 6 - "SettingsMenu.vue"
 Cohesion: 0.10
@@ -173,8 +173,8 @@ Nodes (18): accentOpen, currentAccent, currentFont, currentPreset, fontOpen, loc
 }, onIntensityInput() (+10 more)
 
 ### Community 7 - "AGENTS.md — Agent Context"
-Cohesion: 0.09
-Nodes (30): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, FMHY (fmhy.net), VitePress Site Config (config.mts), Sidebar Media Resources Section (meta.ts), emojiMap (twemoji icon mapping), unicodeEmojiPlugin (icon-transformer.ts) (+22 more)
+Cohesion: 0.10
+Nodes (27): AGENTS.md — Agent Context, bun Toolchain & Scripts, VitePress config.mts, emojiMap, FMHY (fmhy.net), iconLinks, icon-transformer.ts, Markdown Plugins (markdown/) (+19 more)
 
 ### Community 10 - "index.ts"
 Cohesion: 0.08
@@ -182,11 +182,11 @@ Nodes (20): Contributor, contributors, BlogData, BlogEntry, categorize(), proces
 
 ### Community 11 - "devDependencies"
 Cohesion: 0.18
-Nodes (11): @iconify-json/carbon, @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-icon, devDependencies, @iconify-json/carbon, @iconify-json/twemoji (+3 more)
+Nodes (11): @iconify-json/twemoji, @iconify/utils, @mdit/plugin-abbr, @mdit/plugin-attrs, @mdit/plugin-icon, devDependencies, @iconify-json/twemoji, @iconify/utils (+3 more)
 
 ### Community 12 - "dependencies"
 Cohesion: 0.22
-Nodes (9): consola, feed, @mdi/font, dependencies, consola, feed, @mdi/font, @unocss/preset-uno (+1 more)
+Nodes (9): consola, floating-vue, @mdi/font, dependencies, consola, floating-vue, @mdi/font, @unocss/preset-uno (+1 more)
 
 ### Community 13 - "begin.md"
 Cohesion: 0.06
@@ -229,24 +229,24 @@ Cohesion: 0.11
 Nodes (30): applyPath(), attachTo(), cancelHide(), cleanup(), detach(), findPage(), findPath(), FLAT_FOLDERS (+22 more)
 
 ## Knowledge Gaps
-- **276 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+271 more)
+- **275 isolated node(s):** `__dirname`, `unocssConfigPath`, `envFile`, `feedbackWebhooks`, `excluded` (+270 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **58 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `devDependencies` connect `devDependencies` to `scripts`, `@iconify-json/fluent`, `@mdit/plugin-attrs`, `@iconify-json/material-symbols`, `@mdit/plugin-spoiler`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@iconify-json/gravity-ui`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `vitepress`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vue`, `@vue/compiler-sfc`, `@iconify-json/fluent-mdl2`?**
+- **Why does `devDependencies` connect `devDependencies` to `scripts`, `@iconify-json/fluent`, `@iconify-json/material-symbols`, `@mdit/plugin-spoiler`, `@iconify-json/heroicons-solid`, `@iconify-json/logos`, `@iconify-json/lucide`, `@iconify-json/mdi`, `@iconify-json/ph`, `@iconify-json/qlementine-icons`, `@iconify-json/simple-icons`, `markdown-it`, `@mdit/plugin-align`, `@mdit/plugin-demo`, `@mdit/plugin-footnote`, `@mdit/plugin-img-size`, `@mdit/plugin-ins`, `@mdit/plugin-mark`, `@iconify-json/gravity-ui`, `@mdit/plugin-sub`, `@mdit/plugin-sup`, `@mdit/plugin-tab`, `@mdit/plugin-tasklist`, `vitepress`, `@iconify-json/carbon`, `sass`, `sass-embedded`, `@types/markdown-it`, `@types/node`, `@types/tinycolor2`, `typescript`, `unplugin-auto-import`, `vite-plugin-optimize-exclude`, `vite-plugin-pwa`, `vite-plugin-terminal`, `vite-plugin-vuetify`, `vue`, `@vue/compiler-sfc`, `@iconify-json/fluent-mdl2`?**
   _High betweenness centrality (0.036) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `dependencies` to `mark.js`, `nprogress`, `pathe`, `reka-ui`, `@resvg/resvg-js`, `tinycolor2`, `@types/nprogress`, `unocss`, `@unocss/preset-icons`, `vuetify`, `scripts`, `floating-vue`, `@vueuse/core`, `@vueuse/integrations`, `x-satori`, `zod`, `minisearch`, `@headlessui/vue`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `Get Started Guide`?**
+- **Why does `dependencies` connect `dependencies` to `mark.js`, `nprogress`, `pathe`, `reka-ui`, `@resvg/resvg-js`, `tinycolor2`, `@types/nprogress`, `unocss`, `@unocss/preset-icons`, `vuetify`, `scripts`, `feed`, `@vueuse/core`, `@vueuse/integrations`, `x-satori`, `zod`, `minisearch`, `@headlessui/vue`?**
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Why does `README.md — Project Overview` connect `AGENTS.md — Agent Context` to `Get Started Guide`, `Theme System — Developer Guide`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `__dirname`, `unocssConfigPath`, `envFile` to the rest of the system?**
-  _276 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _275 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Get Started Guide` be split into smaller, more focused modules?**
   _Cohesion score 0.050072568940493466 - nodes in this community are weakly interconnected._
 - **Should `StatsPage.vue` be split into smaller, more focused modules?**
-  _Cohesion score 0.0896551724137931 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10052910052910052 - nodes in this community are weakly interconnected._
 - **Should `Department 1` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
