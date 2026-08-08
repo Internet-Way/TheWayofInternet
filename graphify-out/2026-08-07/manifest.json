@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/blog/BlogPost.vue": {
-    "mtime": 1785900369.324517,
-    "ast_hash": "24446a569e3494f1a5123b3049c74a8f",
+    "mtime": 1786085686.6833172,
+    "ast_hash": "cf28e843a5c7808006733382f6d19290",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/blog/blog.data.ts": {
@@ -80,8 +80,8 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/PageHeader.vue": {
-    "mtime": 1785900362.8294022,
-    "ast_hash": "92196f52e452bb12efdd078d56bf526c",
+    "mtime": 1786085680.8986533,
+    "ast_hash": "c39afc8cf084d2363b39af36ff7568c9",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/Tooltip.vue": {
@@ -150,7 +150,7 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1786000675.5117533,
+    "mtime": 1786087138.9331393,
     "ast_hash": "4976ac7050b0f2b5d9f08cf1fe4e9264",
     "semantic_hash": ""
   },
@@ -170,33 +170,33 @@
     "semantic_hash": ""
   },
   "docs/alternates.md": {
-    "mtime": 1785900442.0502355,
-    "ast_hash": "82ba496e2fd74235dd1a6f1d0d321d6f",
+    "mtime": 1786085986.005561,
+    "ast_hash": "5d824d17f6120726536f75bcfda3786b",
     "semantic_hash": ""
   },
   "docs/begin.md": {
-    "mtime": 1785900423.2596667,
-    "ast_hash": "a6e58965b83b3a516febbb10e9d04a90",
+    "mtime": 1786085986.274786,
+    "ast_hash": "1fe464d834193d183a110ce9b3131c6e",
     "semantic_hash": ""
   },
   "docs/blog.md": {
-    "mtime": 1785903177.8710682,
-    "ast_hash": "0f13ccc76eca6aaf3ae89cf162e6c25a",
+    "mtime": 1786085970.0534194,
+    "ast_hash": "d2f59ad01f597b727ec9d6f431b5dd41",
     "semantic_hash": ""
   },
   "docs/blogs/notice.md": {
-    "mtime": 1785900449.6221573,
-    "ast_hash": "75ce03319b4128a90b9dff4bb5db5d25",
+    "mtime": 1786085987.7020426,
+    "ast_hash": "62a2745ae6e99428d51caf0cc1783955",
     "semantic_hash": ""
   },
   "docs/choice.md": {
-    "mtime": 1785900442.5572407,
-    "ast_hash": "6b886ab774af5928f4818022689129ce",
+    "mtime": 1786085986.7372494,
+    "ast_hash": "3d045e9f21891c06391c461cfb5770a8",
     "semantic_hash": ""
   },
   "docs/get-started.md": {
-    "mtime": 1785900400.7758794,
-    "ast_hash": "cef265a6312bf85096b04d8100c624a9",
+    "mtime": 1786085987.2761216,
+    "ast_hash": "acf5051684710f8b61127303e158ee4a",
     "semantic_hash": ""
   },
   "docs/index.md": {
@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   "docs/notes.md": {
-    "mtime": 1785903108.0877545,
-    "ast_hash": "8054512df77e771fc13e779a885a462e",
+    "mtime": 1786085970.3025484,
+    "ast_hash": "d96e7308fc7b66570558ea205f6b418e",
     "semantic_hash": ""
   },
   "docs/public/robots.txt": {
@@ -215,8 +215,8 @@
     "semantic_hash": ""
   },
   "docs/storage.md": {
-    "mtime": 1785900443.2347746,
-    "ast_hash": "81001351e7f305abb1fa72e2b2e69998",
+    "mtime": 1786085970.4904487,
+    "ast_hash": "cd54972028215a9387924c82615fa0c0",
     "semantic_hash": ""
   },
   "docs/public/logo.png": {
@@ -230,38 +230,38 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/HeadingFeedback.vue": {
-    "mtime": 1785738166.6705785,
-    "ast_hash": "bcbf37c70e278f4c527982a318a97deb",
+    "mtime": 1786085723.4739163,
+    "ast_hash": "f64faa8678a15a1868b89258dbb0b8fb",
     "semantic_hash": ""
   },
   "docs/index/ai.md": {
-    "mtime": 1785900390.8482707,
-    "ast_hash": "64a92e4c9850a5b5d0ed7e6807a98925",
+    "mtime": 1786086003.089498,
+    "ast_hash": "69504c1ddc67b861d03ba6f7a64b6561",
     "semantic_hash": ""
   },
   "docs/index/audio.md": {
-    "mtime": 1785900391.7858157,
-    "ast_hash": "54b7a6330458216d8f384859b4f840f6",
+    "mtime": 1786086003.456634,
+    "ast_hash": "de1230535036499e651aa3f2896be966",
     "semantic_hash": ""
   },
   "docs/index/gaming.md": {
-    "mtime": 1785900392.2418175,
-    "ast_hash": "2389fd30299a3c047c810e76bfedb2c4",
+    "mtime": 1786086004.3850327,
+    "ast_hash": "ef96eabd8674046a642c9b30343a9ee0",
     "semantic_hash": ""
   },
   "docs/index/privacy.md": {
-    "mtime": 1785900390.37974,
-    "ast_hash": "575610ca2dd21c765e46e6f2fdf2b5c2",
+    "mtime": 1786086004.8645537,
+    "ast_hash": "8b53d9aed35f7706e7cfc812d64bdfde",
     "semantic_hash": ""
   },
   "docs/index/video.md": {
-    "mtime": 1785900391.2982688,
-    "ast_hash": "bb08de1cdad6214c549808dc02dee973",
+    "mtime": 1786086006.9776604,
+    "ast_hash": "d01fd1d95e28441348a56278b438d64d",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/SettingsMenu.vue": {
-    "mtime": 1785836939.1264975,
-    "ast_hash": "d51c0adec42cf8978cd9647cd0b4a6bb",
+    "mtime": 1786085875.8334084,
+    "ast_hash": "538602b0d40213b13d25596f90333ff6",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/themes/accents.json": {
@@ -270,38 +270,38 @@
     "semantic_hash": ""
   },
   "docs/blogs/test.md": {
-    "mtime": 1785900061.0932279,
-    "ast_hash": "e6636f58aa51f6968e0b5151f82c71e7",
+    "mtime": 1786085988.248605,
+    "ast_hash": "bb7ce7b9d4b1b95ac19e07ea4c50c5c4",
     "semantic_hash": ""
   },
   "docs/index/ddl.md": {
-    "mtime": 1785900393.6688633,
-    "ast_hash": "38b0d9b293d8f589915eeb903b3a2b5d",
+    "mtime": 1786086003.9069967,
+    "ast_hash": "54fd9be59e459ab9f7dda2ec0e18aa0c",
     "semantic_hash": ""
   },
   "docs/index/reading.md": {
-    "mtime": 1785900392.6733365,
-    "ast_hash": "47e634fd4a2c4265fb369c9dbb88048e",
+    "mtime": 1786086005.328186,
+    "ast_hash": "f379b6cd5a29e4cd9c6187fda5a0fdab",
     "semantic_hash": ""
   },
   "docs/index/torrenting.md": {
-    "mtime": 1785900393.1703396,
-    "ast_hash": "a7bb30e27f7367518ae89cc6d1293361",
+    "mtime": 1786086005.9302018,
+    "ast_hash": "ce10821b7fd52df90329d4394725f18c",
     "semantic_hash": ""
   },
   "docs/utilpages/contributors.md": {
-    "mtime": 1785900450.2834716,
-    "ast_hash": "6cdf198d9c2a314e1ec8a5fa86403622",
+    "mtime": 1786085970.9364924,
+    "ast_hash": "a102435fbdbe9b9f9a9695db3c5e7ddb",
     "semantic_hash": ""
   },
   "docs/utilpages/discord.md": {
-    "mtime": 1785900450.7578208,
-    "ast_hash": "9585c72f581e0f125c7619a5cd4f5cb2",
+    "mtime": 1786085971.3623087,
+    "ast_hash": "9d556fc361ebd7422533ff45bec63431",
     "semantic_hash": ""
   },
   "docs/utilpages/feedback.md": {
-    "mtime": 1785900451.3803923,
-    "ast_hash": "95211ecc2f38b60c93afbc5d960bf52f",
+    "mtime": 1786085971.8607538,
+    "ast_hash": "cecfbb5ac26570daaf8259a5641d2f60",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/components/PageTitle.vue": {
@@ -315,13 +315,13 @@
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/stats/StatsInfo.vue": {
-    "mtime": 1785993946.2943454,
-    "ast_hash": "8cc2a2bce1a4e57115f0bf413d0e2f19",
+    "mtime": 1786085847.7526312,
+    "ast_hash": "299f4b0b76f72504191dddd36f5f7ebf",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/stats/StatsPage.vue": {
-    "mtime": 1786000503.745716,
-    "ast_hash": "6bb62cb9171565da4b4ed76aba87dcdb",
+    "mtime": 1786085948.0825002,
+    "ast_hash": "7c49df6d9380291e6115bf90e0a6f57b",
     "semantic_hash": ""
   },
   "docs/.vitepress/theme/stats/heading.ts": {
@@ -335,13 +335,18 @@
     "semantic_hash": ""
   },
   "docs/testindex.md": {
-    "mtime": 1785908224.2867968,
-    "ast_hash": "2ec0e837f4434a22a76de74bae1757f0",
+    "mtime": 1786085972.708197,
+    "ast_hash": "ed4d96ef55ab6907d34b8b6f71e8f1bc",
     "semantic_hash": ""
   },
   "docs/utilpages/stats.md": {
-    "mtime": 1785908490.06294,
-    "ast_hash": "a2bcd28e86da29a526efeb3d085b0b03",
+    "mtime": 1786085972.260509,
+    "ast_hash": "349ce1e0f7fa3c031e912250d9facf3a",
+    "semantic_hash": ""
+  },
+  "docs/.vitepress/theme/stats/settings.ts": {
+    "mtime": 1786085813.5540895,
+    "ast_hash": "3bea5229297f6527b4a6654a37abc184",
     "semantic_hash": ""
   }
 }

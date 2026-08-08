@@ -18,12 +18,10 @@ export function TooltipVitePlugin(): Plugin {
     },
     load(id) {
       if (id === resolvedVirtualModuleId) {
-        let notesPath = ''
-        if (fs.existsSync(path.resolve(process.cwd(), 'docs/notes.md'))) {
-          notesPath = path.resolve(process.cwd(), 'docs/notes.md')
-        } else if (fs.existsSync(path.resolve(process.cwd(), 'notes.md'))) {
-          notesPath = path.resolve(process.cwd(), 'notes.md')
-        }
+        const notesPath =
+          ['docs/utilpages/notes.md', 'docs/notes.md', 'notes.md']
+            .map((p) => path.resolve(process.cwd(), p))
+            .find((p) => fs.existsSync(p)) || ''
 
         const registry: Record<string, string> = {}
         const md = new MarkdownIt({ html: true })

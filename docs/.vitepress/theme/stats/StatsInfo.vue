@@ -37,9 +37,20 @@ let panel: HTMLElement | null = null
 let btnHost: HTMLElement | null = null
 let btn: HTMLButtonElement | null = null
 
+/** Folders whose pages are rewritten to serve at the site root (except blogs). */
+const FLAT_FOLDERS = ['index', 'utilpages', 'special']
+
+/** Normalize a route path: strip a flattened-folder prefix + trailing slash. */
+const normPath = (path: string): string => {
+  const seg = path.split('/').filter(Boolean)
+  const stripped =
+    seg.length > 1 && FLAT_FOLDERS.includes(seg[0]) ? '/' + seg.slice(1).join('/') : path
+  return stripped.replace(/\/+$/, '') || '/'
+}
+
 const findPage = (path: string): PageStats | null => {
-  const clean = path.replace(/\/+$/, '') || '/'
-  return statsData.find((p) => p.url === clean) ?? null
+  const clean = normPath(path)
+  return statsData.find((p) => normPath(p.url) === clean) ?? null
 }
 
 /** Index path of a header node (by slug) inside the VitePress headers tree. */

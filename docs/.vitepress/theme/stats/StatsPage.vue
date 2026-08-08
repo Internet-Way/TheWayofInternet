@@ -17,6 +17,15 @@ interface ScopeRow {
 
 const keyOf = (p: PageStats): string => p.url
 
+/** Folders whose pages are rewritten to serve at the site root (except blogs). */
+const FLAT_FOLDERS = ['index', 'utilpages', 'special']
+
+const hrefOf = (p: PageStats): string => {
+  const seg = p.url.split('/').filter(Boolean)
+  if (seg.length > 1 && FLAT_FOLDERS.includes(seg[0])) return '/' + seg.slice(1).join('/')
+  return p.url
+}
+
 const sorted = computed<PageStats[]>(() =>
   [...statsData].sort((a, b) => a.title.localeCompare(b.title))
 )
@@ -178,7 +187,7 @@ watch(query, () => {
               <svg class="caret-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6" /></svg>
             </span>
             <span v-else class="tree-caret tree-caret-ghost"></span>
-            <a :href="p.url" class="tree-link" @click.stop>{{ p.title }}</a>
+            <a :href="hrefOf(p)" class="tree-link" @click.stop>{{ p.title }}</a>
           </span>
           <span class="tree-num">{{ p.lines }}</span>
         </div>

@@ -1,7 +1,7 @@
 ---
 title: Statistics
 subtitle: Site-wide page, heading, and line statistics.
-id: stats
+id: 021
 type: utility
 ---
 

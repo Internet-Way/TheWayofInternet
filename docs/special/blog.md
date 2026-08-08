@@ -1,7 +1,7 @@
 ---
 title: Blog
 subtitle: Latest updates and site news.
-id: blog
+id: 016
 type: utility
 ---
 

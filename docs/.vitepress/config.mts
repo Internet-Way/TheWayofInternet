@@ -96,6 +96,11 @@ export default defineConfig({
   lang: "en-US",
   lastUpdated: false,
   cleanUrls: true,
+  rewrites(id) {
+    if (id.startsWith("blogs/")) return id
+    const slash = id.indexOf("/")
+    return slash === -1 ? id : id.slice(slash + 1)
+  },
   appearance: true,
   srcExclude: ["README.md", "single-page"],
   ignoreDeadLinks: true,

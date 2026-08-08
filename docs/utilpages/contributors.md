@@ -1,7 +1,7 @@
 ---
 title: Contributors
 subtitle: The lovely people contributing to bitindex.
-id: contributors
+id: 018
 type: utility
 ---
 

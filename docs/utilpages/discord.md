@@ -1,7 +1,7 @@
 ---
 title: Discord
 subtitle: Join the conversation.
-id: discord
+id: 019
 type: utility
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Test Blog
 description: Testing blog structure.
-id: test
+id: 023
 type: blog
 date: 2026-03-25
 contributors: [1320]

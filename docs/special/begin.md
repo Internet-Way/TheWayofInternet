@@ -2,7 +2,7 @@
 title: Beginner's Guide
 description: A welcoming starting point for new users to get involved and contribute.
 icon: i-twemoji-compass
-id: begin
+id: 002
 type: index
 ---
 

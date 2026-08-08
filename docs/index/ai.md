@@ -2,6 +2,6 @@
 title: Artificial Intelligence
 description: Resources for artificial intelligence.
 icon: i-twemoji-robot
-id: ai
+id: 007
 type: index
 ---

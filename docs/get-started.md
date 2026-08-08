@@ -2,7 +2,7 @@
 title: Get Started
 description: Understand the fundamentals of the internet, stay safe, and start exploring the best free resources.
 icon: i-twemoji-rocket
-id: get-started
+id: 001
 type: index
 ---
 
