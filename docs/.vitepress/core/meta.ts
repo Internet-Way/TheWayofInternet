@@ -58,16 +58,6 @@ export const nav: DefaultTheme.NavItem[] = [
   { text: "Home", link: "/" },
   // { text: 'Contributors', link: '/contributors' },
   { text: "Feedback", link: "/feedback" },
-  {
-    text: "Other Indexes",
-    items: [
-      { text: "FMHY", link: "https://fmhy.net" },
-      { text: "r/Piracy", link: "https://reddit.com/r/piracy" },
-      { text: "Awesome", link: "https://github.com/sindresorhus/awesome" },
-      // { text: 'Feature 4 (SOON!!)', link: '/' },
-      // { text: 'Feature 5 (SOON!!)', link: '/' }
-    ],
-  },
 ];
 
 export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
@@ -89,8 +79,11 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
       { text: "Audio Media", link: "/audio" },
       { text: "Gaming", link: "/gaming" },
       { text: "Reading", link: "/reading" },
-      { text: "Torrenting", link: "/torrenting" },
       { text: "Downloading", link: "/ddl" },
+      { text: "Torrenting", link: "/torrenting" },
+      { text: "Otaku", link: "/otaku" },      
+      { text: "Non English", link: "/noneng" },
+      { text: "Storage", link: "/storage" },
     ],
   },
   // {
@@ -106,14 +99,12 @@ export const sidebar: DefaultTheme.Sidebar | DefaultTheme.NavItemWithLink[] = [
   //   ],
   // },
   {
-    text: "Miscellaneous",
+    text: "Dont Look Here",
     collapsed: true,
     items: [
       { text: "Contributors", link: "/contributors" },
       { text: "Feedback", link: "/feedback" },
       { text: "Statistics", link: "/stats" },
-      { text: "Storage", link: "/storage" },
-      { text: "Notes", link: "/notes" },
     ],
   },
 ];
